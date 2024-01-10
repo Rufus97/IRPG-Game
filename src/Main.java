@@ -7,4 +7,4 @@ public class Main {
         // Avvio Loop di gioco
         LoopGioco.avviaGioco();
     }
-}g
+}
