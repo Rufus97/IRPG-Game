@@ -1,5 +1,5 @@
 package Stanze;
-
+// Work in progress
 class Stanza {
     private String nome;
     private String descrizione;
