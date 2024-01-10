@@ -1,3 +1,5 @@
+package Stanze;
+
 class Stanza {
     private String nome;
     private String descrizione;

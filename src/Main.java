@@ -1,12 +1,14 @@
+import Input.In;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
 
         // Creazione del personaggio
         System.out.print("Inserisci il nome del tuo personaggio: ");
-        String nomePersonaggio = scanner.nextLine();
+        String nomePersonaggio = In.scanner.nextLine();
         Personaggio giocatore = new Personaggio(nomePersonaggio, 0); // Inizia in posizione 0
 
         // Creazione dell'inventario
@@ -18,7 +20,7 @@ public class Main {
             System.out.println("Ti trovi in: " + giocatore.posizione);
             System.out.println("Cosa vuoi fare? (1. Prova , 2. Test, /n Scrivi Quit per uscire)");
 
-            String scelta = scanner.nextLine();
+            String scelta = In.scanner.nextLine();
 
             switch (scelta) {
                 case "1":
