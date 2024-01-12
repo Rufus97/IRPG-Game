@@ -1,6 +1,4 @@
-import Input.In;
-
-import java.util.Scanner;
+import Loop.LoopGioco;
 
 public class Main {
     public static void main(String[] args) {
