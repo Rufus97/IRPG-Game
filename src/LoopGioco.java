@@ -1,9 +1,13 @@
 import Input.In;
+import Stanze.Tabacchino;
 
 public class LoopGioco {
     public static void avviaGioco() {
         // Creazione del personaggio
         Personaggio personaggio = new Personaggio();
+        //creazione tabacchino
+        Tabacchino tabacchino = new Tabacchino();
+        
         // Creazione dell'inventario
         boolean loopGioco = true;
 
@@ -14,19 +18,18 @@ public class LoopGioco {
             System.out.println("Ti trovi in: " + personaggio.getPosizione());
 
 
-
             // Controlla la posizione del personaggio e esegui azioni specifiche della stanza
             switch (personaggio.getPosizione()) {
                 case 0:
                     //Switch per definire la nuova posizione
-                    System.out.println("Cosa vuoi fare? (1. Prova , 2. Test, Scrivi Quit per uscire)");
+                    System.out.println("Cosa vuoi fare? (1. Prova , 2. Vai al tabacchino, Scrivi Quit per uscire)");
                     String scelta = In.scanner.nextLine();
                     switch (scelta.toLowerCase()) {
                         case "1":
                             personaggio.setPosizione(1);
                             break;
                         case "2":
-                            personaggio.setPosizione(2);
+                            tabacchino.gioca10eLotto();
                             break;
                         case "quit":
                             // Azione per uscire dal gioco
