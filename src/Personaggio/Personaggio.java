@@ -12,11 +12,11 @@ public class Personaggio {
      private double livelloSoddisfazione = 0;
      private int posizione = 0;
 
-    public Personaggio(String nome, String sesso) {
+    public Personaggio() {
         //Creazione personaggio
         System.out.print("Inserisci il nome del tuo personaggio: ");
         this.nome = In.scanner.nextLine();
-        this.sesso = In.scanner.nextLine(); //da vedere come limitare
+        //this.sesso = In.scanner.nextLine(); //da vedere come limitare
     }
 
     public int getHP() {

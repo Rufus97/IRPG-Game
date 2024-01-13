@@ -1,4 +1,4 @@
-
+package Input;
 
 import java.util.Scanner;
 /* Classe dedicata unicamente agli input degli utenti.
