@@ -1,4 +1,5 @@
 package Stanze;
+import Input.Casuale;
 // Work in progress
 class Stanza {
     private String nome;
