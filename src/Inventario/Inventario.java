@@ -1,39 +1,40 @@
 package Inventario;
+
 import java.util.ArrayList;
-
 public class Inventario {
-
-    /* L'arrayList crea un ArrayList di ->> <Oggetto> "Appunto definito nella classe Oggetto"
-    Dopodiché lo rinomino inventario.
-    Quindi la variabile nominata "inventario" contiene un numero indefinito di oggetti Oggetto*/
-
     private ArrayList<Oggetto> inventario;
-
+    // Crea l'istanza Inventario come ArrayList e la chiama inventario
     public Inventario() {
         inventario = new ArrayList<>();
     }
 
-    // Aggiungi un consumabile all'inventario
-    public void aggiungiItem(Oggetto item) {
-        inventario.add(item);
-    }
+    // Aggiungi un oggetto all'inventario
+    public void aggiungiItem(Oggetto item) { inventario.add(item);}
 
-    // Rimuovi un consumabile dall'inventario
-    public void rimuoviItem(Oggetto item) {
-        inventario.remove(item);
-    }
+    // Rimuovi un oggetto dall'inventario
+    public void rimuoviItem(Oggetto item) { inventario.remove(item);}
 
-    // Ottieni la quantità di un determinato consumabile nell'inventario
+    // Ottieni la quantità di un determinato oggetto nell'inventario
     public int quantitaItem(Oggetto item) {
-        int count = 0;
-        for (Oggetto c : inventario) {
-            if (c.equals(item)) {
-                count++;
+        int quantita = 0;
+        for (Oggetto oggettoDaContare : inventario) {
+            if (oggettoDaContare.equals(item)) {
+                quantita += oggettoDaContare.getQuantita();
             }
         }
-        return count;
+        return quantita;
     }
-
-
 }
+/* Guida su come avviare l'istanza, creando un oggetto, per poi aggiungerlo all'inventario:
+
+                    //Switch per definire l'oggetto
+                    Oggetto sigarette = new Oggetto("Sigarette", 20);
+
+                    // Aggiunta di sigarette all'inventario
+                    inventario.aggiungiItem(sigarette);
+
+                    // Verifica della quantità di sigarette nell'inventario
+                    int quantitaSigarette = inventario.quantitaItem(sigarette);
+                    System.out.println("Quantità di sigarette nell'inventario: " + quantitaSigarette);
+ */
 

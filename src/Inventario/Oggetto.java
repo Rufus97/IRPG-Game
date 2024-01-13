@@ -18,6 +18,12 @@ package Inventario;
             return quantita;
         }
 
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
 
+        public void setQuantita(int quantita) {
+            this.quantita = quantita;
+        }
     }
 

@@ -2,27 +2,26 @@ package Loop;
 import Input.In;
 import Personaggio.Personaggio;
 import Inventario.Inventario;
+import Inventario.Oggetto;
 
 public class LoopGioco {
     public static void avviaGioco() {
         // Creazione del personaggio
+
         Personaggio personaggio1 = new Personaggio();
         // Creazione dell'inventario
-        //Inventario inventario = new Inventario();
+
+        Inventario inventario = new Inventario();
         boolean loopGioco = true;
 
         //Start loop di gioco
 
-
         while (loopGioco) {
             System.out.println("Ti trovi in: " + personaggio1.getPosizione());
-
-
 
             // Controlla la posizione del personaggio e esegui azioni specifiche della stanza
             switch (personaggio1.getPosizione()) {
                 case 0:
-                    //Switch per definire la nuova posizione
                     System.out.println("Cosa vuoi fare? (1. Prova , 2. Test, Scrivi Quit per uscire)");
                     String scelta = In.scanner.nextLine();
                     switch (scelta.toLowerCase()) {
