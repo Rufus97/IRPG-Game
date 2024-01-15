@@ -3,11 +3,10 @@ package GamePlay.Menus;
 import Prompts.mainPrompts.Prompts;
 import Struttura.Input.In;
 import Struttura.Stanze.*;
-
-import java.util.Scanner;
+import Struttura.Stanze.Tabacchino.Tabacchino;
 
 public class Menus {
-
+// Sistema Simona
     public static void menuRunGame(){
         Prompts.promptsMenuAvvioGioco();
 
@@ -31,7 +30,7 @@ public class Menus {
             switch (scelta) {
                 case 1 -> CasaDiRiposo.runCasaDiRiposo();
                 case 2 -> Poste.runPoste();
-                case 3 -> Tabacchino.runTabacchino();
+                //case 3 -> Tabacchino.goToTabacchino(); Gianni sistema
                 case 4 -> Bar.runBar();
                 case 5 -> PuntoSNAI.runPuntoSNAI();
                 case 6 -> Mercato.runMercato();
