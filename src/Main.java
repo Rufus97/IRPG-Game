@@ -1,8 +1,7 @@
-import Loop.LoopGioco;
+import GamePlay.Loop.LoopGame;
 
 public class Main {
     public static void main(String[] args) {
-        // Avvio Loop di gioco
-        LoopGioco.avviaGioco();
+        LoopGame.runGame();
     }
 }
