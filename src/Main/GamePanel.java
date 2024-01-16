@@ -20,7 +20,7 @@ public class GamePanel {
                 System.out.println("Cosa vuoi fare?");
                 System.out.println("1. Vai a...");
                 System.out.println("2. Apri Inventario...");
-                System.out.println("3. Esci dal gioco");
+                System.out.println("0. Esci dal gioco");
                 scelta = In.scanner.nextInt();
                 GamePanel.clearScreen();
                     switch (scelta) {
@@ -41,7 +41,7 @@ public class GamePanel {
                         break;   
                     }
                     
-        }while( scelta !=3 );
+        }while( scelta !=0 );
     }
 
     //METODO CANCELLA SCHERMO

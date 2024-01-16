@@ -9,6 +9,7 @@ public class SetteMezzo {
     double cartaGiocatore1;
     double cartaGiocatore2;
     double cartaGiocatore3;
+    double[][] mazzo = new double[4][10];
 
     Casuale numeroCasuale = new Casuale();
 
@@ -53,4 +54,9 @@ public class SetteMezzo {
         }
         return carta;
     }
+
+    public void creaMazzo(){
+        
+    }
+
 }
