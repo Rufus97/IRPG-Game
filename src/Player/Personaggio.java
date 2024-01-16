@@ -1,5 +1,7 @@
 package Player;
 
+import Main.GamePanel;
+
 public class Personaggio {
     private String nome;
      private String sesso;
@@ -62,4 +64,11 @@ public class Personaggio {
     public void setLivelloSoddisfazione(double livelloSoddisfazione) {
         this.livelloSoddisfazione = livelloSoddisfazione;
     }
+
+    public boolean controllaSoldi(double Prezzo){
+        boolean danaro = false;
+        //se i soldi del giocatore sono uguali o maggiori del prezzo il boleano ritorna vero
+        if(GamePanel.giocatore.getSoldi() >= Prezzo){danaro = true;}
+        return danaro;
+        }
 }
