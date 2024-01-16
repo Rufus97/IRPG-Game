@@ -1,4 +1,5 @@
 package Main;
+
 import Input.In;
 import Player.Personaggio;
 
@@ -49,5 +50,4 @@ public class GamePanel {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-
 }
