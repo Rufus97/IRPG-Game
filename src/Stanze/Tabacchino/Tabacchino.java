@@ -18,7 +18,10 @@ public class Tabacchino{
         do {System.out.println("Sei nel Tabacchino, Cosa vuoi fare?); (1. Gioca a 10eLotto, 2.Gioca al 7 e Mezzo)");
             System.out.println("1. Gioca a 10eLotto");
             System.out.println("2. Gioca al 7 e Mezzo");
-            System.out.println("3. Esci");
+            System.out.println("3. Compra Sigarette");
+            
+
+            System.out.println("0. Esci");
 
 
             scelta = In.scanner.nextInt();
@@ -32,14 +35,20 @@ public class Tabacchino{
                 GamePanel.clearScreen();
                 setteMezzo.giocaSetteMezzo();
                 break;
+
                 case 3:
+                GamePanel.clearScreen();
+                Sigarette.compraSigarette();
+                break;
+
+                case 4:
                 GamePanel.clearScreen();
                 System.out.println("Bella zi");
                 break;
         
             }
             
-        } while (scelta!=3);
+        } while (scelta!=0);
         
     }
 }

@@ -1,4 +1,4 @@
-package Struttura.Inventario;
+package Player;
 
 import java.util.ArrayList;
 public class Inventario {

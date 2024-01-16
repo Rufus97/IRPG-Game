@@ -13,7 +13,7 @@ public class Menu {
                 System.out.println("Dove voi andare?");
                 System.out.println("1. Tabacchino");
                 System.out.println("2. Bar");
-                System.out.println("3. Torna al menu precedente");
+                System.out.println("0. Torna al menu precedente");
 
                 scelta = In.scanner.nextInt();
                 GamePanel.clearScreen();
@@ -38,7 +38,7 @@ public class Menu {
                 break;   
                 }
                 
-            }while( scelta !=3 );
+            }while( scelta !=0 );
             
         }        
 }

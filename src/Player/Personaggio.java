@@ -51,7 +51,7 @@ public class Personaggio {
         this.HP = HP;
     }
     public void setSoldi(double soldi) {
-        this.soldi = soldi;
+        this.soldi += soldi;
     }
     public void setKarma(int karma) {
         this.karma = karma;

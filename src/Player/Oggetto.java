@@ -1,4 +1,4 @@
-package Struttura.Inventario;
+package Player;
 // Suppongo sia necessaria anche una superclasse "Oggetto"
 
     public class Oggetto {
