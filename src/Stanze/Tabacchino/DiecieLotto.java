@@ -3,12 +3,10 @@ package Stanze.Tabacchino;
 import java.util.Arrays;
 
 import Input.Casuale;
-import Main.GamePanel;               //IMPORTA QUESTO SE VUOI METTERE MAIN AL GIOCATORE
-import Player.Personaggio;        //IMPORTA QUESTO SE VUOI METTERE MAIN AL GIOCATORE
+import Main.GamePanel;               
 
 
 public class DiecieLotto {
-
 
     Integer[] novantaNum = new Integer[90];
     int[] numeriGiocatore = new int[10];

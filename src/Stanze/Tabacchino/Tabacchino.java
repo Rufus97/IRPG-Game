@@ -1,8 +1,7 @@
 package Stanze.Tabacchino;
 
 import Input.In;
-import Main.Main;               //IMPORTA QUESTO SE VUOI METTERE MANI AL GIOCATORE
-import Player.Personaggio;        //IMPORTA QUESTO SE VUOI METTERE MANI AL GIOCATORE
+import Main.GamePanel;
 
 public class Tabacchino{
     public Tabacchino(){
@@ -25,13 +24,16 @@ public class Tabacchino{
             scelta = In.scanner.nextInt();
             switch (scelta) {
                 case 1:
+                GamePanel.clearScreen();
                 diecieLotto.gioca10eLotto();
                 break;
 
                 case 2:
+                GamePanel.clearScreen();
                 setteMezzo.giocaSetteMezzo();
                 break;
                 case 3:
+                GamePanel.clearScreen();
                 System.out.println("Bella zi");
                 break;
         
