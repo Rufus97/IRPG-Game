@@ -1,7 +1,7 @@
 package Main;
 import Input.In;
 import Player.Personaggio;
-import Stanze.Tabacchino.Tabacchino;
+
 
 public class GamePanel {
 
@@ -49,12 +49,5 @@ public class GamePanel {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-
-    public static void pause() {
-
-             System.out.println("Press Any Key To Continue...");
-             In.scanner.nextLine();
-        
-   }
 
 }
