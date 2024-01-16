@@ -1,0 +1,21 @@
+public class Poste {
+
+	public static void main(String[] args) {
+		int scelta;
+		        'DepositaAssegno' depositaAssegno = new DepositaAssegno();
+		        'RitiraiSoldi' ritiraiSoldi = new RitiraiSoldi();
+		    
+		        System.out.println("Sei alle poste, Cosa vuoi fare? (1. DepositaAssegno, 2. RitiraiSoldi)");
+
+		        scelta = In.scanner.nextInt();
+		        switch (scelta) {
+		            case 1:
+		                depositaAssegno.DepositaAssegno();
+		                break;
+
+		            case 2:
+		                ritiraiSoldi.RitiraiSoldi();
+		                break;
+		        }
+		    }
+		}
