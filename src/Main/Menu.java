@@ -29,12 +29,10 @@ public class Menu {
                     Bar bar = new Bar();
                     System.out.println("Bar");
                     bar.runBar();
-
-                // TODO - istanza tabacchino
                 break;
         
                 default:
-                System.out.println("Scelta errata");
+                    System.out.println("Scelta errata");
                 break;   
                 }
                 

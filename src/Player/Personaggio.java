@@ -50,9 +50,9 @@ public class Personaggio {
         this.posizione = posizione;
     }
     public void setHP(int HP) {
-        this.HP = HP;
+        this.HP += HP;
     }
-    public void setSoldi(double soldi) {
+    public void setSoldi(Double soldi) {
         this.soldi += soldi;
     }
     public void setKarma(int karma) {
@@ -65,10 +65,24 @@ public class Personaggio {
         this.livelloSoddisfazione = livelloSoddisfazione;
     }
 
-    public boolean controllaSoldi(double Prezzo){
-        boolean danaro = false;
+    public boolean controllaSoldi(Double Prezzo){
+    	boolean checkSoldi = false;
         //se i soldi del giocatore sono uguali o maggiori del prezzo il boleano ritorna vero
-        if(GamePanel.giocatore.getSoldi() >= Prezzo){danaro = true;}
-        return danaro;
-        }
+        if(GamePanel.giocatore.getSoldi() >= Math.abs(Prezzo)){
+        	GamePanel.giocatore.setSoldi(Prezzo);
+        	checkSoldi = true;}
+        else {System.out.println("NON HAI UNA LIRA");}
+        return checkSoldi;
+    }
+
+   
+    public void controllaHP(int HPValue){
+
+        if(GamePanel.giocatore.getHP() + HPValue <= 0) {
+        	GamePanel.giocatore.setHP(HPValue);
+        	System.out.println("sei morto" + GamePanel.giocatore.getHP());
+        }else if(GamePanel.giocatore.getHP() + HPValue > 100){
+        	HP = 100;
+        }else {GamePanel.giocatore.setHP(HPValue); }
+    }
 }

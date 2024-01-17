@@ -20,18 +20,17 @@ public class Sigarette {
         scelta = In.scanner.nextInt();
 
         switch (scelta) {
-            case 1: 
+            case 1:
 
-                if (GamePanel.giocatore.controllaSoldi( 6) == true){
-                GamePanel.giocatore.setSoldi(-6);
+                if (GamePanel.giocatore.controllaSoldi(6D) == true){
+                GamePanel.giocatore.setSoldi(-6D);
                 System.out.println( GamePanel.giocatore.getSoldi());
                 System.out.println( "Hai comprato un pacco di sigarette");
                 }else{
                     System.out.println("Problemi di soldi?");
                     System.out.println("NON HAI COMPRATO NIENTE");
                 }
-                
-                break;
+            break;
 
             case 2:
                 if (GamePanel.giocatore.controllaSoldi( 6.8) == true){
@@ -42,8 +41,7 @@ public class Sigarette {
                         System.out.println("Problemi di soldi?");
                         System.out.println("NON HAI COMPRATO NIENTE");
                     }
-                
-                break;
+            break;
             
             case 3:
                 if (GamePanel.giocatore.controllaSoldi( 0.8) == true){
@@ -54,25 +52,23 @@ public class Sigarette {
                     System.out.println("Problemi di soldi?");
                     System.out.println("NON HAI COMPRATO NIENTE");
                 }
-                
-                break;
+            break;
             
             case 4:
-            if (GamePanel.giocatore.controllaSoldi( 0.4) == true){
-                GamePanel.giocatore.setSoldi(-0.4);
-                System.out.println( GamePanel.giocatore.getSoldi());
-                System.out.println( "Hai comprato un pacco di cartine");
-            }else{
-                System.out.println("Problemi di soldi?");
-                System.err.println("NON HAI COMPRATO NIENTE");
-            }
-                
-                break;
+                if (GamePanel.giocatore.controllaSoldi( 0.4) == true){
+                    GamePanel.giocatore.setSoldi(-0.4);
+                    System.out.println( GamePanel.giocatore.getSoldi());
+                    System.out.println( "Hai comprato un pacco di cartine");
+                }else{
+                    System.out.println("Problemi di soldi?");
+                    System.err.println("NON HAI COMPRATO NIENTE");
+                }
+            break;
 
 
             default:
-            System.out.println("Eh? nnoccapito");
-                break;
+                System.out.println("Eh? nnoccapito");
+            break;
         }
         System.out.println( "I tuoi Soldi " +GamePanel.giocatore.getSoldi()  + "\n");
         System.out.println("Apposto capo?");

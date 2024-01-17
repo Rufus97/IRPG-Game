@@ -21,7 +21,7 @@ public class DiecieLotto {
     }
     
     //istanza di casuale
-    Casuale numeroCasuale = new Casuale();
+    /*Casuale numeroCasuale = new Casuale();
     int scelta;
     public void gioca10eLotto(){
 
@@ -140,4 +140,4 @@ public class DiecieLotto {
                 break;
         }
     }
-}
+}*/
