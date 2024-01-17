@@ -82,7 +82,7 @@ public class Personaggio {
         	GamePanel.giocatore.setHP(HPValue);
         	System.out.println("sei morto" + GamePanel.giocatore.getHP());
         }else if(GamePanel.giocatore.getHP() + HPValue > 100){
-        	GamePanel.giocatore.setHP(100);
+        	HP = 100;
         }else {GamePanel.giocatore.setHP(HPValue); }
     }
 }
