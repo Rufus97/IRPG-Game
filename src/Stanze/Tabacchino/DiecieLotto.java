@@ -13,26 +13,24 @@ public class DiecieLotto {
     int[] numeriGiocatore = new int[10];
     int[] numeriEstratti = new int[20];
     int numeriPresi = 0;
-    int costoPartita;
+    double costoPartita;
 
     //costruttore
     public DiecieLotto() {
-
     }
     
     //istanza di casuale
-    /*Casuale numeroCasuale = new Casuale();
+    Casuale numeroCasuale = new Casuale();
     int scelta;
     public void gioca10eLotto(){
 
         System.out.println("I tuoi soldi " + GamePanel.giocatore.getSoldi());
         System.out.println("Da quanto la giocata? min 1 max 200 euro");
       
-        costoPartita = In.scanner.nextInt();
+        costoPartita = (In.scanner.nextInt()*-1);
 
 
-        if (GamePanel.giocatore.controllaSoldi( costoPartita) == true && costoPartita >= 1 && costoPartita <= 200){
-            GamePanel.giocatore.setSoldi((costoPartita*-1));
+        if (GamePanel.giocatore.controllaSoldi(costoPartita)  == true){
             System.out.println( GamePanel.giocatore.getSoldi());
 
             numeriGiocatoreRandom();
@@ -140,4 +138,4 @@ public class DiecieLotto {
                 break;
         }
     }
-}*/
+}
