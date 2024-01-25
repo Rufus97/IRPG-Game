@@ -34,7 +34,7 @@ public class Personaggio {
         return sesso;
     }
     public double getSoldi() {
-        return soldi;
+        return Math.round(soldi * 100.0) / 100.0 ;
     }
     public double getLivelloSballo() {
         return livelloSballo;
@@ -65,11 +65,11 @@ public class Personaggio {
         this.livelloSoddisfazione = livelloSoddisfazione;
     }
 
-    public boolean controllaSoldi(Double Prezzo){
+    public boolean controllaSoldi(Double prezzo){
     	boolean checkSoldi = false;
         //se i soldi del giocatore sono uguali o maggiori del prezzo il boleano ritorna vero
-        if(GamePanel.giocatore.getSoldi() >= Math.abs(Prezzo)){
-        	GamePanel.giocatore.setSoldi(Prezzo);
+        if(GamePanel.giocatore.getSoldi() >= Math.abs(prezzo)){
+        	GamePanel.giocatore.setSoldi(Math.round(prezzo * 100.0) / 100.0);
         	checkSoldi = true;}
         else {System.out.println("NON HAI UNA LIRA");}
         return checkSoldi;

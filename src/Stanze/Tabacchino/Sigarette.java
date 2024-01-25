@@ -22,8 +22,8 @@ public class Sigarette {
         switch (scelta) {
             case 1:
 
-                if (GamePanel.giocatore.controllaSoldi(6D) == true){
-                GamePanel.giocatore.setSoldi(-6D);
+                if (GamePanel.giocatore.controllaSoldi(-6d) == true){
+                
                 System.out.println( GamePanel.giocatore.getSoldi());
                 System.out.println( "Hai comprato un pacco di sigarette");
                 }else{
@@ -33,8 +33,8 @@ public class Sigarette {
             break;
 
             case 2:
-                if (GamePanel.giocatore.controllaSoldi( 6.8) == true){
-                    GamePanel.giocatore.setSoldi(-6.8);
+                if (GamePanel.giocatore.controllaSoldi( -6.8) == true){
+                    
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di tabacco");
                     }else{
@@ -44,8 +44,8 @@ public class Sigarette {
             break;
             
             case 3:
-                if (GamePanel.giocatore.controllaSoldi( 0.8) == true){
-                    GamePanel.giocatore.setSoldi(-0.8);
+                if (GamePanel.giocatore.controllaSoldi( -0.8) == true){
+                   
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di filtri");
                 }else{
@@ -55,8 +55,8 @@ public class Sigarette {
             break;
             
             case 4:
-                if (GamePanel.giocatore.controllaSoldi( 0.4) == true){
-                    GamePanel.giocatore.setSoldi(-0.4);
+                if (GamePanel.giocatore.controllaSoldi( -0.4) == true){
+                    
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di cartine");
                 }else{
@@ -70,7 +70,7 @@ public class Sigarette {
                 System.out.println("Eh? nnoccapito");
             break;
         }
-        System.out.println( "I tuoi Soldi " +GamePanel.giocatore.getSoldi()  + "\n");
+        System.out.println( "I tuoi Soldi " + GamePanel.giocatore.getSoldi()  + "\n");
         System.out.println("Apposto capo?");
             
         } while (scelta != 0);
