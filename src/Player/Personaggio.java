@@ -1,12 +1,13 @@
 package Player;
 
 import Main.GamePanel;
+import Stanze.Ospedale;
 
 public class Personaggio {
     private String nome;
      private String sesso;
-     private int HP = 100;
-     private double soldi = 50;
+     private int HP = 50;
+     private double soldi = 100;
      private int karma = 50;
      private double livelloSballo = 0;
      private double livelloSoddisfazione = 0;
@@ -81,6 +82,7 @@ public class Personaggio {
         if(GamePanel.giocatore.getHP() + HPValue <= 0) {
         	GamePanel.giocatore.setHP(HPValue);
         	System.out.println("sei morto" + GamePanel.giocatore.getHP());
+            Ospedale.HP0();
         }else if(GamePanel.giocatore.getHP() + HPValue > 100){
         	HP = 100;
         }else {GamePanel.giocatore.setHP(HPValue); }

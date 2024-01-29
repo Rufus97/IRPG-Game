@@ -11,14 +11,13 @@ public class Tabacchino{
     public void runTabacchino(){
 
         DiecieLotto diecieLotto = new DiecieLotto();
-        SetteMezzo setteMezzo = new SetteMezzo();
 
         int scelta;
        
         do {System.out.println("I tuoi Soldi " + GamePanel.giocatore.getSoldi());
-            System.out.println("Sei nel Tabacchino, Cosa vuoi fare?; (1. Gioca a 10eLotto, 2.Gioca al 7 e Mezzo)");
+            System.out.println("Sei nel Tabacchino, Cosa vuoi fare?");
             System.out.println("1. Gioca a 10eLotto");
-            System.out.println("2. Gioca al 7 e Mezzo");
+            System.out.println("2. Gioca al 7 e Mezzo 1E");
             System.out.println("3. Compra Sigarette");
             
 
@@ -34,7 +33,7 @@ public class Tabacchino{
 
                 case 2:
                 GamePanel.clearScreen();
-                setteMezzo.giocaSetteMezzo();
+                SetteMezzo.giocaSetteMezzo();
                 break;
 
                 case 3:

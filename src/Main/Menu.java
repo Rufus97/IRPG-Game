@@ -2,6 +2,7 @@ package Main;
 import Input.In;
 import Stanze.Bar.Bar;
 import Stanze.Tabacchino.Tabacchino;
+import Stanze.Cantiere.Cantiere;
 
 public class Menu {
     
@@ -10,12 +11,13 @@ public class Menu {
         int scelta;
 
             do{
-                System.out.println("Dove voi andare?");
+                System.out.println("Dove vuoi andare?");
                 System.out.println("1. Tabacchino");
                 System.out.println("2. Bar");
+                System.out.println("3. Cantiere");
                 System.out.println("0. Torna al menu precedente");
 
-                scelta = In.scanner.nextInt();
+                scelta = In.inputInt();
                 GamePanel.clearScreen();
 
                 switch (scelta) {
@@ -30,6 +32,15 @@ public class Menu {
                     System.out.println("Bar");
                     bar.runBar();
                 break;
+
+                case 3:
+                    Cantiere cantiere = new Cantiere("Scavi archeologici");
+                    System.out.println("Cantiere");
+                    cantiere.runCantiere();
+                break;
+
+
+
         
                 default:
                     System.out.println("Scelta errata");
