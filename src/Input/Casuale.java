@@ -1,28 +1,25 @@
 package Input;
+import java.util.Random;
+
 public class Casuale {
-    double numeroCasuale;
+    
 
-    public Casuale() {
+    public static double numeroCasuale(){
+        
+        return new Random().nextDouble();
     }
 
-    public double numeroCasuale(){
-        numeroCasuale = Math.random();
-        return numeroCasuale;
+    public static int numeroCasualeInt(){
+
+        return (int) (Math.random() * 100);
     }
 
-    public int numeroCasualeInt(){
+    public static int numeroCasualeTra(int min, int max){
 
-        numeroCasuale = Math.random();
-        return (int) (numeroCasuale * 100);
-
+        try{
+        return new Random().nextInt(max - min + 1) + min;
+        }catch(Exception e){
+            return min;
+        }
     }
-
-    public int numeroCasualeTra(int min, int max){
-
-        numeroCasuale = Math.random();
-        return (int)((numeroCasuale * (max-min)+1) + min);
-
-    }
-
-
 }

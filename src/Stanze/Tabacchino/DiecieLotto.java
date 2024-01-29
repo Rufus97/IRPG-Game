@@ -1,7 +1,5 @@
 package Stanze.Tabacchino;
-
 import java.util.Arrays;
-
 import Input.Casuale;
 import Input.In;
 import Main.GamePanel;               
@@ -9,7 +7,6 @@ import Main.GamePanel;
 
 public class DiecieLotto {
 
-    Integer[] novantaNum = new Integer[90];
     int[] numeriGiocatore = new int[10];
     int[] numeriEstratti = new int[20];
     int numeriPresi = 0;
@@ -20,7 +17,6 @@ public class DiecieLotto {
     }
     
     //istanza di casuale
-    Casuale numeroCasuale = new Casuale();
     int scelta;
     public void gioca10eLotto(){
 
@@ -33,10 +29,12 @@ public class DiecieLotto {
         if (GamePanel.giocatore.controllaSoldi(costoPartita)  == true){
             System.out.println( GamePanel.giocatore.getSoldi());
 
-            numeriGiocatoreRandom();
+            GamePanel.clearScreen();
 
-            numeriEstrazione();
-
+            numeriGiocatoreRandom(numeriGiocatore);
+            
+            numeriEstrazione(numeriEstratti);
+           
             controlloVincita();
 
             }else{
@@ -44,46 +42,62 @@ public class DiecieLotto {
 
         }
     }
-    public void numeriEstrazione(){
+    public void numeriEstrazione(int numeriEstratti[]){
 
-        setArray90();
+        int numeroEstratto; Casuale.numeroCasualeTra(1,90);
+        int n = 0;
+        boolean giaEstratto = false;
 
-        for(int i = 0; i < 20 ; i++){
+        for(int j = 0; j < numeriEstratti.length; j++){
 
-            int estratto = (int)numeroCasuale.numeroCasualeTra(1,90);
+           numeroEstratto = Casuale.numeroCasualeTra(1,90);
+           giaEstratto = false;
+           
+           for(int i = 0; i < n ; i++){
 
-            if(novantaNum[estratto-1] != null){
-
-                novantaNum[estratto-1] = null;
-                numeriEstratti[i] = estratto;
-            }else{i--;
+                if(numeroEstratto == numeriEstratti[i]){
+                    giaEstratto = true;
+                }
+            }
+            if(giaEstratto){
+                j--;
+            }else{
+                numeriEstratti[j] = numeroEstratto;
+                n++;
             }
         }
-        System.out.println("I numeri estratti sono      " + Arrays.toString(numeriEstratti));
+        System.out.println("Inumeri estratti sono \n" + Arrays.toString(numeriEstratti));
+        
     }
 
-    public void numeriGiocatoreRandom(){
+    public void numeriGiocatoreRandom(int numeriGiocatore[]){
 
-        setArray90();
-        for(int i = 0; i < 10 ; i++){
+        int numeroEstratto; Casuale.numeroCasualeTra(1,90);
+        int n = 0;
+        boolean giaEstratto = false;
 
-            int estratto = (int)numeroCasuale.numeroCasualeTra(1,90);
+        for(int j = 0; j < numeriGiocatore.length; j++){
 
-            if(novantaNum[estratto-1] != null){
+           numeroEstratto = Casuale.numeroCasualeTra(1,90);
+           giaEstratto = false;
+           
+           for(int i = 0; i < n ; i++){
 
-                novantaNum[estratto-1] = null;
-                numeriGiocatore[i] = estratto;
-            }else{i--;
+                if(numeroEstratto == numeriGiocatore[i]){
+                    giaEstratto = true;
+                }
+            }
+            if(giaEstratto){
+                j--;
+            }else{
+                numeriGiocatore[j] = numeroEstratto;
+                n++;
             }
         }
-        System.out.println("I numeri del giocatore sono " + Arrays.toString(numeriGiocatore));
+
+        System.out.println("I tuoi numero sono: \n" + Arrays.toString(numeriGiocatore));
     }
 
-    public void setArray90(){
-        for(int i = 0 ; i < 90; i++ ){
-            novantaNum[i] = i+1;
-        }
-    }
 
     public void controlloVincita(){
 
