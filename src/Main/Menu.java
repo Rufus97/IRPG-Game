@@ -4,6 +4,8 @@ import Stanze.Bar.Bar;
 import Stanze.Tabacchino.Tabacchino;
 import Stanze.Cantiere.Cantiere;
 
+import Stanze.Mercato;
+
 public class Menu {
     
     Tabacchino tabachino;
@@ -15,6 +17,10 @@ public class Menu {
                 System.out.println("1. Tabacchino");
                 System.out.println("2. Bar");
                 System.out.println("3. Cantiere");
+
+
+
+                System.out.println("7. Mercato");
                 System.out.println("0. Torna al menu precedente");
 
                 scelta = In.inputInt();
@@ -39,9 +45,30 @@ public class Menu {
                     cantiere.runCantiere();
                 break;
 
+                case 4:
 
 
-        
+
+                break;
+
+                case 5:
+
+
+
+                break;
+
+                case 6:
+
+
+
+                break;
+
+                case 7:
+                    Mercato mercato = new Mercato("Porta Portese");
+                    System.out.println("Mercato");
+                    mercato.runMercato();
+                break;
+
                 default:
                     System.out.println("Scelta errata");
                 break;   
