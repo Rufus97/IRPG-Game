@@ -28,7 +28,7 @@ public class SetteMezzo {
         }
 
 
-        System.out.println("\n tot banco "+ totaleBanco + " \n tot giocatore " + totaleGiocatore);
+        System.out.println("\nBanco "+ totaleBanco + " \nGiocatore " + totaleGiocatore);
 
         //carte banco
         if(totaleBanco - ((int)totaleBanco)>0){
@@ -74,9 +74,7 @@ public class SetteMezzo {
         
         double casuale = Casuale.numeroCasuale() + (GamePanel.giocatore.getKarma()/10);
         int premio;
-        System.out.println(casuale);
         if(casuale > 0.7){
-
 
             if(casuale >= 0.9999999){
                 premio = 7000;
@@ -100,12 +98,12 @@ public class SetteMezzo {
 
              GamePanel.giocatore.setSoldi((double)premio);
 
-            System.out.println("hai vinto: " + premio + " E");
+            System.out.print("Hai vinto: " + premio + " E");
             return true;
             
 
         }else{
-            System.out.println("hai perso");
+            System.out.print("Hai perso");
     
             return false;
         }
