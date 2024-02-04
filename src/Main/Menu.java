@@ -39,6 +39,10 @@ public class Menu {
                     cantiere.runCantiere();
                 break;
 
+                case 0:
+                GamePanel.clearScreen();
+                break;
+
 
 
         

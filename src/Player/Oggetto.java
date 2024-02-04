@@ -25,5 +25,10 @@ package Player;
         public void setQuantita(int quantita) {
             this.quantita = quantita;
         }
+
+        @Override
+        public String toString() {
+            return "\n" + nome + " quantita = " + quantita ;
+        }
     }
 

@@ -72,10 +72,10 @@ public class SetteMezzo {
 
     public static boolean vincita(){
         
-        double casuale = Casuale.numeroCasuale();
+        double casuale = Casuale.numeroCasuale() + (GamePanel.giocatore.getKarma()/10);
         int premio;
         System.out.println(casuale);
-        if(casuale > 0.7 + ){
+        if(casuale > 0.7){
 
 
             if(casuale >= 0.9999999){
