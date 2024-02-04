@@ -18,8 +18,12 @@ public class Personaggio {
        
     }
 
-    public void MostraStatistiche(){
-        System.out.println("HP " + getHP() + "Karma " + getKarma() + "Soddisfazione " + getLivelloSoddisfazione()+ "Sballo " + getLivelloSballo() +"Soldi "+ getSoldi());
+    public void mostraStatistiche(){
+        System.out.println("HP: " + getHP() +
+                "; Karma: " + getKarma() +
+                "; Soddisfazione: " + getLivelloSoddisfazione() +
+                "; Sballo: " + getLivelloSballo() +
+                "; Soldi: " + getSoldi());
     }
 
     public int getHP() {
