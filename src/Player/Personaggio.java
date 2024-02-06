@@ -2,6 +2,7 @@ package Player;
 
 import Main.GamePanel;
 import Stanze.Ospedale;
+import Stanze.BrumottiEvent;
 
 public class Personaggio {
     private String nome;
@@ -90,5 +91,13 @@ public class Personaggio {
         }else if(GamePanel.giocatore.getHP() + HPValue > 100){
         	HP = 100;
         }else {GamePanel.giocatore.setHP(HPValue); }
+
+    }
+
+    public void vieneArrestato() {
+        decrementaHP(20);
+        decrementaSoddisfazione(15);
+        inventario.svuotaInventario(); // Rimuovi tutti gli oggetti dall'inventario
+        System.out.println("Sei stato arrestato! Hai perso punti HP, soddisfazione e i tuoi oggetti sono stati confiscati.");
     }
 }

@@ -18,6 +18,11 @@ public class Inventario {
             }
         }
         return quantita;
+
+
+    }
+    public void svuotaInventario() {
+        inventario.clear();
     }
 }
 /* Guida su come avviare l'istanza, creando un oggetto, per poi aggiungerlo all'inventario:
