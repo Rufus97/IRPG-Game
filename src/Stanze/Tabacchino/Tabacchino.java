@@ -35,12 +35,14 @@ public class Tabacchino{
 
                 case 2:
                 GamePanel.clearScreen();
-                SetteMezzo.giocaSetteMezzo();
+                SetteMezzo sem = new SetteMezzo();
+                sem.giocaSetteMezzo();
                 break;
 
                 case 3:
                 GamePanel.clearScreen();
-                Sigarette.compraSigarette();
+                Sigarette sigarette = new Sigarette();
+                sigarette.compraSigarette();
                 break;
 
                 case 4:

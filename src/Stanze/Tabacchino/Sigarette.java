@@ -6,7 +6,7 @@ import Player.Oggetto;
 
 public class Sigarette {
 
-    public static void compraSigarette(){
+    public void compraSigarette(){
         System.out.println( "I tuoi Soldi " +GamePanel.giocatore.getSoldi()  + "\n");
         System.out.println("che voi zi?");
         int scelta;

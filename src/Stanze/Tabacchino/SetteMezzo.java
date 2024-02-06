@@ -5,7 +5,7 @@ import Main.GamePanel;
 
 public class SetteMezzo {
 
-    public static void giocaSetteMezzo(){
+    public void giocaSetteMezzo(){
 
         double totaleBanco;
         double totaleGiocatore;
@@ -59,7 +59,7 @@ public class SetteMezzo {
 
     }    
 
-    public static double meta(){
+    public double meta(){
 
         if (Casuale.numeroCasuale() >0.5) {
 
@@ -70,7 +70,7 @@ public class SetteMezzo {
         }
     }
 
-    public static boolean vincita(){
+    public boolean vincita(){
         
         double casuale = Casuale.numeroCasuale() + (GamePanel.giocatore.getKarma()/10);
         int premio;

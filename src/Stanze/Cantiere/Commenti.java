@@ -5,7 +5,7 @@ import Main.GamePanel;
 
 public class Commenti {
     
- public void commentaLavori(){
+    public void commentaLavori(){
         int scelta;
         do{
             //menu solo per scavi??
