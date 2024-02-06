@@ -188,6 +188,7 @@ public class Parco {
 
             System.out.println("Hai rubato la bicicletta di Brumotti! Ora è nel tuo inventario. ABBOMBAZZA!");
         }
+
     }
 
 }
