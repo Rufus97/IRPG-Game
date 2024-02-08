@@ -39,10 +39,5 @@ public class Parco {
             }
         }
 
-        private void interazioneCanna () {
-        }
-
-        private void interazioneSpacciatore () {
-        }
     }
 }
