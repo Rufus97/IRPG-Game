@@ -16,7 +16,7 @@ public class InterazioneCanna {
             System.out.println("HP attuali: " + personaggio.getHP());
 
             // Evento randomico collegato al punteggio karma
-            if (calcolaKarma(personaggio) > 0.5) {
+            if (calcolaKarma(personaggio) < 50) {
                 attivaEventoBrumotti(personaggio);
             }
 
