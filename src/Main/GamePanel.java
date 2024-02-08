@@ -1,12 +1,14 @@
 package Main;
 
 import Input.In;
+import Player.Inventario;
 import Player.Personaggio;
 
 
 public class GamePanel {
 
     public static final Personaggio giocatore = new Personaggio();
+    public static final Inventario inventario = new Inventario();       //far vedere
 
     //costruttore
     public GamePanel(){
@@ -30,7 +32,9 @@ public class GamePanel {
                         break;
 
                         case 2:
-                        //apri metodo inventario
+                        System.out.println("Nell inventario hai:");
+                        System.out.println(GamePanel.inventario.toString());
+                    
                         break;
 
                         case 3:

@@ -2,10 +2,11 @@ package Stanze.Tabacchino;
 
 import Input.In;
 import Main.GamePanel;
+import Player.Oggetto;
 
 public class Sigarette {
 
-    public static void compraSigarette(){
+    public void compraSigarette(){
         System.out.println( "I tuoi Soldi " +GamePanel.giocatore.getSoldi()  + "\n");
         System.out.println("che voi zi?");
         int scelta;
@@ -26,6 +27,8 @@ public class Sigarette {
                 
                 System.out.println( GamePanel.giocatore.getSoldi());
                 System.out.println( "Hai comprato un pacco di sigarette");
+                Oggetto malboro = new Oggetto("marlboro", 20);
+                GamePanel.inventario.aggiungiItem(malboro); 
                 }else{
                     System.out.println("Problemi di soldi?");
                     System.out.println("NON HAI COMPRATO NIENTE");
@@ -37,6 +40,8 @@ public class Sigarette {
                     
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di tabacco");
+                    Oggetto tabacco = new Oggetto("tabacco", 30);
+                    GamePanel.inventario.aggiungiItem(tabacco);
                     }else{
                         System.out.println("Problemi di soldi?");
                         System.out.println("NON HAI COMPRATO NIENTE");
@@ -48,6 +53,9 @@ public class Sigarette {
                    
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di filtri");
+                    Oggetto filtri = new Oggetto("filtri", 150);
+                    GamePanel.inventario.aggiungiItem(filtri);
+                    
                 }else{
                     System.out.println("Problemi di soldi?");
                     System.out.println("NON HAI COMPRATO NIENTE");
@@ -59,6 +67,8 @@ public class Sigarette {
                     
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di cartine");
+                    Oggetto cartine = new Oggetto("cartine", 60);
+                    GamePanel.inventario.aggiungiItem(cartine);
                 }else{
                     System.out.println("Problemi di soldi?");
                     System.err.println("NON HAI COMPRATO NIENTE");

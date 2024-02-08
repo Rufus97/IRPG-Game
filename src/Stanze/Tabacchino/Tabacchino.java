@@ -2,6 +2,7 @@ package Stanze.Tabacchino;
 
 import Input.In;
 import Main.GamePanel;
+import Stanze.Slot;
 
 public class Tabacchino{
     public Tabacchino(){
@@ -19,6 +20,7 @@ public class Tabacchino{
             System.out.println("1. Gioca a 10eLotto");
             System.out.println("2. Gioca al 7 e Mezzo 1E");
             System.out.println("3. Compra Sigarette");
+            System.out.println("4. Gioca Slot");
             
 
             System.out.println("0. Esci");
@@ -33,15 +35,22 @@ public class Tabacchino{
 
                 case 2:
                 GamePanel.clearScreen();
-                SetteMezzo.giocaSetteMezzo();
+                SetteMezzo sem = new SetteMezzo();
+                sem.giocaSetteMezzo();
                 break;
 
                 case 3:
                 GamePanel.clearScreen();
-                Sigarette.compraSigarette();
+                Sigarette sigarette = new Sigarette();
+                sigarette.compraSigarette();
                 break;
 
                 case 4:
+                GamePanel.clearScreen();
+                Slot.giocaSlot();
+                break;
+
+                case 0:
                 GamePanel.clearScreen();
                 System.out.println("Bella zi");
                 break;

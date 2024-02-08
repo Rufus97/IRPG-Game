@@ -1,3 +1,5 @@
+
+/*
 package Stanze;
 import Input.In;
 
@@ -106,3 +108,4 @@ public class Parco {
         }
     }
 }
+*/

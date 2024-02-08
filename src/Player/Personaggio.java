@@ -5,13 +5,13 @@ import Stanze.Ospedale;
 
 public class Personaggio {
     private String nome;
-     private String sesso;
-     private int HP = 50;
-     private double soldi = 100;
-     private int karma = 50;
-     private double livelloSballo = 0;
-     private double livelloSoddisfazione = 0;
-     private int posizione = 1;
+    private String sesso;
+    private int HP = 50;
+    private double soldi = 100;
+    private double karma = 0;
+    private double livelloSballo = 0;
+    private double livelloSoddisfazione = 0;
+    private int posizione = 1;
      
     //costruttore
     public Personaggio() {
@@ -29,7 +29,7 @@ public class Personaggio {
     public int getHP() {
         return HP;
     }
-    public int getKarma() {
+    public double getKarma() {
         return karma;
     }
     public String getNome() {
@@ -60,8 +60,8 @@ public class Personaggio {
     public void setSoldi(Double soldi) {
         this.soldi += soldi;
     }
-    public void setKarma(int karma) {
-        this.karma = karma;
+    public void setKarma(double karma) {
+        this.karma += karma;
     }
     public void setLivelloSballo(double livelloSballo) {
         this.livelloSballo = livelloSballo;

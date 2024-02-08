@@ -19,6 +19,12 @@ public class Inventario {
         }
         return quantita;
     }
+
+    @Override
+    public String toString() {
+        return "Inventario \n" + inventario + "\n";
+    }
+    
 }
 /* Guida su come avviare l'istanza, creando un oggetto, per poi aggiungerlo all'inventario:
 
@@ -26,8 +32,7 @@ public class Inventario {
                     Oggetto sigarette = new Oggetto("Sigarette", 20);
 
                     // Aggiunta di sigarette all'inventario
-                    inventario.aggiungiItem(sigarette);
-
+                     GamePanel.inventario.aggiungiItem(sigarette);                                  FAI VEDERE
                     // Verifica della quantità di sigarette nell'inventario
                     int quantitaSigarette = inventario.quantitaItem(sigarette);
                     System.out.println("Quantità di sigarette nell'inventario: " + quantitaSigarette);
