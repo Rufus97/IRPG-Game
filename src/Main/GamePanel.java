@@ -1,12 +1,14 @@
 package Main;
 
 import Input.In;
+import Player.Inventario;
 import Player.Personaggio;
 
 
 public class GamePanel {
 
     public static final Personaggio giocatore = new Personaggio();
+    public static final Inventario inventario = new Inventario();
 
     //costruttore
     public GamePanel(){

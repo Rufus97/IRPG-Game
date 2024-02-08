@@ -3,8 +3,11 @@ import Input.In;
 import Stanze.Bar.Bar;
 import Stanze.Tabacchino.Tabacchino;
 import Stanze.Cantiere.Cantiere;
+import Stanze.Parco.Parchetto;
 
 import Stanze.Mercato;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 public class Menu {
     
@@ -17,6 +20,7 @@ public class Menu {
                 System.out.println("1. Tabacchino");
                 System.out.println("2. Bar");
                 System.out.println("3. Cantiere");
+                System.out.println("4. Parco");
 
 
 
@@ -46,10 +50,13 @@ public class Menu {
                 break;
 
                 case 4:
+                    Parchetto parco = new Parchetto();
+                    System.out.println("Parco");
+                    parco.runParcchetto();
+                    break;
 
 
 
-                break;
 
                 case 5:
 

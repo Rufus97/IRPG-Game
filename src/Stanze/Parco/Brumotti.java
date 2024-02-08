@@ -1,9 +1,10 @@
-package Stanze;
-
+package Stanze.Parco;
 import Input.In;
+import Main.GamePanel;
 import Player.Personaggio;
+import Player.Oggetto;
 
-public class EventoBrumotti {
+public class Brumotti {
 
     public static void attivaEventoBrumotti(Personaggio personaggio) {
         System.out.println("Oh no! In lontananza senti strillare: ABBOMBAZZA AMICI DI STRISCIA, Brumotti fa la sua comparsa!");
@@ -32,7 +33,7 @@ public class EventoBrumotti {
     private static void minacciaBrumotti(Personaggio personaggio) {
         System.out.println("Decidi di telefonare al Brasiliano...");
 
-        personaggio.incrementaSoddisfazione(5);
+        GamePanel.giocatore.setLivelloSoddisfazione(5);
 
         System.out.println("Brumotti capisce che non deve darti noia. Il tuo karma aumenta!");
         System.out.println("Nuovo punteggio Soddisfazione: " + personaggio.getLivelloSoddisfazione());
@@ -41,7 +42,7 @@ public class EventoBrumotti {
     private static void cercaDiFuggireDaBrumotti(Personaggio personaggio) {
         System.out.println("Decidi di cercare di fuggire da Brumotti...");
 
-        personaggio.decrementaKarma(10);
+        GamePanel.giocatore.setKarma(10);
 
         System.out.println("Brumotti ti afferra il braccio e ti blocca la fuga. Il tuo karma diminuisce!");
         System.out.println("Nuovo punteggio Karma: " + personaggio.getKarma());
@@ -50,8 +51,8 @@ public class EventoBrumotti {
     private static void cercaScontroConBrumotti(Personaggio personaggio) {
         System.out.println("Decidi di cercare uno scontro con Brumotti per dargli una lezione");
 
-        personaggio.incrementaSoddisfazione(10);
-        personaggio.decrementaKarma(20);
+        GamePanel.giocatore.setLivelloSoddisfazione(10);
+        GamePanel.giocatore.setKarma(-20);
 
         System.out.println("Inizi uno scontro con Brumotti!");
 
@@ -63,15 +64,20 @@ public class EventoBrumotti {
             System.out.println("Hai sconfitto Brumotti! Il tuo karma diminuisce ma te la sei scampata.");
         } else {
             System.out.println("Brumotti ti ha sconfitto! Arriva il Gabibbo con le guardie. Vieni arrestato: perdi HP, soddisfazione e i tuoi oggetti vengono confiscati.");
+            GamePanel.inventario.svuotaInventario();
         }
         System.out.println("Nuovo punteggio Karma: " + personaggio.getKarma());
     }
 
+    private static int risolviScontroConBrumotti(Personaggio personaggio) {
+        // Implementa la logica per la risoluzione dello scontro
+        return 0;
+    }
+
     private static void rubaBiciclettaBrumotti(Personaggio personaggio) {
         Oggetto bicicletta = new Oggetto("Bicicletta", 1);
-        personaggio.aggiungiAllInventario(bicicletta);
+        GamePanel.inventario.aggiungiItem(bicicletta);
 
         System.out.println("Hai rubato la bicicletta di Brumotti! Ora è nel tuo inventario. ABBOMBAZZA!");
     }
 }
-

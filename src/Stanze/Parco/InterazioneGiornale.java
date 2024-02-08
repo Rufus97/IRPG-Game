@@ -1,5 +1,6 @@
 package Stanze;
 
+import Main.GamePanel;
 import Player.Personaggio;
 
 public class InterazioneGiornale {
@@ -9,12 +10,10 @@ public class InterazioneGiornale {
         System.out.println("Le notizie del giorno ti informano su vari eventi in città.");
 
         // Aumenta gli HP ma cala la soddisfazione
-        int bonusHP = 5.0;
-        double malusSoddisfazione = 5.0;
+        GamePanel.giocatore.setHP(10);
+        GamePanel.giocatore.setLivelloSoddisfazione(-10);
 
-        personaggio.setHP(bonusHP);
-        personaggio.setLivelloSoddisfazione(personaggio.getLivelloSoddisfazione() - malusSoddisfazione);
 
-        System.out.println("Leggere il giornale ti ha fa riprendere fiato, ma dopo poco ti annoi, torniamo in azione! HP + " + bonusHP + ", Soddisfazione - " + malusSoddisfazione);
+        System.out.println("Leggere il giornale ti ha fa riprendere fiato, ma dopo poco ti annoi, torniamo in azione! HP + ");
     }
 }

@@ -1,17 +1,12 @@
-package Stanze;
+package Stanze.Parco;
 
 import Input.In;
-import Player.Personaggio;
+import Main.GamePanel;
 
-public class Parco {
 
-    private Personaggio personaggio;
+public class Parchetto {
 
-    public Parco(Personaggio personaggio) {
-        this.personaggio = personaggio;
-    }
-
-    public void runParco() {
+    public void runParcchetto() {
         System.out.println("Benvenuto al parchetto di Tor bella Monaca");
         boolean continua = true;
 
@@ -28,7 +23,7 @@ public class Parco {
                     interazioneSpacciatore();
                     break;
                 case 2:
-                    interazioneCanna();
+                    InterazioneCanna.rollaUnaCanna(true);
                     break;
                 case 3:
                     System.out.println("Hai scelto di uscire dal parco.");
@@ -38,6 +33,21 @@ public class Parco {
                     System.out.println("Scelta non valida. Riprova.");
             }
         }
+    }
 
+    public void vieneArrestato() {
+        GamePanel.giocatore.setHP(GamePanel.giocatore.getHP() - 10);
+        GamePanel.giocatore.setLivelloSoddisfazione(GamePanel.giocatore.getLivelloSoddisfazione() - 15);
+        GamePanel.inventario.svuotaInventario(); // Rimuovi tutti gli oggetti dall'inventario
+        System.out.println("Sei stato arrestato! Hai perso punti HP, soddisfazione e i tuoi oggetti sono stati confiscati.");
+    }
+
+    private void interazioneSpacciatore() {
+        // Implementazione interazione con lo spacciatore
+    }
+
+    private void interazioneCanna() {
+        // Implementazione interazione con il rollare una canna
     }
 }
+

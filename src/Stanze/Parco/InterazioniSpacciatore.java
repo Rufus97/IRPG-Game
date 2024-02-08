@@ -1,8 +1,10 @@
 package Stanze;
 
+import Input.In;
+import Main.GamePanel;
 import Player.Personaggio;
 
-public class InterazioneSpacciatore {
+public class InterazioniSpacciatore {
 
     public static void approcciaLoSpacciatore(Personaggio personaggio) {
         System.out.println("Hai scelto di approcciare Aziz.");
@@ -26,12 +28,13 @@ public class InterazioneSpacciatore {
 
     private static void acquistaErba(Personaggio personaggio) {
         int prezzoErba = 12;
+        boolean possiedeErba = false;
 
         if (possiedeErba) {
             System.out.println("Hai già dell'erba nell'inventario.");
         } else {
             if (personaggio.getSoldi() >= prezzoErba) {
-                personaggio.decrementaSoldi(prezzoErba);
+                GamePanel.giocatore.setSoldi(-20.0); // Sottrai il prezzo dell'erba ai soldi del giocatore
                 possiedeErba = true;
                 System.out.println("Hai acquistato dell'erba da Aziz.");
             } else {
@@ -40,4 +43,5 @@ public class InterazioneSpacciatore {
         }
     }
 }
+
 

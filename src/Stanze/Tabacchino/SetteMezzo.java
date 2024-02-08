@@ -75,7 +75,7 @@ public class SetteMezzo {
         double casuale = Casuale.numeroCasuale();
         int premio;
         System.out.println(casuale);
-        if(casuale > 0.7 + ){
+        if(casuale > 0.7 ){
 
 
             if(casuale >= 0.9999999){

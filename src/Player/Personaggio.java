@@ -2,7 +2,6 @@ package Player;
 
 import Main.GamePanel;
 import Stanze.Ospedale;
-import Stanze.BrumottiEvent;
 
 public class Personaggio {
     private String nome;
@@ -65,7 +64,7 @@ public class Personaggio {
         this.karma = karma;
     }
     public void setLivelloSballo(double livelloSballo) {
-        this.livelloSballo = livelloSballo;
+        this.livelloSballo += livelloSballo;
     }
     public void setLivelloSoddisfazione(double livelloSoddisfazione) {
         this.livelloSoddisfazione = livelloSoddisfazione;
@@ -94,10 +93,4 @@ public class Personaggio {
 
     }
 
-    public void vieneArrestato() {
-        decrementaHP(20);
-        decrementaSoddisfazione(15);
-        inventario.svuotaInventario(); // Rimuovi tutti gli oggetti dall'inventario
-        System.out.println("Sei stato arrestato! Hai perso punti HP, soddisfazione e i tuoi oggetti sono stati confiscati.");
-    }
 }
