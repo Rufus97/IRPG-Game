@@ -30,7 +30,7 @@ public class Personaggio {
 	public double getKarma() {
 		return karma;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}

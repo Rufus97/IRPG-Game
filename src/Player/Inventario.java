@@ -48,3 +48,4 @@ public class Inventario {
  * System.out.println("Quantità di sigarette nell'inventario: " +
  * quantitaSigarette);
  */
+

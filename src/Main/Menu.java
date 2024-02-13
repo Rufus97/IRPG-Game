@@ -5,8 +5,11 @@ import Stanze.Bar.Bar;
 import Stanze.Tabacchino.Tabacchino;
 import Stanze.puntoSnai.PuntoSNAI;
 import Stanze.Cantiere.Cantiere;
+import Stanze.Parco.Parchetto;
 
 import Stanze.Mercato;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 public class Menu {
 
@@ -21,6 +24,7 @@ public class Menu {
 			System.out.println("2. Bar");
 			System.out.println("3. Cantiere");
 			System.out.println("4. Punto SNAI");
+			System.out.println("5. Parco");
 			System.out.println("7. Mercato");
 			System.out.println("0. Torna al menu precedente");
 
@@ -54,9 +58,11 @@ public class Menu {
 				break;
 
 
-			case 5:
-
-				break;
+            case 5:
+                Parchetto parco = new Parchetto();
+                System.out.println("Parco");
+                parco.runParcchetto();
+                break;
 
 			case 6:
 
