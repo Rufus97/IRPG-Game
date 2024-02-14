@@ -29,7 +29,8 @@ public class Pesce extends OggettiMercanti {
     public String toString() {
         return
                 "nome: " + nome + '\'' +
-                " prezzoAlKg: " + prezzoAlKg
+                " prezzoAlKg: " + prezzoAlKg +
+                " tipoOggetto: " + tipoOggetto
                ;
     }
 }

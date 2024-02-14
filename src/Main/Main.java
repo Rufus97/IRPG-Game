@@ -17,7 +17,7 @@ public class Main {
 	pippo.stampaMappa();
 		pippo.creaInventario(Pesce.pesciEsistenti);
 		pippo.creaInventario(Carne.carniEsistenti);
-		Bancarella.istanziaNBancarelle(pippo.getInventario());
-
+		Bancarella pippo2 = new Bancarella(pippo.getInventario());
+		System.out.println(pippo2);
 }
 }
