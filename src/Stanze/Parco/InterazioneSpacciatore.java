@@ -1,12 +1,16 @@
-package Stanze;
+package Stanze.Parco;
 
 import Input.In;
 import Main.GamePanel;
+import Player.Inventario;
+import Player.Oggetto;
 import Player.Personaggio;
 
-public class InterazioniSpacciatore {
+public class InterazioneSpacciatore {
 
-    public static void approcciaLoSpacciatore(Personaggio personaggio) {
+    private static Personaggio personaggio;
+
+    public static void approcciaLoSpacciatore() {
         System.out.println("Hai scelto di approcciare Aziz.");
         System.out.println("Cosa vuoi fare?");
         System.out.println("1. Acquista erba");
@@ -16,7 +20,7 @@ public class InterazioniSpacciatore {
 
         switch (sceltaAzione) {
             case 1:
-                acquistaErba(personaggio);
+                acquistaErba();
                 break;
             case 2:
                 System.out.println("Hai deciso di lasciar perdere.");
@@ -26,16 +30,20 @@ public class InterazioniSpacciatore {
         }
     }
 
-    private static void acquistaErba(Personaggio personaggio) {
-        int prezzoErba = 12;
+    private static void acquistaErba() {
+        System.out.println("Soldi: " + GamePanel.giocatore.getSoldi());
+        double prezzoErba = 12;
         boolean possiedeErba = false;
+        Oggetto erba = new Oggetto("Erba", 1);
 
         if (possiedeErba) {
             System.out.println("Hai già dell'erba nell'inventario.");
         } else {
-            if (personaggio.getSoldi() >= prezzoErba) {
-                GamePanel.giocatore.setSoldi(-20.0); // Sottrai il prezzo dell'erba ai soldi del giocatore
+            if (GamePanel.giocatore.getSoldi() >= prezzoErba) {
+                GamePanel.giocatore.setSoldi(- prezzoErba); // Sottrai il prezzo dell'erba ai soldi del giocatore
                 possiedeErba = true;
+                GamePanel.inventario.aggiungiItem(erba);
+
                 System.out.println("Hai acquistato dell'erba da Aziz.");
             } else {
                 System.out.println("Non hai abbastanza soldi per comprare l'erba.");
