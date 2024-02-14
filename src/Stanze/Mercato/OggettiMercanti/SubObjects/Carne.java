@@ -21,6 +21,5 @@ public class Carne extends OggettiMercanti {
 
         super.nome = nome;
         super.prezzoAlKg = prezzoAlKg;
-        super.tipoOggetto = tipoOggetto;
     }
 }
