@@ -1,4 +1,4 @@
-package Stanze;
+package Stanze.Mercato;
 
 import Input.In;
 import Main.GamePanel;

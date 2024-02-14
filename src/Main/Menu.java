@@ -6,7 +6,7 @@ import Stanze.Tabacchino.Tabacchino;
 import Stanze.puntoSnai.PuntoSNAI;
 import Stanze.Cantiere.Cantiere;
 
-import Stanze.Mercato;
+import Stanze.Mercato.Mercato;
 
 public class Menu {
 
