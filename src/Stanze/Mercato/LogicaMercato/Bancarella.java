@@ -12,11 +12,14 @@ public class Bancarella {
     private TipoBancarella prodottoVenduto;
     private boolean isAvaible;
 
+    private String nomeBancarella;
+
 
     public Bancarella(TipoBancarella prodottoVenduto){
 
       int rng = Casuale.numeroCasualeTra(0,1);
       this.prodottoVenduto = prodottoVenduto;
+      this.nomeBancarella = prodottoVenduto.getNome();
       if (rng == 1){
       this.isAvaible = true;
       } else {
@@ -45,6 +48,10 @@ public class Bancarella {
         return bancarelle;
     }
 
+    public String getNomeBancarella() {
+        return nomeBancarella;
+    }
+
     public List<OggettiMercanti> getInventarioBancarella() {
         return inventarioBancarella;
     }
@@ -53,7 +60,7 @@ public class Bancarella {
     }
     @Override
     public String toString() {
-        return " Bancarella: " + prodottoVenduto +
+        return " Bancarella: " + nomeBancarella +
                 " inventarioBancarella: " + inventarioBancarella +
                 " isAvaible: " + isAvaible +
                 '}';

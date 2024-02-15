@@ -24,4 +24,10 @@ private List<Bancarella> bancarelle = new ArrayList<>();
         }
         return avaibleBancs;
     }
+
+    public void getAllAvaibleNames(List<Bancarella> myBancs){
+        for (Bancarella element : myBancs){
+            System.out.println(element.getNomeBancarella());
+        }
+    }
 }

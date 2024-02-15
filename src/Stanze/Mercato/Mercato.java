@@ -2,6 +2,7 @@ package Stanze.Mercato;
 
 import Input.In;
 import Main.GamePanel;
+import Stanze.Mercato.LogicaMercato.Market;
 
 public class Mercato {
 
@@ -13,9 +14,11 @@ public class Mercato {
     }
     public void runMercato() {
         int scelta;
+        Market newMarket = new Market();
 
         do {GamePanel.giocatore.mostraStatistiche();
-            System.out.println("Sei nel Mercato, Cosa vuoi fare?");
+            System.out.println("Sei nel Mercato e le bancarelle che vedi sono: ");
+            newMarket.getAllAvaibleNames(newMarket.getAvaibleBancarelle());
             System.out.println("1. Compra in Pescheria.");
             System.out.println("2. Compra in Ortofrutta");
             System.out.println("3. Compra in Macelleria");
