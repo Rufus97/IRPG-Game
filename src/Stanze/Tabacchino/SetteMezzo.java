@@ -5,7 +5,7 @@ import Main.GamePanel;
 
 public class SetteMezzo {
 
-    public void giocaSetteMezzo(){
+    public static void giocaSetteMezzo(){
 
         double totaleBanco;
         double totaleGiocatore;
@@ -28,7 +28,7 @@ public class SetteMezzo {
         }
 
 
-        System.out.println("\nBanco "+ totaleBanco + " \nGiocatore " + totaleGiocatore);
+        System.out.println("\n tot banco "+ totaleBanco + " \n tot giocatore " + totaleGiocatore);
 
         //carte banco
         if(totaleBanco - ((int)totaleBanco)>0){
@@ -59,7 +59,7 @@ public class SetteMezzo {
 
     }    
 
-    public double meta(){
+    public static double meta(){
 
         if (Casuale.numeroCasuale() >0.5) {
 
@@ -70,11 +70,13 @@ public class SetteMezzo {
         }
     }
 
-    public boolean vincita(){
+    public static boolean vincita(){
         
-        double casuale = Casuale.numeroCasuale() + (GamePanel.giocatore.getKarma()/10);
+        double casuale = Casuale.numeroCasuale();
         int premio;
-        if(casuale > 0.7){
+        System.out.println(casuale);
+        if(casuale > 0.7 ){
+
 
             if(casuale >= 0.9999999){
                 premio = 7000;
@@ -98,12 +100,12 @@ public class SetteMezzo {
 
              GamePanel.giocatore.setSoldi((double)premio);
 
-            System.out.print("Hai vinto: " + premio + " E");
+            System.out.println("hai vinto: " + premio + " E");
             return true;
             
 
         }else{
-            System.out.print("Hai perso");
+            System.out.println("hai perso");
     
             return false;
         }
