@@ -42,9 +42,12 @@ public class Brumotti {
     private static void cercaDiFuggireDaBrumotti() {
         System.out.println("Decidi di cercare di fuggire da Brumotti...");
 
-        GamePanel.giocatore.setKarma(10);
+        GamePanel.giocatore.setKarma(-1);
 
+if (GamePanel.giocatore.getHP() < 50)
         System.out.println("Brumotti ti afferra il braccio e ti blocca la fuga. Il tuo karma diminuisce!");
+        attivaEventoBrumotti();
+
         System.out.println("Nuovo punteggio Karma: " + GamePanel.giocatore.getKarma());
     }
 

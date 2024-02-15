@@ -11,7 +11,7 @@ public class InterazioneSpacciatore {
     private static Personaggio personaggio;
 
     public static void approcciaLoSpacciatore() {
-        System.out.println("Hai scelto di approcciare Aziz.");
+        System.out.println("Hai scelto di approcciare Aziz. Lo saluti e ti siedi sulla panchina a fianco a lui");
         System.out.println("Cosa vuoi fare?");
         System.out.println("1. Acquista erba");
         System.out.println("2. Lascia perdere");
@@ -23,7 +23,7 @@ public class InterazioneSpacciatore {
                 acquistaErba();
                 break;
             case 2:
-                System.out.println("Hai deciso di lasciar perdere.");
+                System.out.println("Hai deciso di lasciar perdere. Saluti Aziz");
                 break;
             default:
                 System.out.println("Scelta non valida. Riprova.");
