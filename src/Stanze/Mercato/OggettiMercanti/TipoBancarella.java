@@ -10,7 +10,5 @@ public enum TipoBancarella {
     ORTOFRUTTA,
     VESTITI,
    BIGIOTTERIA;
-
-
 }
 

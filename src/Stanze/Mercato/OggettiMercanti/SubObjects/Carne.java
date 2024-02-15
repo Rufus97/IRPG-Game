@@ -23,4 +23,12 @@ public class Carne extends OggettiMercanti {
         super.prezzoAlKg = prezzoAlKg;
         super.tipoOggetto = tipoOggetto;
     }
+    @Override
+    public String toString() {
+        return "Carne { " +
+                " nome: " + nome + '\'' +
+                " prezzoAlKg: " + prezzoAlKg +
+                "}"
+                ;
+    }
 }

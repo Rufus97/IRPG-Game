@@ -4,6 +4,7 @@ import java.util.*;
 
 import Input.Casuale;
 import Input.Casuale.*;
+import Stanze.Mercato.OggettiMercanti.SubObjects.*;
 
 public class OggettiMercanti {
 
@@ -14,7 +15,6 @@ public class OggettiMercanti {
     protected TipoBancarella tipoOggetto;
 
     private Map<TipoBancarella, List<OggettiMercanti>> inventario = new HashMap<>();
-
 
 
     public void  creaInventario(List<OggettiMercanti> lista){
@@ -33,6 +33,17 @@ public class OggettiMercanti {
     public TipoBancarella getTipoOggetto() {
         return tipoOggetto;
     }
+
+    public static OggettiMercanti initializeMarket(){
+        OggettiMercanti mercato = new OggettiMercanti();
+        mercato.creaInventario(Pesce.pesciEsistenti);
+        mercato.creaInventario(Carne.carniEsistenti);
+        mercato.creaInventario(VestitiUsati.vestitiEsistenti);
+        mercato.creaInventario(Bigiotteria.bigiottiEsistenti);
+        mercato.creaInventario(Ortofrutta.verdureEsistenti);
+        return mercato;
+    }
+
 
     @Override
     public String toString() {
