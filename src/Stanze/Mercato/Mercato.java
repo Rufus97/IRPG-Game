@@ -88,8 +88,11 @@ public class Mercato {
             index++;
         }
         System.out.println("0: per uscire");
-            scelta = In.inputInt()-1;
-            chosedItem = specBanc.getInventarioBancarella().get(scelta);
+            scelta = In.inputInt();
+            if (scelta == 0){
+                break;
+            }
+            chosedItem = specBanc.getInventarioBancarella().get(scelta-1);
         if (chosedItem.getTipoOggetto().equals(TipoBancarella.BIGIOTTERIA) ||
             chosedItem.getTipoOggetto().equals(TipoBancarella.VESTITI)) {
             System.out.println(chosedItem.getNome() + " è tuo per la modica cifra di " + chosedItem.getPrezzo());
