@@ -27,7 +27,7 @@ public class Pesce extends OggettiMercanti {
 
     @Override
     public String toString() {
-        return "Pesce { " +
+        return "Pesce {" +
                 " nome: " + nome + '\'' +
                 " prezzoAlKg: " + prezzoAlKg +
                 "}"

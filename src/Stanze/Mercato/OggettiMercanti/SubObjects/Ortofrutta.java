@@ -25,7 +25,7 @@ public class Ortofrutta extends OggettiMercanti{
 
     @Override
     public String toString() {
-        return "Ortofrutta { " +
+        return "Ortofrutta {" +
                 " nome: " + nome + '\'' +
                 " prezzoAlKg: " + prezzoAlKg +
                 "}"

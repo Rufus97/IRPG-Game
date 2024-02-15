@@ -40,7 +40,6 @@ public class Bancarella {
                  int rng3 = Casuale.numeroCasualeTra(0, inventarioSelezione.size()-1);
                  if (!newBanc.inventarioBancarella.contains(inventarioSelezione.get(rng3))){
                      newBanc.inventarioBancarella.add(inventarioSelezione.get(rng3));
-
                  }
             }
             bancarelle.add(newBanc);
@@ -50,6 +49,10 @@ public class Bancarella {
 
     public String getNomeBancarella() {
         return nomeBancarella;
+    }
+
+    public TipoBancarella getProdottoVenduto() {
+        return prodottoVenduto;
     }
 
     public List<OggettiMercanti> getInventarioBancarella() {

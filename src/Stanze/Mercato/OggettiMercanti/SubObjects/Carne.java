@@ -25,7 +25,7 @@ public class Carne extends OggettiMercanti {
     }
     @Override
     public String toString() {
-        return "Carne { " +
+        return "Carne {" +
                 " nome: " + nome + '\'' +
                 " prezzoAlKg: " + prezzoAlKg +
                 "}"

@@ -25,7 +25,7 @@ public class VestitiUsati extends OggettiMercanti {
 
     @Override
     public String toString() {
-        return "Vestiti { " +
+        return "Vestiti {" +
                 " nome: " + nome + '\'' +
                 " prezzo: " + prezzo +
                 "}"

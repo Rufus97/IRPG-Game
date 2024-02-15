@@ -24,7 +24,7 @@ public class Bigiotteria extends OggettiMercanti{
 
     @Override
     public String toString() {
-        return "Bigiotteria { " +
+        return "Bigiotteria {" +
                 " nome: " + nome + '\'' +
                 " prezzo: " + prezzo +
                 "}"

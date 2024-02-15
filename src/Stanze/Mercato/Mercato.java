@@ -2,7 +2,11 @@ package Stanze.Mercato;
 
 import Input.In;
 import Main.GamePanel;
+import Player.Personaggio;
+import Stanze.Mercato.LogicaMercato.Bancarella;
 import Stanze.Mercato.LogicaMercato.Market;
+import Stanze.Mercato.OggettiMercanti.OggettiMercanti;
+import Stanze.Mercato.OggettiMercanti.TipoBancarella;
 
 public class Mercato {
 
@@ -25,8 +29,6 @@ public class Mercato {
             System.out.println("4. Compra della bigiotteria.");
             System.out.println("5. Compra dei vestiti usati.");
             //System.out.println("6. Gira per il Mercato");
-
-
             System.out.println("0. Esci");
 
 
@@ -35,7 +37,10 @@ public class Mercato {
                 case 1:
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
-                    System.out.println("working progress...");
+                    System.out.println("PESCE FRESCO, ACCATTATE U PESCE");
+                    onceYouChosedBanc(newMarket);
+
+
                     break;
 
                 case 2:
@@ -67,6 +72,25 @@ public class Mercato {
             }
 
         } while (scelta!=0);
+    }
+
+    public void onceYouChosedBanc(Market newMarket){
+        int scelta;
+        Bancarella specBanc = newMarket.getSpecificBanc(TipoBancarella.PESCE);
+        OggettiMercanti chosedItem = null;
+        System.out.println("puoi comprare: ");
+        int index = 1;
+        for (OggettiMercanti element : specBanc.getInventarioBancarella()){
+
+            System.out.println(index + ": " + element);
+            index++;
+        }
+        scelta = In.inputInt()-1;
+        chosedItem = specBanc.getInventarioBancarella().get(scelta);
+        System.out.println("quanti grammi de " + chosedItem.getNome() + " vole signò?");
+        scelta = In.inputInt();
+        double costo = chosedItem.getPrezzoAlKg() * scelta / 1000;
+        System.out.println("hai acquistato " + scelta + " grammi di " + chosedItem.getNome() + " per " + costo);
     }
 }
 

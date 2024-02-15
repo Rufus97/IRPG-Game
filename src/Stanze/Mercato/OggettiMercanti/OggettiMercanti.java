@@ -11,7 +11,6 @@ public class OggettiMercanti {
     protected String nome;
     protected double prezzo;
     protected double prezzoAlKg;
-    protected double quantitàKg;
     protected TipoBancarella tipoOggetto;
 
     private Map<TipoBancarella, List<OggettiMercanti>> inventario = new HashMap<>();
@@ -44,6 +43,17 @@ public class OggettiMercanti {
         return mercato;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setPrezzo(double prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    public double getPrezzoAlKg() {
+        return prezzoAlKg;
+    }
 
     @Override
     public String toString() {
