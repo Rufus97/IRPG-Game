@@ -1,15 +1,7 @@
 package Main;
 
-import Stanze.Mercato.OggettiMercanti.Bancarella;
-import Stanze.Mercato.OggettiMercanti.Market;
-import Stanze.Mercato.OggettiMercanti.OggettiMercanti;
-import Stanze.Mercato.OggettiMercanti.SubObjects.*;
-import Stanze.Mercato.OggettiMercanti.TipoBancarella;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import Stanze.Mercato.LogicaMercato.Bancarella;
+import Stanze.Mercato.LogicaMercato.Market;
 
 public class Main {
 	public static void main(String[] args) {

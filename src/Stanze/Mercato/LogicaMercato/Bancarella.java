@@ -1,6 +1,8 @@
-package Stanze.Mercato.OggettiMercanti;
+package Stanze.Mercato.LogicaMercato;
 
 import Input.Casuale;
+import Stanze.Mercato.OggettiMercanti.OggettiMercanti;
+import Stanze.Mercato.OggettiMercanti.TipoBancarella;
 
 import java.util.*;
 

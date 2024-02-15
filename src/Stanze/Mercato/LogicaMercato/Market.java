@@ -1,8 +1,9 @@
-package Stanze.Mercato.OggettiMercanti;
+package Stanze.Mercato.LogicaMercato;
+
+import Stanze.Mercato.OggettiMercanti.OggettiMercanti;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Market {
 private List<Bancarella> bancarelle = new ArrayList<>();
