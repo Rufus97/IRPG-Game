@@ -38,32 +38,33 @@ public class Mercato {
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
                     System.out.println("PESCE FRESCO, ACCATTATE U PESCE");
-                    onceYouChosedBanc(newMarket);
-
-
+                    onceYouChosedBanc(newMarket, TipoBancarella.PESCE);
                     break;
 
                 case 2:
                     GamePanel.clearScreen();
-                    //Sottrarre soldi, aggiungere all'inventario.
-                    System.out.println("working progress...");
+                    System.out.println("zucchine fresche");
+                    onceYouChosedBanc(newMarket, TipoBancarella.ORTOFRUTTA);
                     break;
 
                 case 3:
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
-                    System.out.println("working progress...");
+                    System.out.println("a ciccia bona");
+                    onceYouChosedBanc(newMarket, TipoBancarella.MACELLERIA);
                     break;
 
                 case 4:
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
-                    System.out.println("working progress...");
+                    System.out.println("cazzatine per tutti ");
+                    onceYouChosedBanc(newMarket, TipoBancarella.BIGIOTTERIA);
                     break;
                 case 5:
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
-                    System.out.println("working progress...");
+                    System.out.println("vestiti freschi  ");
+                    onceYouChosedBanc(newMarket, TipoBancarella.VESTITI);
                     break;
                 /*case 6:
                     GamePanel.clearScreen();
@@ -74,23 +75,37 @@ public class Mercato {
         } while (scelta!=0);
     }
 
-    public void onceYouChosedBanc(Market newMarket){
+    public void onceYouChosedBanc(Market newMarket, TipoBancarella type){
+
         int scelta;
-        Bancarella specBanc = newMarket.getSpecificBanc(TipoBancarella.PESCE);
+        do{
+        Bancarella specBanc = newMarket.getSpecificBanc(type);
         OggettiMercanti chosedItem = null;
         System.out.println("puoi comprare: ");
         int index = 1;
         for (OggettiMercanti element : specBanc.getInventarioBancarella()){
-
             System.out.println(index + ": " + element);
             index++;
         }
-        scelta = In.inputInt()-1;
-        chosedItem = specBanc.getInventarioBancarella().get(scelta);
+        System.out.println("0: per uscire");
+            scelta = In.inputInt()-1;
+            chosedItem = specBanc.getInventarioBancarella().get(scelta);
+        if (chosedItem.getTipoOggetto().equals(TipoBancarella.BIGIOTTERIA) ||
+            chosedItem.getTipoOggetto().equals(TipoBancarella.VESTITI)) {
+            System.out.println(chosedItem.getNome() + " è tuo per la modica cifra di " + chosedItem.getPrezzo());
+        }
+        else {
         System.out.println("quanti grammi de " + chosedItem.getNome() + " vole signò?");
         scelta = In.inputInt();
         double costo = chosedItem.getPrezzoAlKg() * scelta / 1000;
         System.out.println("hai acquistato " + scelta + " grammi di " + chosedItem.getNome() + " per " + costo);
+        }
+
+        System.out.println("VOLE QUALCOSALTRO SIGNO???");
+        System.out.println("premi un numero per continuare\n" +
+                "premi 0 per uscire");
+        scelta = In.inputInt();
+        } while (scelta > 0);
     }
 }
 

@@ -47,8 +47,9 @@ public class OggettiMercanti {
         return nome;
     }
 
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
+
+    public double getPrezzo() {
+        return prezzo;
     }
 
     public double getPrezzoAlKg() {
