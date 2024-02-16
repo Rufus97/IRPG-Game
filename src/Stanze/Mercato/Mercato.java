@@ -2,11 +2,14 @@ package Stanze.Mercato;
 
 import Input.In;
 import Main.GamePanel;
+import Player.Oggetto;
 import Player.Personaggio;
 import Stanze.Mercato.LogicaMercato.Bancarella;
 import Stanze.Mercato.LogicaMercato.Market;
 import Stanze.Mercato.OggettiMercanti.OggettiMercanti;
 import Stanze.Mercato.OggettiMercanti.TipoBancarella;
+
+
 
 public class Mercato {
 
@@ -22,18 +25,19 @@ public class Mercato {
 
         do {GamePanel.giocatore.mostraStatistiche();
             System.out.println("Sei nel Mercato e le bancarelle che vedi sono: ");
-            newMarket.getAllAvaibleNames(newMarket.getAvaibleBancarelle());
-            System.out.println("1. Compra in Pescheria.");
-            System.out.println("2. Compra in Ortofrutta");
-            System.out.println("3. Compra in Macelleria");
-            System.out.println("4. Compra della bigiotteria.");
-            System.out.println("5. Compra dei vestiti usati.");
+
+
+            for (Bancarella element : newMarket.getAvaibleBancarelle()){
+                System.out.println(element.getNomeBancarella());
+            }
+
+
             //System.out.println("6. Gira per il Mercato");
             System.out.println("0. Esci");
-
-
             scelta = In.scanner.nextInt();
+
             switch (scelta) {
+
                 case 1:
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
@@ -66,11 +70,12 @@ public class Mercato {
                     System.out.println("vestiti freschi  ");
                     onceYouChosedBanc(newMarket, TipoBancarella.VESTITI);
                     break;
-                /*case 6:
+                case 6:
                     GamePanel.clearScreen();
                     //Mercato.
-                    break;*/
+                    break;
             }
+
 
         } while (scelta!=0);
     }
@@ -100,11 +105,15 @@ public class Mercato {
         else {
         System.out.println("quanti grammi de " + chosedItem.getNome() + " vole signò?");
         scelta = In.inputInt();
-        double costo = chosedItem.getPrezzoAlKg() * scelta / 1000;
-        System.out.println("hai acquistato " + scelta + " grammi di " + chosedItem.getNome() + " per " + costo);
-        }
 
-        System.out.println("VOLE QUALCOSALTRO SIGNO???");
+        double costo = chosedItem.getPrezzoAlKg() * scelta / 1000;
+            if (GamePanel.giocatore.controllaSoldi(costo)){
+                Oggetto newItem = new Oggetto(chosedItem.getNome(), scelta);
+                GamePanel.inventario.aggiungiItem(newItem);
+                System.out.println("hai acquistato " + scelta + " grammi di " + chosedItem.getNome() + " per " + costo);
+                System.out.println("VOLE QUALCOSALTRO SIGNO???");
+            }
+        }
         System.out.println("premi un numero per continuare\n" +
                 "premi 0 per uscire");
         scelta = In.inputInt();

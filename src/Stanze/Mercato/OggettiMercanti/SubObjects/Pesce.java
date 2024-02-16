@@ -12,7 +12,7 @@ public class Pesce extends OggettiMercanti {
 
     public static List<OggettiMercanti> pesciEsistenti = new ArrayList<>(
             Arrays.asList(
-                    new Pesce("aringa",3, TipoBancarella.PESCE),
+                    new Pesce("aringa",1000, TipoBancarella.PESCE),
                     new Pesce("platessa",3, TipoBancarella.PESCE),
                     new Pesce("merluzzo",3, TipoBancarella.PESCE)
             )

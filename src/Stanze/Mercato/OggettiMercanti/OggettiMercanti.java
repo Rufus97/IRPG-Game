@@ -17,7 +17,8 @@ public class OggettiMercanti {
 
 
     public void  creaInventario(List<OggettiMercanti> lista){
-       inventario.put(lista.get(0).tipoOggetto, lista);
+
+        inventario.put(lista.get(0).tipoOggetto, lista);
     }
 
     public void stampaMappa(){
