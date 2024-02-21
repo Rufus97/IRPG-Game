@@ -9,7 +9,7 @@ public class Brumotti {
     public static void attivaEventoBrumotti() {
         System.out.println("Oh no! In lontananza senti strillare: ABBOMBAZZA AMICI DI STRISCIA, Brumotti fa la sua comparsa!");
         System.out.println("Cosa vuoi fare?");
-        System.out.println("1. Minaccia Brumotti fingendo di telefonare al Brasiliano");
+        System.out.println("1. Minaccia Brumotti, telefoni al Brasiliano");
         System.out.println("2. Cerca di fuggire");
         System.out.println("3. Cerchi lo scontro e attacchi Brumotti");
 

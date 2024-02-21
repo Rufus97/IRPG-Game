@@ -17,6 +17,8 @@ public class InterazioneCanna {
             System.out.println("Rolli un cannone e la accendi!");
             System.out.println("Punti Soddisfazione: " + GamePanel.giocatore.getLivelloSoddisfazione());
             System.out.println("HP attuali: " + GamePanel.giocatore.getHP());
+            Oggetto erba = new Oggetto("Erba", 1);
+            GamePanel.inventario.rimuoviItem(erba);
 
             // Evento randomico collegato al punteggio karma
             if (calcolaKarma(GamePanel.giocatore) < 50) {
@@ -30,7 +32,6 @@ public class InterazioneCanna {
     }
 
     private static int calcolaKarma(Personaggio personaggio) {
-        // Implementa la logica per il calcolo del karma
         return 0;
     }
 }
