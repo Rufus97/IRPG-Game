@@ -31,6 +31,9 @@ public class InterazioneCanna {
         }
     }
 
+    private static void attivaEventoBrumotti(Personaggio giocatore) {
+    }
+
     private static int calcolaKarma(Personaggio personaggio) {
         return 0;
     }
