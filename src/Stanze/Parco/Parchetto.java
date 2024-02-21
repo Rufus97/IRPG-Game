@@ -4,6 +4,7 @@ import Input.In;
 import Main.GamePanel;
 
 
+
 public class Parchetto {
 
     public void runParcchetto() {
@@ -20,7 +21,7 @@ public class Parchetto {
 
             switch (sceltaAzione) {
                 case 1:
-                    interazioneSpacciatore();
+                    InterazioniSpacciatore.approcciaLoSpacciatore();
                     break;
                 case 2:
                     InterazioneCanna.rollaUnaCanna(true);
@@ -44,6 +45,7 @@ public class Parchetto {
 
     private void interazioneSpacciatore() {
         // Implementazione interazione con lo spacciatore
+        System.out.println("sono entrato qui");
     }
 
     private void interazioneCanna() {

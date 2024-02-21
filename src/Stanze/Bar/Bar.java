@@ -9,35 +9,45 @@ public class Bar {
     
         int scelta;
        
-        do {System.out.println("Soldi: " + GamePanel.giocatore.getSoldi() +" HP: "+ GamePanel.giocatore.getHP());
+        do {GamePanel.giocatore.mostraStatistiche();
         	System.out.println(" ");
-        	System.out.println("Sei nel Bar, Cosa vuoi fare?");
+        	System.out.println("Sei nel Bar, cosa vuoi fare?");
             System.out.println("1. Caffè 1 Euro");
             System.out.println("2. Campari/Gin 5 Euro");
-            System.out.println("3. Esci");
+            System.out.println("3. Rissa");
+            System.out.println("0. Esci");
 
-            scelta = In.scanner.nextInt();
+            scelta = In.inputInt();
             GamePanel.clearScreen();
 
             switch (scelta) {
                 case 1:
                     if(GamePanel.giocatore.controllaSoldi(-1D) == true) {
-                    GamePanel.giocatore.controllaHP(2);
+                        GamePanel.giocatore.controllaHP(2);
+                        System.out.println("HP +" + 2 + "\n");
                     }
                     break;
 
                 case 2:
                     if(GamePanel.giocatore.controllaSoldi(-6D) == true) {
-                    GamePanel.giocatore.controllaHP(-6); 
+                        GamePanel.giocatore.controllaHP(-6);
+                        System.out.println("HP -" + 6);
+                        GamePanel.giocatore.controllaSballo(0.1);
+                        System.out.println("Sballo +" + 0.1 + "\n");
+
                     }
                     break;
 
                 case 3:
+                    Rissa.faiRissa();
+                    break;
+
+                case 0:
                     System.out.println("Bella zi");
                 break;
             }
 
-        } while (scelta!=3);
+        } while (scelta!=0);
         
     }
     

@@ -17,6 +17,7 @@ public class Inventario {
 	public void rimuoviItem(Oggetto item) {
 		inventario.remove(item);
 	}
+	public void svuotaInventario(){inventario.clear();}
 
 	public int quantitaItem(Oggetto item) {
 		int quantita = 0;

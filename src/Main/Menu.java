@@ -74,6 +74,10 @@ public class Menu {
 				mercato.runMercato();
 				break;
 
+			case 0:
+				System.out.println("Stai uscendo...");
+				break;
+
 			default:
 				System.out.println("Scelta errata");
 				break;
