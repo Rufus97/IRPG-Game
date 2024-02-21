@@ -3,6 +3,7 @@ import Input.In;
 import Main.GamePanel;
 import Player.Personaggio;
 import Player.Oggetto;
+import Stanze.Questura;
 
 public class Brumotti {
 
@@ -42,13 +43,14 @@ public class Brumotti {
     private static void cercaDiFuggireDaBrumotti() {
         System.out.println("Decidi di cercare di fuggire da Brumotti...");
 
-        GamePanel.giocatore.setKarma(-1);
-
-if (GamePanel.giocatore.getHP() < 50)
-        System.out.println("Brumotti ti afferra il braccio e ti blocca la fuga. Il tuo karma diminuisce!");
-        attivaEventoBrumotti();
-
-        System.out.println("Nuovo punteggio Karma: " + GamePanel.giocatore.getKarma());
+        if (GamePanel.giocatore.getHP() < 50) {
+            System.out.println("Non hai abbastanza punti vita per cercare di fuggire da Brumotti.");
+            attivaEventoBrumotti();
+        } else {
+            GamePanel.giocatore.setKarma(-1);
+            System.out.println("Brumotti ti afferra il braccio e ti blocca la fuga. Il tuo karma diminuisce!");
+            System.out.println("Nuovo punteggio Karma: " + GamePanel.giocatore.getKarma());
+        }
     }
 
     private static void cercaScontroConBrumotti() {
@@ -71,6 +73,9 @@ if (GamePanel.giocatore.getHP() < 50)
             //GamePanel.inventario.svuotaInventario();
         }
         System.out.println("Nuovo punteggio Karma: " + GamePanel.giocatore.getKarma());
+        // Continua il gioco nella questura
+        Questura questura = new Questura();
+        questura.runQuestura();
     }
 
     private static int risolviScontroConBrumotti() {

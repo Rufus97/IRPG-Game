@@ -1,5 +1,5 @@
 package Stanze.Parco;
-
+import Stanze.Parco.Parchetto;
 import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
@@ -17,8 +17,8 @@ public class InterazioneSpacciatore {
 
         switch (sceltaAzione) {
             case 1:
-                acquistaErba(GamePanel.giocatore);
-                GamePanel.giocatore.setLivelloSoddisfazione(-10););
+                acquistaErba();
+                GamePanel.giocatore.setLivelloSoddisfazione(-10);
                 break;
             case 2:
                 System.out.println("Hai deciso di lasciar perdere.");
@@ -28,24 +28,23 @@ public class InterazioneSpacciatore {
         }
     }
 
-    private static void acquistaErba(Personaggio personaggio) {
-        int prezzoErba = 12;
-        boolean possiedeErba = false;
+    private static void acquistaErba() {
+        double prezzoErba = 12;
 
-        if (possiedeErba) {
-            System.out.println("Hai già dell'erba nell'inventario.");
+        if (GamePanel.giocatore.getSoldi() >= prezzoErba) {
+            GamePanel.giocatore.setSoldi((double) (GamePanel.giocatore.getSoldi() - prezzoErba)); // Sottrai il prezzo dell'erba ai soldi del giocatore
+            Oggetto erba = new Oggetto("Erba", 1);
+            GamePanel.inventario.aggiungiItem(erba);
+            System.out.println("Hai acquistato dell'erba da Aziz.");
+            System.out.println("Soldi rimanenti: " + GamePanel.giocatore.getSoldi());
         } else {
-            if (personaggio.getSoldi() >= prezzoErba) {
-                GamePanel.giocatore.setSoldi(-20.0); // Sottrai il prezzo dell'erba ai soldi del giocatore
-                possiedeErba = true;
-                Oggetto erba = new Oggetto("Erba", 1);
-                GamePanel.inventario.aggiungiItem(erba);
-                System.out.println("Hai acquistato dell'erba da Aziz.");
-            } else {
-                System.out.println("Non hai abbastanza soldi per comprare l'erba.");
-            }
+            System.out.println("Non hai abbastanza soldi per comprare l'erba.");
         }
     }
+
+
 }
+
+
 
 

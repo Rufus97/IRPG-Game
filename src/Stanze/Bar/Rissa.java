@@ -41,7 +41,7 @@ public class Rissa {
     public static void rubaDallaCassa(){
         double soldiValue;
 
-        GamePanel.giocatore.controllaKarma(0.07);
+        GamePanel.giocatore.setKarma(0.07);
         if(GamePanel.giocatore.getKarma() >= 0){
 
             if(GamePanel.giocatore.getKarma() >= 0 && GamePanel.giocatore.getKarma() <= 0.49){

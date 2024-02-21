@@ -32,7 +32,7 @@ public class Bar {
                     if(GamePanel.giocatore.controllaSoldi(-6D) == true) {
                         GamePanel.giocatore.controllaHP(-6);
                         System.out.println("HP -" + 6);
-                        GamePanel.giocatore.controllaSballo(0.1);
+                        GamePanel.giocatore.setLivelloSballo(0.1);
                         System.out.println("Sballo +" + 0.1 + "\n");
 
                     }

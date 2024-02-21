@@ -4,6 +4,7 @@ import Main.GamePanel;
 import Stanze.Ospedale;
 
 public class Personaggio {
+	public Double getSoldi;
 	private String nome;
 	private String sesso;
 	private int HP = 50;

@@ -5,7 +5,7 @@ import Player.Personaggio;
 
 public class InterazioneGiornale {
 
-    public static void leggiIlGiornale((GamePanel.giocatore) {
+    public static void leggiIlGiornale() {
         System.out.println("Leggi il giornale sulla panchina...");
         System.out.println("Le notizie del giorno ti informano su vari eventi in città.");
 
