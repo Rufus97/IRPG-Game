@@ -104,4 +104,22 @@ public class Personaggio {
 			GamePanel.giocatore.setHP(HPValue);
 		}
 	}
+	public void controllaKarma(double karmaValue){
+
+		if(GamePanel.giocatore.getKarma() + karmaValue >= 1){
+			this.karma = 1;
+		}else if(GamePanel.giocatore.getKarma() + karmaValue < -1){
+			this.karma = -1;
+		}
+	}
+
+	public void controllaSballo(double sballoValue){
+
+		if(GamePanel.giocatore.getLivelloSballo() + sballoValue >= 1){
+			this.livelloSballo = 1;
+		}else if(GamePanel.giocatore.getLivelloSballo() + sballoValue < -1){
+			this.livelloSballo = -1;
+		}
+
+	}
 }

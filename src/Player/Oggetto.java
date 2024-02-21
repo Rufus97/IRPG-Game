@@ -1,7 +1,7 @@
 package Player;
 // Suppongo sia necessaria anche una superclasse "Oggetto"
 
-public class Oggetto {
+public class  Oggetto {
 	private String nome;
 	private int quantita;
 

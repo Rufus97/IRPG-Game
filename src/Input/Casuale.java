@@ -22,4 +22,12 @@ public class Casuale {
 			return min;
 		}
 	}
+
+	public static Double numeroCasualeTraDouble(double min, double max) {
+		try {
+			return new Random().nextDouble(max - min + 1) + min;
+		} catch (Exception e) {
+			return min;
+		}
+	}
 }
