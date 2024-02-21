@@ -1,8 +1,14 @@
 package Main;
 
+import Stanze.Mercato.LogicaMercato.Bancarella;
+import Stanze.Mercato.LogicaMercato.Market;
+import Stanze.Mercato.Mercato;
+
 public class Main {
 	public static void main(String[] args) {
-		GamePanel gamePanel = new GamePanel();
 
-		gamePanel.startGame();}
+        GamePanel game = new GamePanel();
+		game.startGame();
+
+	}
 }

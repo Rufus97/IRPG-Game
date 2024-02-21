@@ -64,7 +64,8 @@ public class Brumotti {
             System.out.println("Hai sconfitto Brumotti! Il tuo karma diminuisce ma te la sei scampata.");
         } else {
             System.out.println("Brumotti ti ha sconfitto! Arriva il Gabibbo con le guardie. Vieni arrestato: perdi HP, soddisfazione e i tuoi oggetti vengono confiscati.");
-            //GamePanel.inventario.svuotaInventario(); // il metodo svuotaInventario non esiste
+
+            //GamePanel.inventario.svuotaInventario();
         }
         System.out.println("Nuovo punteggio Karma: " + personaggio.getKarma());
     }

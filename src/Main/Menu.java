@@ -7,7 +7,7 @@ import Stanze.puntoSnai.PuntoSNAI;
 import Stanze.Cantiere.Cantiere;
 import Stanze.Parco.Parchetto;
 
-import Stanze.Mercato;
+import Stanze.Mercato.Mercato;
 
 import javax.xml.parsers.ParserConfigurationException;
 
