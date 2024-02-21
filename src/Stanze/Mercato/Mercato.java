@@ -62,13 +62,13 @@ public class Mercato {
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
                     System.out.println("cazzatine per tutti ");
-                    onceYouChosedBanc(newMarket, TipoBancarella.BIGIOTTERIA);
+                    onceYouChosedSingleItemBanc(newMarket, TipoBancarella.BIGIOTTERIA);
                     break;
                 case 5:
                     GamePanel.clearScreen();
                     //Sottrarre soldi, aggiungere all'inventario.
                     System.out.println("vestiti freschi  ");
-                    onceYouChosedBanc(newMarket, TipoBancarella.VESTITI);
+                    onceYouChosedSingleItemBanc(newMarket, TipoBancarella.VESTITI);
                     break;
                 case 6:
                     GamePanel.clearScreen();
@@ -78,6 +78,38 @@ public class Mercato {
 
 
         } while (scelta!=0);
+    }
+
+    public void onceYouChosedSingleItemBanc(Market newMarket, TipoBancarella type) {
+        int scelta;
+        int counter = 0;
+        do {
+            Bancarella specBanc = newMarket.getSpecificBanc(type);
+            OggettiMercanti chosedItem = null;
+            System.out.println("puoi comprare: ");
+
+            int index = 1;
+            for (OggettiMercanti element : specBanc.getInventarioBancarella()) {
+                System.out.println(index + ": " + element);
+                index++;
+            }
+            System.out.println("0: per uscire");
+            scelta = In.inputInt();
+            if (scelta == 0){
+                break;
+            }
+            chosedItem = specBanc.getInventarioBancarella().get(scelta-1);
+
+            System.out.println(chosedItem.getNome() + " l'hai comprato per la modica cifra di " + chosedItem.getPrezzo());
+            Oggetto newItem = new Oggetto(chosedItem.getNome(), counter);
+            GamePanel.inventario.aggiungiItem(newItem);
+
+            System.out.println("premi un numero per continuare\n" +
+                    "premi 0 per uscire");
+            scelta = In.inputInt();
+
+
+        }while (scelta > 0);
     }
 
     public void onceYouChosedBanc(Market newMarket, TipoBancarella type){
@@ -97,27 +129,23 @@ public class Mercato {
             if (scelta == 0){
                 break;
             }
-            chosedItem = specBanc.getInventarioBancarella().get(scelta-1);
-        if (chosedItem.getTipoOggetto().equals(TipoBancarella.BIGIOTTERIA) ||
-            chosedItem.getTipoOggetto().equals(TipoBancarella.VESTITI)) {
-            System.out.println(chosedItem.getNome() + " è tuo per la modica cifra di " + chosedItem.getPrezzo());
-        }
-        else {
+            chosedItem = specBanc.getInventarioBancarella().get(scelta -1);
         System.out.println("quanti grammi de " + chosedItem.getNome() + " vole signò?");
         scelta = In.inputInt();
 
         double costo = chosedItem.getPrezzoAlKg() * scelta / 1000;
             if (GamePanel.giocatore.controllaSoldi(costo)){
-                Oggetto newItem = new Oggetto(chosedItem.getNome(), scelta);
-                GamePanel.inventario.aggiungiItem(newItem);
                 System.out.println("hai acquistato " + scelta + " grammi di " + chosedItem.getNome() + " per " + costo);
                 System.out.println("VOLE QUALCOSALTRO SIGNO???");
             }
-        }
+
+            Oggetto newItem = new Oggetto(chosedItem.getNome(), scelta);
+            GamePanel.inventario.aggiungiItem(newItem);
         System.out.println("premi un numero per continuare\n" +
                 "premi 0 per uscire");
         scelta = In.inputInt();
         } while (scelta > 0);
+
     }
 }
 
