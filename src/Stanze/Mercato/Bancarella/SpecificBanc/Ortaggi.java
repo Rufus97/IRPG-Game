@@ -2,35 +2,21 @@ package Stanze.Mercato.Bancarella.SpecificBanc;
 
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Bancarella.Bancarella;
+import Stanze.Mercato.Bancarella.MarketObjects;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Ortaggi extends Bancarella {
-    private double prezzoAlKg;
+public class Ortaggi extends Bancarella implements MarketObjects {
 
-    private String fishName;
-
-    private BancType bancType = BancType.PESCE;
-
-    static List<Bancarella> inventarioOrtaggi = new ArrayList<>(
-            Arrays.asList(
-                    new Ortaggi("Zucchine" , 18),
-                    new Ortaggi("Melanzane", 16),
-                    new Ortaggi("Patate", 21),
-                    new Ortaggi("Pomodori" , 10),
-                    new Ortaggi("Fagioli", 16),
-                    new Ortaggi("Banane", 14)
-            )
-    );
 
     public Ortaggi(String ortaggiName, double prezzoAlKg){
         super.setBancName(ortaggiName);
         super.setPrezzoAlKg(prezzoAlKg);
+        super.setTypeOfBanc(BancType.ORTAGGI);
     }
-
-    public static List<Bancarella> getInvetarioOrtaggi() {
-        return inventarioOrtaggi;
-    }
+    public void fillBanc(){
+        super.getMapOfBancs().put(BancType.ORTAGGI, BancType.ORTAGGI.getInventory());
+    };
 }
