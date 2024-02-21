@@ -4,7 +4,6 @@ import Input.In;
 import Main.GamePanel;
 
 
-
 public class Parchetto {
 
     public void runParcchetto() {
@@ -15,24 +14,18 @@ public class Parchetto {
             System.out.println("Cosa vuoi fare?");
             System.out.println("1. Approccia Aziz");
             System.out.println("2. Rolla una canna");
-            System.out.println("3. Apri Inventario...");
-            System.out.println("4. Vai via dal parco");
+            System.out.println("3. Vai via dal parco");
 
             int sceltaAzione = In.inputInt();
 
             switch (sceltaAzione) {
                 case 1:
-                    InterazioneSpacciatore.approcciaLoSpacciatore();
+                    interazioneSpacciatore();
                     break;
                 case 2:
                     InterazioneCanna.rollaUnaCanna(true);
                     break;
                 case 3:
-                    System.out.println("Nell inventario hai:");
-                    System.out.println(GamePanel.inventario.toString());
-
-                    break;
-                case 4:
                     System.out.println("Hai scelto di uscire dal parco.");
                     continua = false;
                     break;
@@ -50,7 +43,6 @@ public class Parchetto {
     }
 
     private void interazioneSpacciatore() {
-
         // Implementazione interazione con lo spacciatore
     }
 

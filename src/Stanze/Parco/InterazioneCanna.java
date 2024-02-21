@@ -19,8 +19,8 @@ public class InterazioneCanna {
             System.out.println("HP attuali: " + GamePanel.giocatore.getHP());
 
             // Evento randomico collegato al punteggio karma
-            if (GamePanel.giocatore.getKarma() < 0) {
-                attivaEventoBrumotti();
+            if (calcolaKarma(GamePanel.giocatore) < 50) {
+                attivaEventoBrumotti(GamePanel.giocatore);
             }
 
             possiedeErba = false;
@@ -29,5 +29,8 @@ public class InterazioneCanna {
         }
     }
 
+    private static int calcolaKarma(Personaggio personaggio) {
+        // Implementa la logica per il calcolo del karma
+        return 0;
     }
-
+}

@@ -1,7 +1,7 @@
 package Player;
 // Suppongo sia necessaria anche una superclasse "Oggetto"
 
-public class Oggetto {
+public class  Oggetto {
 	private String nome;
 	private int quantita;
 
@@ -11,11 +11,11 @@ public class Oggetto {
 	}
 
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public int getQuantita() {
-		return quantita;
+		return this.quantita;
 	}
 
 	public void setNome(String nome) {

@@ -7,7 +7,7 @@ import Stanze.puntoSnai.PuntoSNAI;
 import Stanze.Cantiere.Cantiere;
 import Stanze.Parco.Parchetto;
 
-import Stanze.Mercato;
+import Stanze.Mercato.Mercato;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -72,6 +72,10 @@ public class Menu {
 				Mercato mercato = new Mercato("Porta Portese");
 				System.out.println("Mercato");
 				mercato.runMercato();
+				break;
+
+			case 0:
+				System.out.println("Stai uscendo...");
 				break;
 
 			default:
