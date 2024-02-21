@@ -7,7 +7,7 @@ import Player.Personaggio;
 
 public class InterazioneSpacciatore {
 
-    public static void approcciaLoSpacciatore(Personaggio personaggio) {
+    public static void approcciaLoSpacciatore() {
         System.out.println("Hai scelto di approcciare Aziz.");
         System.out.println("Cosa vuoi fare?");
         System.out.println("1. Acquista erba");
@@ -17,7 +17,8 @@ public class InterazioneSpacciatore {
 
         switch (sceltaAzione) {
             case 1:
-                acquistaErba(personaggio);
+                acquistaErba(GamePanel.giocatore);
+                GamePanel.giocatore.setLivelloSoddisfazione(-10););
                 break;
             case 2:
                 System.out.println("Hai deciso di lasciar perdere.");

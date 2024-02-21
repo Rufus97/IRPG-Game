@@ -1,4 +1,4 @@
-package Stanze;
+package Stanze.Parco;
 import Input.In;
 import Player.Personaggio;
 
