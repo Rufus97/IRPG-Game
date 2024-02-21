@@ -82,8 +82,9 @@ public class Mercato {
 
     public void onceYouChosedSingleItemBanc(Market newMarket, TipoBancarella type) {
         int scelta;
-        int counter = 0;
+
         do {
+            int counter = 0;
             Bancarella specBanc = newMarket.getSpecificBanc(type);
             OggettiMercanti chosedItem = null;
             System.out.println("puoi comprare: ");
@@ -99,8 +100,15 @@ public class Mercato {
                 break;
             }
             chosedItem = specBanc.getInventarioBancarella().get(scelta-1);
+            System.out.println("quanti ne vuoi??????");
+            counter = In.inputInt();
+            double costo = counter * chosedItem.getPrezzo();
 
-            System.out.println(chosedItem.getNome() + " l'hai comprato per la modica cifra di " + chosedItem.getPrezzo());
+            if (GamePanel.giocatore.controllaSoldi(costo * -1)){
+                System.out.println(chosedItem.getNome() + " l'hai comprato per la modica cifra di " + costo);
+                System.out.println("te so rimasti " + GamePanel.giocatore.getSoldi());
+            }
+
             Oggetto newItem = new Oggetto(chosedItem.getNome(), counter);
             GamePanel.inventario.aggiungiItem(newItem);
 
@@ -134,8 +142,9 @@ public class Mercato {
         scelta = In.inputInt();
 
         double costo = chosedItem.getPrezzoAlKg() * scelta / 1000;
-            if (GamePanel.giocatore.controllaSoldi(costo)){
+            if (GamePanel.giocatore.controllaSoldi(costo * -1)){
                 System.out.println("hai acquistato " + scelta + " grammi di " + chosedItem.getNome() + " per " + costo);
+                System.out.println("te so rimasti " + GamePanel.giocatore.getSoldi());
                 System.out.println("VOLE QUALCOSALTRO SIGNO???");
             }
 
