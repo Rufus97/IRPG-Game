@@ -6,7 +6,7 @@ import Input.Casuale;
 import Input.Casuale.*;
 import Stanze.Mercato.OggettiMercanti.SubObjects.*;
 
-public class OggettiMercanti {
+public class   OggettiMercanti {
 
     protected String nome;
     protected double prezzo;
