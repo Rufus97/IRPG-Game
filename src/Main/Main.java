@@ -1,5 +1,6 @@
 package Main;
 
+import Player.Personaggio;
 import Stanze.Mercato.LogicaMercato.Bancarella;
 import Stanze.Mercato.LogicaMercato.Market;
 import Stanze.Mercato.Mercato;
@@ -9,6 +10,7 @@ public class Main {
 
         GamePanel game = new GamePanel();
 		game.startGame();
+
 
 	}
 }
