@@ -2,7 +2,6 @@ package Stanze.Mercato.Bancarella;
 
 import Stanze.Mercato.Bancarella.SpecificBanc.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,11 +48,11 @@ public enum BancType {
             new Bigiotteria("anello di bronzo", 14)
     ));
 
-    private List<MarketObjects> inventory;
-    private BancType(List<MarketObjects> inventory) {
+    private List<BancItem> inventory;
+    private BancType(List<BancItem> inventory) {
         this.inventory = inventory;
     }
-    public List<MarketObjects> getInventory() {
+    public List<BancItem> getInventory() {
         return inventory;
     }
 

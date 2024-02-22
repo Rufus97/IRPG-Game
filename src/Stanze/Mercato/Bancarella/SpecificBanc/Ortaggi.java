@@ -1,22 +1,21 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
 import Stanze.Mercato.Bancarella.BancType;
-import Stanze.Mercato.Bancarella.Bancarella;
-import Stanze.Mercato.Bancarella.MarketObjects;
+import Stanze.Mercato.Bancarella.BancItem;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class Ortaggi extends Bancarella implements MarketObjects {
+public class Ortaggi extends BancItem {
 
 
     public Ortaggi(String ortaggiName, double prezzoAlKg){
-        super.setBancName(ortaggiName);
+        super.setItemName(ortaggiName);
         super.setPrezzoAlKg(prezzoAlKg);
         super.setTypeOfBanc(BancType.ORTAGGI);
     }
-    public void fillBanc(){
-        super.getMapOfBancs().put(BancType.ORTAGGI, BancType.ORTAGGI.getInventory());
-    };
+    @Override
+    public String toString() {
+        return
+                "Item name: " + super.getItemName() + '\'' +
+                " prezzo al Kg: " + super.getPrezzoAlKg() +
+                '}';
+    }
 }

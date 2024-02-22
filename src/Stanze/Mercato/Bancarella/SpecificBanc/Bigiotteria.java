@@ -1,20 +1,19 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
 import Stanze.Mercato.Bancarella.BancType;
-import Stanze.Mercato.Bancarella.Bancarella;
-import Stanze.Mercato.Bancarella.MarketObjects;
+import Stanze.Mercato.Bancarella.BancItem;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class Bigiotteria extends Bancarella implements MarketObjects {
+public class Bigiotteria extends BancItem {
     public Bigiotteria(String bigioName, double prezzo){
-        super.setBancName(bigioName);
+        super.setItemName(bigioName);
         super.setPrice(prezzo);
         super.setTypeOfBanc(BancType.BIGIOTTERIA);
     }
-    public void fillBanc(){
-        super.getMapOfBancs().put(BancType.BIGIOTTERIA, BancType.BIGIOTTERIA.getInventory());
-    };
+    @Override
+    public String toString() {
+        return
+                "Item name: " + super.getItemName() + '\'' +
+                " prezzo: " + super.getPrice() +
+                '}';
+    }
 }

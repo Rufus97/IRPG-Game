@@ -1,21 +1,20 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
 import Stanze.Mercato.Bancarella.BancType;
-import Stanze.Mercato.Bancarella.Bancarella;
-import Stanze.Mercato.Bancarella.MarketObjects;
+import Stanze.Mercato.Bancarella.BancItem;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class Carne extends Bancarella implements MarketObjects {
+public class Carne extends BancItem {
 
     public Carne(String meatName, double prezzoAlKg){
-        super.setBancName(meatName);
+        super.setItemName(meatName);
         super.setPrezzoAlKg(prezzoAlKg);
         super.setTypeOfBanc(BancType.CARNE);
     }
-    public void fillBanc(){
-        super.getMapOfBancs().put(BancType.CARNE, BancType.CARNE.getInventory());
-    };
+    @Override
+    public String toString() {
+        return
+                "Item name: " + super.getItemName() + '\'' +
+                " prezzo al Kg: " + super.getPrezzoAlKg() +
+                '}';
+    }
 }
