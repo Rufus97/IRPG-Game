@@ -30,12 +30,13 @@ public class Mercato {
         }
         System.out.println(":" + 0 + " per uscire");
         choice = In.inputInt();
-        if (choice > 0 && choice < BancType.values().length-1){
+        if (choice > 0 && choice < BancType.values().length+1){
         BancItem shoppedItem = shopping(runningMarket, choice-1);
             if (shoppedItem != null){
             calculatePrice(shoppedItem);
             }
-        } else {
+        }
+        else {
             System.out.println("cerchi una bancarella che non esiste in balia dell' alzheimer, " +
                     " il camminare senza meta, immerso nelle urla dei mercanti, raffiora in te il ricordo del campo di battaglia, " +
                     " il tuo cuore si riempe di gioia al ricordo dei TEDESKEN perforati dai tuoi proiettili, " +
