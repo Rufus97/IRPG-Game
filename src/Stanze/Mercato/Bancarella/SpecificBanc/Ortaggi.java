@@ -9,7 +9,7 @@ public class Ortaggi extends BancItem {
     public Ortaggi(String ortaggiName, double prezzoAlKg){
         super.setItemName(ortaggiName);
         super.setPrezzoAlKg(prezzoAlKg);
-        super.setTypeOfBanc(BancType.ORTAGGI);
+        super.setTypeOfBanc("tra oltraggi e ortaggi");
     }
     @Override
     public String toString() {

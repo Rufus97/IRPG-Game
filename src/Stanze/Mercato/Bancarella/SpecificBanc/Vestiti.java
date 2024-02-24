@@ -8,7 +8,7 @@ public class Vestiti extends BancItem {
     public Vestiti(String clothName, double prezzo){
         super.setItemName(clothName);
         super.setPrice(prezzo);
-        super.setTypeOfBanc(BancType.VESTITI);
+        super.setTypeOfBanc("barbon shop");
     }
     @Override
     public String toString() {

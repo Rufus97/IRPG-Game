@@ -4,16 +4,14 @@ public abstract class BancItem {
     private double prezzoAlKg;
     private String itemName;
     private double price;
-    private BancType typeOfBanc;
+    private String typeOfBanc;
     public BancItem(){
     }
 
-    public void initializeMarket(){
-
-    }
 
     // getter and setters
-    public BancType getTypeOfBanc() {return typeOfBanc;}
+
+    public String getTypeOfBanc() {return typeOfBanc;}
     public double getPrice() {return price;}
     public double getPrezzoAlKg() {
         return prezzoAlKg;
@@ -30,7 +28,7 @@ public abstract class BancItem {
     public void setPrice(double price) {
         this.price = price;
     }
-    public void setTypeOfBanc(BancType typeOfBanc) {
+    public void setTypeOfBanc(String typeOfBanc) {
         this.typeOfBanc = typeOfBanc;
     }
 

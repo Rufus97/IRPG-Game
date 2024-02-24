@@ -7,7 +7,7 @@ public class Bigiotteria extends BancItem {
     public Bigiotteria(String bigioName, double prezzo){
         super.setItemName(bigioName);
         super.setPrice(prezzo);
-        super.setTypeOfBanc(BancType.BIGIOTTERIA);
+        super.setTypeOfBanc("cazzatine & collanine");
     }
     @Override
     public String toString() {

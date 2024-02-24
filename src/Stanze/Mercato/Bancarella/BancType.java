@@ -13,7 +13,7 @@ public enum BancType {
             new Pesce("cozze" , 10),
             new Pesce("vongole", 16),
             new Pesce("tonno", 14)
-    )),
+    ), "Pescheria"),
     CARNE (Arrays.asList(
             new Carne("Pollo" , 14),
             new Carne("Tacchino", 16),
@@ -21,7 +21,7 @@ public enum BancType {
             new Carne("Maiale" , 10),
             new Carne("Salsicce", 16),
             new Carne("Hamburger", 14)
-    )),
+    ), "Macelleria"),
     ORTAGGI( Arrays.asList(
             new Ortaggi("Zucchine" , 18),
             new Ortaggi("Melanzane", 16),
@@ -29,7 +29,7 @@ public enum BancType {
             new Ortaggi("Pomodori" , 10),
             new Ortaggi("Fagioli", 16),
             new Ortaggi("Banane", 14)
-    )),
+    ), "Verduraio"),
     VESTITI( Arrays.asList(
             new Vestiti("Pantalone" , 18),
             new Vestiti("Barbon gloves", 16),
@@ -37,7 +37,7 @@ public enum BancType {
             new Vestiti("belt of giant's strength" , 10),
             new Vestiti("maglietta bellina", 16),
             new Vestiti("maglietta bruttina", 14)
-    )),
+    ), "Barbon shop"),
     BIGIOTTERIA (
             Arrays.asList(
             new Bigiotteria("anello" , 18),
@@ -46,15 +46,20 @@ public enum BancType {
             new Bigiotteria("mantello" , 10),
             new Bigiotteria("anello di diamanti", 16),
             new Bigiotteria("anello di bronzo", 14)
-    ));
+    ), "Cazzatine varie");
 
     private List<BancItem> inventory;
-    private BancType(List<BancItem> inventory) {
+
+    private String name;
+    private BancType(List<BancItem> inventory, String name) {
         this.inventory = inventory;
+        this.name = name;
     }
     public List<BancItem> getInventory() {
         return inventory;
     }
 
-
+    public String getName() {
+        return name;
+    }
 }

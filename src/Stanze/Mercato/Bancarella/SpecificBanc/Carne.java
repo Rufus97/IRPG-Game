@@ -8,7 +8,7 @@ public class Carne extends BancItem {
     public Carne(String meatName, double prezzoAlKg){
         super.setItemName(meatName);
         super.setPrezzoAlKg(prezzoAlKg);
-        super.setTypeOfBanc(BancType.CARNE);
+        super.setTypeOfBanc("macelleria");
     }
     @Override
     public String toString() {

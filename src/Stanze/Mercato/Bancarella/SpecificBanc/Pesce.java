@@ -8,7 +8,7 @@ public class Pesce extends BancItem {
     public Pesce(String fishName, double prezzoAlKg){
         super.setItemName(fishName);
         super.setPrezzoAlKg(prezzoAlKg);
-        super.setTypeOfBanc(BancType.PESCE);
+        super.setTypeOfBanc("pescheria");
     }
     @Override
     public String toString() {
