@@ -30,4 +30,6 @@ public class Oggetto {
 	public String toString() {
 		return "\n" + nome + " quantita = " + quantita;
 	}
+
+
 }

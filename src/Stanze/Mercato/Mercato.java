@@ -2,6 +2,7 @@ package Stanze.Mercato;
 
 import Input.In;
 import Main.GamePanel;
+import Player.Inventario;
 import Player.Oggetto;
 import Player.Personaggio;
 import Stanze.Mercato.Bancarella.BancItem;
@@ -21,13 +22,21 @@ public class Mercato {
 
     public void runMercato(){
         Market runningMarket = new Market();
+        Integer choice = 0;
+        do {
         System.out.println("dove vai?");
         for (Map.Entry<Integer, List<BancItem>> banc : runningMarket.getMapOfBancs().entrySet()){
             System.out.println(":" + (banc.getKey()+1) + " per  " + banc.getValue().getFirst().getTypeOfBanc());
         }
-        Integer choice = In.inputInt();
+        System.out.println(":" + 0 + " per uscire");
+        choice = In.inputInt();
+        if (choice > 0){
         calculatePrice(shopping(runningMarket, choice-1));
+        }
+        } while (choice != 0);
     }
+
+
     public BancItem shopping(Market inizializedMarket, Integer userChoice){
         List<BancItem> shopInventory = inizializedMarket.getOneRandomInventory(userChoice);
         int index = 1;
@@ -37,25 +46,41 @@ public class Mercato {
             index ++;
         }
         chosedItem = shopInventory.get(In.inputInt()-1);
-        System.out.println("hai scelto " + chosedItem.getItemName());
         return chosedItem;
     }
+
+
     public void calculatePrice(BancItem item){
         double price = 0;
+        int quantity = 0;
+        BancItem chosedItem = item;
         if (item.getPrezzoAlKg() == 0){
             price = item.getPrice();
             System.out.println("hai comprato " + item.getItemName() + " per " + price);
+            quantity += 1;
         } else {
              System.out.println("quanti grammi vuoi?: ");
              int grammi = In.inputInt();
+             quantity += grammi;
              price = item.getPrezzoAlKg() * grammi / 1000;
             System.out.println("hai comprato " + grammi + " di " + item.getItemName() + " per " + price);
         }
+        Oggetto shoppedItem = new Oggetto(chosedItem.getItemName(),quantity);
 
-        if (GamePanel.giocatore.controllaSoldi(price)){
-            Oggetto item = new Oggetto()
-            GamePanel.inventario.aggiungiItem();
+
+        if (GamePanel.giocatore.controllaSoldi(-price)){
+            playerGetItem(shoppedItem);
         }
-
     }
+
+    public void playerGetItem(Oggetto chosedItem){
+
+
+        GamePanel.inventario.aggiungiItem(chosedItem);
+        GamePanel.inventario.quantitaItem(chosedItem);
+
+        System.out.println(GamePanel.inventario);
+        System.out.println("Soldi attuali: " + GamePanel.giocatore.getSoldi());
+    }
+
 }
