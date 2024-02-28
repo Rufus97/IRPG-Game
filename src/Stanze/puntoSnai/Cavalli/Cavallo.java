@@ -13,7 +13,7 @@ public class Cavallo implements Corsa{
     private double stamina;
     private double velocità;
     private String nome;
-    private List<Character> percorso = new ArrayList<Character>(Arrays.asList('A','-','-','-','-','-','-','-','-','-'));
+    private List<String> percorso = new ArrayList<>(Arrays.asList("🏇","-","-","-","-","-","-","-","-","-"));
 
     public Cavallo(String nome){
         this.nome = nome;
@@ -21,18 +21,22 @@ public class Cavallo implements Corsa{
         this.stamina = 8;
     }
 
+    public int getIndexOfHorse(){
+        return this.percorso.indexOf("🏇");
+    }
+
     public String getNome() {
         return nome;
     }
 
-    public List<Character> getPercorso() {
+    public List<String> getPercorso() {
         return percorso;
     }
 
     @Override
     public void movimentoCavallo() {
 
-        int firstIndex = this.percorso.indexOf('A');
+        int firstIndex = this.percorso.indexOf("🏇");
             if(firstIndex + this.velocità > this.percorso.size()-1){
                 Collections.swap(this.percorso,firstIndex,firstIndex + 1);
                 System.out.println(percorso);
