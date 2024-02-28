@@ -3,8 +3,6 @@ package Stanze.puntoSnai;
 import Input.In;
 import Main.GamePanel;
 
-
-
 public class PuntoSNAI {
 	public void runPSNAI() {
 
@@ -15,7 +13,7 @@ public class PuntoSNAI {
 			System.out.println(" ");
 			System.out.println("Sei nel Punto SNAI, Cosa vuoi fare?");
 			System.out.println("1. Giocare alle slot");
-			//System.out.println("2. WIP");
+			System.out.println("2. Giocare ai cavalli");
 			System.out.println("0. Esci");
 
 			scelta = In.scanner.nextInt();
@@ -23,14 +21,14 @@ public class PuntoSNAI {
 
 			switch (scelta) {
 			case 1:
-                GamePanel.clearScreen();
-                Slot.runSlot();
-                break;
+				GamePanel.clearScreen();
+				Slot.runSlot();
+				break;
 
-
-//			case 2:
-//				System.out.println("3. WIP");
-//				break;
+			case 2:
+				System.out.println();
+				HorseP.runHorses();
+				break;
 
 			case 0:
 				System.out.println("Bella zi");
