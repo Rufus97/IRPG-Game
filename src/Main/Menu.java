@@ -6,8 +6,8 @@ import Stanze.Tabacchino.Tabacchino;
 import Stanze.puntoSnai.PuntoSNAI;
 import Stanze.Cantiere.Cantiere;
 import Stanze.Parco.Parchetto;
-import Stanze.Questura;
-import Stanze.Mercato.Mercato;
+
+import Stanze.Mercato.*;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -85,8 +85,5 @@ public class Menu {
 
 		} while (scelta != 0);
 
-	}
-
-	public void runMenu() {
 	}
 }
