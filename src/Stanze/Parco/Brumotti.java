@@ -57,7 +57,7 @@ public class Brumotti {
         System.out.println("Decidi di cercare uno scontro con Brumotti per dargli una lezione");
 
         GamePanel.giocatore.setLivelloSoddisfazione(10);
-        GamePanel.giocatore.setKarma(-20);
+        GamePanel.giocatore.setKarma(-0.5);
 
         System.out.println("Inizi uno scontro con Brumotti!");
 
