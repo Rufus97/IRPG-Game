@@ -9,13 +9,13 @@ public class PuntoSNAI {
 		int scelta;
 
 		do {
-			System.out.println("Soldi: " + GamePanel.giocatore.getSoldi() + " HP: " + GamePanel.giocatore.getHP());
+			GamePanel.giocatore.mostraStatistiche();
 			System.out.println(" ");
 			System.out.println("Sei nel Punto SNAI, Cosa vuoi fare?");
 			System.out.println("1. Giocare alle slot");
 			System.out.println("2. Giocare ai cavalli");
 			System.out.println("0. Esci");
-
+			GamePanel.clearScreen();
 			scelta = In.scanner.nextInt();
 			GamePanel.clearScreen();
 
@@ -26,7 +26,7 @@ public class PuntoSNAI {
 				break;
 
 			case 2:
-				System.out.println();
+				GamePanel.clearScreen();
 				HorseP.runHorses();
 				break;
 
@@ -35,7 +35,7 @@ public class PuntoSNAI {
 				break;
 			}
 
-		} while (scelta != 3);
+		} while (scelta != 0);
 
 	}
 
