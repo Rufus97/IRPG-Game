@@ -1,11 +1,14 @@
 package Stanze.Parco;
 
+import Stanze.Parco.InterazioneCanna;
+import Stanze.Parco.InterazioneSpacciatore;
+
 import Input.In;
 import Main.GamePanel;
 
 
-
 public class Parchetto {
+    private InterazioneSpacciatore interazioneSpacciatore = new InterazioneSpacciatore();
 
     public void runParcchetto() {
         System.out.println("Benvenuto al parchetto di Tor bella Monaca");
@@ -21,7 +24,7 @@ public class Parchetto {
 
             switch (sceltaAzione) {
                 case 1:
-                    InterazioniSpacciatore.approcciaLoSpacciatore();
+                    interazioneSpacciatore.approcciaLoSpacciatore();
                     break;
                 case 2:
                     InterazioneCanna.rollaUnaCanna(true);
@@ -39,16 +42,13 @@ public class Parchetto {
     public void vieneArrestato() {
         GamePanel.giocatore.setHP(GamePanel.giocatore.getHP() - 10);
         GamePanel.giocatore.setLivelloSoddisfazione(GamePanel.giocatore.getLivelloSoddisfazione() - 15);
+        GamePanel.inventario.svuotaInventario(); // Rimuovi tutti gli oggetti dall'inventario
         System.out.println("Sei stato arrestato! Hai perso punti HP, soddisfazione e i tuoi oggetti sono stati confiscati.");
-    }
-
-    private void interazioneSpacciatore() {
-        // Implementazione interazione con lo spacciatore
-        System.out.println("sono entrato qui");
     }
 
     private void interazioneCanna() {
         // Implementazione interazione con il rollare una canna
     }
 }
+
 

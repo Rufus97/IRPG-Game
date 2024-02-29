@@ -32,6 +32,7 @@ public class Inventario {
 	}
 	public void svuotaInventario(){inventario.clear();}
 
+
 	public int quantitaItem(Oggetto item) {
 		int quantita = 0;
 		for (Oggetto oggettoDaContare : inventario) {
