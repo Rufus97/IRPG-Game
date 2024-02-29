@@ -1,9 +1,6 @@
 package Main;
 
-
 import Player.Personaggio;
-
-
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Logic.Market;
@@ -15,7 +12,7 @@ import java.util.Map;
 public class Main {
 	public static void main(String[] args) {
 
-        GamePanel game = new GamePanel();
+		GamePanel game = new GamePanel();
 		game.startGame();
 
 	}

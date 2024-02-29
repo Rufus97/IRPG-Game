@@ -12,9 +12,10 @@ public class Bar {
         do {GamePanel.giocatore.mostraStatistiche();
         	System.out.println(" ");
         	System.out.println("Sei nel Bar, cosa vuoi fare?");
-            System.out.println("1. Caffè 1 Euro");
-            System.out.println("2. Campari/Gin 5 Euro");
-            System.out.println("3. Rissa");
+            System.out.println("1. Fai colazione");
+            System.out.println("2. Compra da magna");
+            System.out.println("3. Bevite 'na cosa");
+            System.out.println("4. Sbrocca e inizia 'na rissa cor barista");
             System.out.println("0. Esci");
 
             scelta = In.inputInt();
@@ -22,23 +23,18 @@ public class Bar {
 
             switch (scelta) {
                 case 1:
-                    if(GamePanel.giocatore.controllaSoldi(-1D) == true) {
-                        GamePanel.giocatore.controllaHP(2);
-                        System.out.println("HP +" + 2 + "\n");
-                    }
+                    Colazione.faiColazione();
                     break;
 
                 case 2:
-                    if(GamePanel.giocatore.controllaSoldi(-6D) == true) {
-                        GamePanel.giocatore.controllaHP(-6);
-                        System.out.println("HP -" + 6);
-                        GamePanel.giocatore.controllaSballo(0.1);
-                        System.out.println("Sballo +" + 0.1 + "\n");
-
-                    }
+                    System.out.println("ci stiamo lavorando");
                     break;
 
                 case 3:
+                    Alcolici.beviteNaCosa();
+                    break;
+
+                case 4:
                     Rissa.faiRissa();
                     break;
 
