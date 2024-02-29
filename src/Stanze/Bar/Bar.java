@@ -14,8 +14,8 @@ public class Bar {
         	System.out.println("Sei nel Bar, cosa vuoi fare?");
             System.out.println("1. Fai colazione");
             System.out.println("2. Compra da magna");
-            //System.out.println("3. Bevite 'na cosa");
-            //System.out.println("4. Sbrocca e inizia 'na rissa cor barista");
+            System.out.println("3. Bevite 'na cosa");
+            System.out.println("4. Sbrocca e inizia 'na rissa cor barista");
             System.out.println("0. Esci");
 
             scelta = In.inputInt();
@@ -27,11 +27,11 @@ public class Bar {
                     break;
 
                 case 2:
-                    Alcolici.beviteNaCosa();
+                    System.out.println("ci stiamo lavorando");
                     break;
 
                 case 3:
-                    System.out.println("ci stiamo lavorando");
+                    Alcolici.beviteNaCosa();
                     break;
 
                 case 4:

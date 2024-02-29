@@ -10,9 +10,10 @@ public class Rissa {
 
         int scelta;
 
-        if(GamePanel.giocatore.getLivelloSballo() <= 0){
+        if(GamePanel.giocatore.getLivelloSballo() <= 0) {
 
-            System.out.println("LI HAI FATTI NERI!");
+            System.out.println("Sferri due colpi al barista e lo metti KO");
+            System.out.println("LO HAI FATTO NERO! i clienti scappano dal bar... cosa vuoi fare?");
             GamePanel.giocatore.controlloSetSoddisfazione(6);
             System.out.println("Soddisfazione +" + 6 + "\n");
             GamePanel.giocatore.controlloSetKarma(-0.2);
@@ -31,7 +32,7 @@ public class Rissa {
                 case 0 -> System.out.println("Dove ca**o vai pezzo di me**a!");
                 default -> System.err.println("Scelta errata! selezionare una delle opsioni del menù");
             }
-        }else {
+        } else {
             System.out.println("Ce l'hai prese");
             GamePanel.giocatore.controlloSetHP(-10);
         }
@@ -45,7 +46,7 @@ public class Rissa {
 
             System.out.println("SEI TROPPO BRILLO PER CONTINUARE A BERE! Spacchi la bottiglia e minacci il barista...");
             System.out.println("Soddisfazione +" + 6 + "\n");
-            GamePanel.giocatore.controlloSetKarma(-0.2);
+            GamePanel.giocatore.controlloSetSoddisfazione(6);
             System.out.println("Karma -" + 0.2 + "\n");
 
             GamePanel.giocatore.mostraStatistiche();
@@ -70,11 +71,12 @@ public class Rissa {
     public static void rubaDallaCassa(){
         double soldiValue;
 
-        if(GamePanel.giocatore.getKarma() >= 0){
+        if(GamePanel.giocatore.getKarma() != -1){
 
-            if(GamePanel.giocatore.getKarma() >= 0 && GamePanel.giocatore.getKarma() <= 0.49){
-                GamePanel.giocatore.setSoldi(soldiValue = Casuale.numeroCasualeTraDouble(0.50,50.0));
-            }else {GamePanel.giocatore.setSoldi(soldiValue = Casuale.numeroCasualeTraDouble(50.0,100.0));}
+            if(GamePanel.giocatore.getKarma() >= 0 && GamePanel.giocatore.getKarma() <= 1){
+                GamePanel.giocatore.setSoldi(soldiValue = Casuale.numeroCasualeTraDouble(20.0,100.0));
+
+            }else {GamePanel.giocatore.setSoldi(soldiValue = Casuale.numeroCasualeTraDouble(0.0,20.0));}
             System.out.println("Daje! oggi se magna!");
             System.out.println("Soldi +" + Math.round(soldiValue * 100.0) / 100.0 + "\n");
 
@@ -85,6 +87,11 @@ public class Rissa {
 
         GamePanel.giocatore.controlloSetKarma(0.06);
         System.out.println("karma -" + 0.06);
+
+
+        double numberValue = GamePanel.giocatore.getKarma() * 100;
+        int numeroCasuale = Casuale.numeroCasualeTra(1,20);
+
     }
 
     public static void rapinaAlBar(){

@@ -11,7 +11,20 @@ public class Inventario {
 	}
 
 	public void aggiungiItem(Oggetto item) {
-		inventario.add(item);
+
+		boolean oggettoPresente = false;
+		for (Oggetto i : inventario) {
+
+			if(i.getNome().equalsIgnoreCase(item.getNome())){
+
+				i.setQuantita(item.getQuantita()+i.getQuantita());
+				oggettoPresente = true;
+			}
+		}
+		if (!oggettoPresente) {
+			inventario.add(item);
+		}
+
 	}
 
 	public void rimuoviItem(Oggetto item) {

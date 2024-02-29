@@ -5,7 +5,6 @@ import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
 import Stanze.Questura;
-import Stanze.Questura;
 
 public class Colazione {
 
@@ -73,10 +72,5 @@ public class Colazione {
             }
 
         } while (scelta!=0);
-
-
-
     }
-
-
 }
