@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class Mercato {
 
-
+    private MercatoInputs input = new MercatoInputs();
     private String nome;
     public Mercato(String nome){
         this.nome = nome;
@@ -33,7 +33,7 @@ public class Mercato {
         if (choice > 0 && choice < BancType.values().length+1){
         BancItem shoppedItem = shopping(runningMarket, choice-1);
             if (shoppedItem != null){
-            calculatePrice(shoppedItem);
+            calculatePrice(shoppedItem, this.input);
             }
         }
         else {
@@ -70,7 +70,7 @@ public class Mercato {
     }
 
 
-    public void calculatePrice(BancItem item){
+    public void calculatePrice(BancItem item, MercatoInputs input){
         double price = 0;
         int quantity = 0;
         BancItem chosedItem = item;
@@ -80,7 +80,7 @@ public class Mercato {
             quantity += 1;
         } else {
              System.out.println("quanti grammi vuoi?: ");
-             int grammi = In.inputInt();
+             int grammi = input.getInt();
              quantity += grammi;
              price = item.getPrezzoAlKg() * grammi / 1000;
             System.out.println("hai comprato " + grammi + " di " + item.getItemName() + " per " + price);
