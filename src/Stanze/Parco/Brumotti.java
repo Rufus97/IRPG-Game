@@ -1,7 +1,6 @@
 package Stanze.Parco;
 import Input.In;
 import Main.GamePanel;
-import Player.Personaggio;
 import Player.Oggetto;
 import Stanze.Questura;
 

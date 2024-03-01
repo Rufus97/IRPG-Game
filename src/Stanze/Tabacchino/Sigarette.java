@@ -4,9 +4,9 @@ import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
 
-public class Sigarette {
+public class Sigarette implements Itabacchino{
 
-    public void compraSigarette(){
+    public void run(){
         System.out.println( "I tuoi Soldi " +GamePanel.giocatore.getSoldi()  + "\n");
         System.out.println("che voi zi?");
         int scelta;
@@ -84,7 +84,7 @@ public class Sigarette {
         System.out.println("Apposto capo?");
             
         } while (scelta != 0);
-
+       
     }
 
 }

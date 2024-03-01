@@ -5,20 +5,20 @@ import Input.In;
 import Main.GamePanel;               
 
 
-public class DiecieLotto {
+public class DiecieLotto implements Itabacchino{
 
     int[] numeriGiocatore = new int[10];
     int[] numeriEstratti = new int[20];
     int numeriPresi = 0;
     double costoPartita;
 
+    
     //costruttore
     public DiecieLotto() {
     }
-    
-    //istanza di casuale
+
     int scelta;
-    public void gioca10eLotto(){
+    public void run(){
 
         System.out.println("I tuoi soldi " + GamePanel.giocatore.getSoldi());
         System.out.println("Da quanto la giocata? min 1 max 200 euro");
@@ -41,6 +41,7 @@ public class DiecieLotto {
             System.out.println("Non è stato possibile affettuare la giocata");
 
         }
+       
     }
     public void numeriEstrazione(int numeriEstratti[]){
 

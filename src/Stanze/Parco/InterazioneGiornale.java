@@ -1,7 +1,6 @@
 package Stanze.Parco;
 
 import Main.GamePanel;
-import Player.Personaggio;
 
 public class InterazioneGiornale {
 

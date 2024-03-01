@@ -1,7 +1,6 @@
 package Stanze.puntoSnai.cavalli;
 
 //"🏇" "■" "□"
-import java.util.Collections;
 
 import Input.Casuale;
 
