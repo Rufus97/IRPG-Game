@@ -1,6 +1,5 @@
 package Stanze.Bar;
 
-import Input.Casuale;
 import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;

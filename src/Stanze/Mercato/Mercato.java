@@ -2,9 +2,7 @@ package Stanze.Mercato;
 
 import Input.In;
 import Main.GamePanel;
-import Player.Inventario;
 import Player.Oggetto;
-import Player.Personaggio;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Logic.Market;

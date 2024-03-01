@@ -1,9 +1,9 @@
 package Stanze.Parco;
-import Stanze.Parco.Parchetto;
+
 import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
-import Player.Personaggio;
+
 
 public class InterazioneSpacciatore {
 

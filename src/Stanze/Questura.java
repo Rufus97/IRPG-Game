@@ -3,7 +3,7 @@ package Stanze;
 import Input.In;
 import Main.GamePanel;
 import Main.Menu;
-import Player.Personaggio;
+
 
 public class Questura {
 

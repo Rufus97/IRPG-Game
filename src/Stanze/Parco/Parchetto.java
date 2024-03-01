@@ -1,11 +1,7 @@
 package Stanze.Parco;
 
-import Stanze.Parco.InterazioneCanna;
-import Stanze.Parco.InterazioneSpacciatore;
-
 import Input.In;
 import Main.GamePanel;
-
 
 public class Parchetto {
     private InterazioneSpacciatore interazioneSpacciatore = new InterazioneSpacciatore();

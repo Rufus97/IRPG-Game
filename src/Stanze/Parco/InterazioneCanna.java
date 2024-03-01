@@ -1,7 +1,6 @@
 package Stanze.Parco;
 
 import Main.GamePanel;
-import Player.Personaggio;
 import Player.Oggetto;
 import static Stanze.Parco.Brumotti.attivaEventoBrumotti;
 
