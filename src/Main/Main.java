@@ -1,7 +1,6 @@
 package Main;
 
 
-import Stanze.puntoSnai.Cavalli.Cavallo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
