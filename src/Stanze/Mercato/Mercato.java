@@ -29,30 +29,23 @@ public class Mercato {
             System.out.println(":" + (banc.getKey()+1) + " per  " + banc.getValue().getFirst().getTypeOfBanc());
         }
         System.out.println(":" + 0 + " per uscire");
-        choice = In.inputInt();
+        choice = input.getInt();
         if (choice > 0 && choice < BancType.values().length+1){
         BancItem shoppedItem = shopping(runningMarket, choice-1);
             if (shoppedItem != null){
-            calculatePrice(shoppedItem, this.input);
+            calculatePrice(shoppedItem, input);
             }
-        }
-        else {
-            System.out.println("cerchi una bancarella che non esiste in balia dell' alzheimer, " +
-                    " il camminare senza meta, immerso nelle urla dei mercanti, raffiora in te il ricordo del campo di battaglia, " +
-                    " il tuo cuore si riempe di gioia al ricordo dei TEDESKEN perforati dai tuoi proiettili, " +
-                    " sino a che le loro urla non si perdono tra quelle dei mercanti, e con esse i tuoi ricordi, " +
-                    " ti fanno male i piedi e ti sei cagato addosso ");
-
         }
         } while (choice != 0);
     }
 
 
 
-    public BancItem shopping(Market inizializedMarket, Integer userChoice){
+    public BancItem shopping(Market inizializedMarket, int userChoice){
+
         List<BancItem> shopInventory = inizializedMarket.getOneRandomInventory(userChoice);
         int index = 1;
-        int choice = 0;
+
         BancItem chosedItem;
         System.out.println("cosa desidera? ");
         for (BancItem item : shopInventory){
@@ -60,11 +53,12 @@ public class Mercato {
             index ++;
         }
         System.out.println(0 + ": per uscire");
-        choice = In.inputInt();
-        if (choice == 0){
+        userChoice = input.getInt();
+
+        if (userChoice == 0){
            return null;
         } else {
-        chosedItem = shopInventory.get(choice-1);
+        chosedItem = shopInventory.get(userChoice-1);
         return chosedItem;
         }
     }
