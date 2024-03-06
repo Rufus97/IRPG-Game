@@ -1,7 +1,7 @@
 package Main;
 
 import Input.In;
-import Stanze.Bar.Bar;
+import Stanze.bar.Bar;
 import Stanze.Tabacchino.Tabacchino;
 import Stanze.puntoSnai.PuntoSNAI;
 import Stanze.Cantiere.Cantiere;

@@ -1,4 +1,4 @@
-package Stanze.Bar.alcolici;
+package Stanze.barvecchio.alcolici;
 
 public enum TipoAlcolico {
     VODKA("Vodka", 40),
