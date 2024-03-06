@@ -4,13 +4,11 @@ import Input.In;
 import Main.GamePanel;
 
 public class Cantiere {
-    
-    String nome;
-    Boolean giaStato = false;
-    
-    //costruttore
+
+  
+//costruttore
    public Cantiere(String nome){
-    this.nome = nome;
+    
    }
 
     public void runCantiere(){
@@ -21,7 +19,7 @@ public class Cantiere {
             System.out.println("Cosa vuoi fare?");
             System.out.println("1. Commenta i lavori");         //correggi l operaio
             System.out.println("2. Entra nel cantiere");  //ruba qualcosa rame ferro attrezzi
-            System.out.println("3. Taglia per il cantiere"); //tempo --
+           // System.out.println("3. Taglia per il cantiere"); //tempo --
             System.out.println("0. Torna indietro e prosegui per la destinazione"); //tempo ++
 
             scelta = In.inputInt();
@@ -30,18 +28,17 @@ public class Cantiere {
                 switch (scelta) {
                     case 1:
                         GamePanel.clearScreen();
-                        Commenti commenti = new Commenti();
-                        commenti.commentaLavori();
+                        Action action = new Action();
+                        GamePanel.giocatore.mostraStatistiche();
+                        action.commentaLavori();
                         break;
 
                         case 2: 
                         GamePanel.clearScreen();
                         EntraNelCantiere inCantiere = new EntraNelCantiere();
+                        GamePanel.giocatore.mostraStatistiche();
                         inCantiere.entraNelCantiere();
-                        break;
-
-                        case 3: 
-                        //nulla da fare per il momento
+                        
                         break;
 
                         case 0: 
@@ -56,5 +53,4 @@ public class Cantiere {
                 }
         }while(scelta != 0 );
     }   
-
 }
