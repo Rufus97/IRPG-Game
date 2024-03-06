@@ -2,12 +2,13 @@ package Player;
 
 import Main.GamePanel;
 import Stanze.Ospedale;
+import prompt.Prompt;
 
 public class Personaggio {
 	private String nome;
 	private String sesso;
 	private int HP = 100;
-	private double soldi = 100;
+	private double soldi = 0;
 	private double karma = 0;
 	private double livelloSballo = 0;
 	private double livelloSoddisfazione = 0;
@@ -81,13 +82,14 @@ public class Personaggio {
 
 	public boolean controllaSoldi(Double prezzo) {
 		boolean checkSoldi = false;
+		Prompt prompt = Prompt.getPrompt();
 		// se i soldi del giocatore sono uguali o maggiori del prezzo il boleano ritorna
 		// vero
 		if (GamePanel.giocatore.getSoldi() >= Math.abs(prezzo)) {
 			GamePanel.giocatore.setSoldi(Math.round(prezzo * 100.0) / 100.0);
 			checkSoldi = true;
 		} else {
-			System.out.println("NON HAI UNA LIRA");
+			prompt.choosePrompt(prompt.getPromptNoMoney());;
 		}
 		return checkSoldi;
 	}
