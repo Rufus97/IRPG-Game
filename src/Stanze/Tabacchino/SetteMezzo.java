@@ -3,9 +3,9 @@ package Stanze.Tabacchino;
 import Input.Casuale;
 import Main.GamePanel;
 
-public class SetteMezzo {
+public class SetteMezzo implements Itabacchino{
 
-    public static void giocaSetteMezzo(){
+    public void run(){
 
         double totaleBanco;
         double totaleGiocatore;
@@ -57,6 +57,7 @@ public class SetteMezzo {
         System.out.println("Le carte del banco sono: " +  cartaBanco1 +" " + cartaBanco2);
         System.out.println("Le tue carte sono: " +  cartaGiocatore1 + " " + cartaGiocatore2 + " " + cartaGiocatore3 + "\n");
 
+
     }    
 
     public static double meta(){
@@ -74,7 +75,6 @@ public class SetteMezzo {
         
         double casuale = Casuale.numeroCasuale();
         int premio;
-        System.out.println(casuale);
         if(casuale > 0.7 ){
 
 
