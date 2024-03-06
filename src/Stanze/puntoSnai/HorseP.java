@@ -30,31 +30,40 @@ public class HorseP {
 	}
 
 	public static void runHorses() {
-		//double karma = GamePanel.giocatore.getKarma();
-		//int cavalliNumero = Casuale.numeroCasualeTra(6, 12);
-		boolean isRaceOver=false;
-		StringBuilder output = new StringBuilder();
-		
+		// double karma = GamePanel.giocatore.getKarma();
+		// int cavalliNumero = Casuale.numeroCasualeTra(6, 12);
+		boolean isRaceOver = false;
+
 		while (!isRaceOver) {
-		for (Cavallo cavalloMovente : cavalli) {
-			StringBuilder distanza = cavalloMovente.getDistanza();
-			int emptyIndex = distanza.indexOf("□");
-			
-			if (emptyIndex <=distanza.length()) {
-				distanza.setCharAt(emptyIndex, '■');
+			StringBuilder output = new StringBuilder();
+			for (Cavallo cavalloMovente : cavalli) {
+				StringBuilder distanza = cavalloMovente.getDistanza();
+				int emptyIndex = distanza.indexOf("□");
+				int incremento;
+				incremento = Input.Casuale.numeroCasualeTra(1, 3);
+				for (int i = 0; i < incremento; i++) {
+					int indexTemp=emptyIndex+i;
+					if (indexTemp >= 0 && indexTemp <= distanza.length()-1 && indexTemp != distanza.length()) {
+						distanza.setCharAt(emptyIndex + i, '■');
+					} else {
+						isRaceOver = true;
+						break;
+					}
+				}
+
+				output.append(cavalloMovente.getNome()).append(distanza).append("\n");
+				output.append();
+
 			}
-			//Creazione output
-			output.append(cavalloMovente.getNome()).append(distanza).append("\n");
-		}
-		System.out.println(output.toString());
 
-		try {
-			Thread.sleep(100);
+			System.out.println(output.toString());
 
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-	}
 	}
 
 }
