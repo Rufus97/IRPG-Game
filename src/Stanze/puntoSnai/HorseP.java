@@ -30,21 +30,24 @@ public class HorseP {
 	}
 
 	public static void runHorses() {
-//		double karma = GamePanel.giocatore.getKarma();
-//		int cavalliNumero = Casuale.numeroCasualeTra(6, 12);
+		//double karma = GamePanel.giocatore.getKarma();
+		//int cavalliNumero = Casuale.numeroCasualeTra(6, 12);
 		boolean isRaceOver=false;
 		StringBuilder output = new StringBuilder();
+		
 		while (!isRaceOver) {
 		for (Cavallo cavalloMovente : cavalli) {
 			StringBuilder distanza = cavalloMovente.getDistanza();
-			int emptyIndex = distanza.indexOf("□"); // Trova l'indice della prima casella vuota
-			if (emptyIndex != -1) { // Se c'è almeno una casella vuota
-				distanza.setCharAt(emptyIndex, '■'); // Riempie la casella vuota più vicina da sinistra
+			int emptyIndex = distanza.indexOf("□");
+			
+			if (emptyIndex <=distanza.length()) {
+				distanza.setCharAt(emptyIndex, '■');
 			}
+			//Creazione output
 			output.append(cavalloMovente.getNome()).append(distanza).append("\n");
 		}
 		System.out.println(output.toString());
-//		Timer da comprendere
+
 		try {
 			Thread.sleep(100);
 
