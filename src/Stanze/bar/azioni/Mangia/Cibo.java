@@ -6,7 +6,7 @@ public enum Cibo {
     CROSTATINA("Crostata", 2D),
     CHEESECAKE("Fetta di cheesecake", 3D),
     MUFFIN("Muffin", 2.50),
-    COOCKIE("Coockie", 1.50),
+    COOKIE("Cookie", 1.50),
     TRAMEZZINO("Tramezzino", 1.80),
     PANINO("Panino", 2.50),
     PIZZETTA("Pizzetta", 2.50);
@@ -28,9 +28,8 @@ public enum Cibo {
 
     @Override
     public String toString() {
-        return "Cibo{" +
-                "nome='" + nome + '\'' +
-                ", prezzo=" + prezzo +
-                '}';
+        return
+                nome +
+                ", " + prezzo + "€";
     }
 }

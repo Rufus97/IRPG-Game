@@ -8,7 +8,7 @@ public class Personaggio {
 	private String nome;
 	private String sesso;
 	private int HP = 100;
-	private double soldi = 0;
+	private double soldi = 100;
 	private double karma = 0;
 	private double livelloSballo = 0;
 	private double livelloSoddisfazione = 0;
