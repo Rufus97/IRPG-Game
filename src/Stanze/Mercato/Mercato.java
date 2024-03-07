@@ -47,7 +47,7 @@ public class Mercato {
         RandomDice rng = new RandomDice();
         int index = 1;
         Integer rngResult = rng.getDado(1,10);
-        if (rngResult <= 20){
+        if (rngResult <= 2){
             TreCarte treCarte = new TreCarte();
             System.out.println("come il canto di una sirena, le urla di un tizio poco affidabile" +
                     " ti incantano sino a raggiungere il tavolo, l'incantatore prestigia con 3 carte " +
