@@ -3,6 +3,8 @@ package Stanze.Mercato;
 import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
+import Stanze.Mercato.AzioniMercato.RandomDice;
+import Stanze.Mercato.AzioniMercato.SubAzioni.TreCarte;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Logic.Market;
@@ -42,7 +44,16 @@ public class Mercato {
     public BancItem shopping(Market inizializedMarket, int userChoice, MercatoInputs newInput){
 
         List<BancItem> shopInventory = inizializedMarket.getOneRandomInventory(userChoice);
+        RandomDice rng = new RandomDice();
         int index = 1;
+        Integer rngResult = rng.getDado(1,10);
+        if (rngResult <= 20){
+            TreCarte treCarte = new TreCarte();
+            System.out.println("come il canto di una sirena, le urla di un tizio poco affidabile" +
+                    " ti incantano sino a raggiungere il tavolo, l'incantatore prestigia con 3 carte " +
+                    " e ti invita a sceglierne 1");
+            treCarte.runAction(newInput);
+        }
 
         BancItem chosedItem;
         System.out.println("cosa desidera? ");
@@ -51,7 +62,9 @@ public class Mercato {
             index ++;
         }
         System.out.println(0 + ": per uscire");
+
         userChoice = newInput.getInt();
+
 
         if (userChoice == 0){
            return null;
