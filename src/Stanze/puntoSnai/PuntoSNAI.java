@@ -2,9 +2,10 @@ package Stanze.puntoSnai;
 
 import Input.In;
 import Main.GamePanel;
+import Stanze.Stanza;
 
-public class PuntoSNAI {
-	public void runPSNAI() {
+public class PuntoSNAI implements Stanza {
+	public void runStanza() {
 
 		int scelta;
 
@@ -35,8 +36,13 @@ public class PuntoSNAI {
 				break;
 			}
 
-		} while (scelta != 3);
+		} while (scelta != 0);
 
+	}
+
+	@Override
+	public String getNomeStanza() {
+		return "Punto SNAI";
 	}
 
 }

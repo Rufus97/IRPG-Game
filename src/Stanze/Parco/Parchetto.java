@@ -2,11 +2,12 @@ package Stanze.Parco;
 
 import Input.In;
 import Main.GamePanel;
+import Stanze.Stanza;
 
-public class Parchetto {
+public class Parchetto implements Stanza {
     private InterazioneSpacciatore interazioneSpacciatore = new InterazioneSpacciatore();
 
-    public void runParcchetto() {
+    public void runStanza() {
         System.out.println("Benvenuto al parchetto di Tor bella Monaca");
         boolean continua = true;
 
@@ -33,6 +34,11 @@ public class Parchetto {
                     System.out.println("Scelta non valida. Riprova.");
             }
         }
+    }
+
+    @Override
+    public String getNomeStanza() {
+        return "Parco";
     }
 
     public void vieneArrestato() {

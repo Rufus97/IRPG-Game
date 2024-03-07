@@ -5,8 +5,9 @@ import java.util.Map;
 
 import Input.In;
 import Main.GamePanel;
+import Stanze.Stanza;
 
-public class Tabacchino{
+public class Tabacchino implements Stanza {
 
     Map<Integer, Itabacchino> methodMap = new HashMap<>();
 
@@ -14,7 +15,7 @@ public class Tabacchino{
         
     }
 
-    public void runTabacchino(){
+    public void runStanza(){
 
         int scelta;
         methodMap.put(1, new DiecieLotto());
@@ -37,6 +38,11 @@ public class Tabacchino{
             methodMap.get(scelta).run();
         }
        
+    }
+
+    @Override
+    public String getNomeStanza() {
+        return "Tabacchino";
     }
 
 }

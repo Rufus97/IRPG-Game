@@ -2,6 +2,7 @@ package Stanze.bar;
 
 import Input.In;
 import Main.GamePanel;
+import Stanze.Stanza;
 import Stanze.bar.azioni.*;
 import Stanze.bar.azioni.mangiaQualcosa.Mangia;
 import Stanze.bar.azioni.cocktail.Cocktail;
@@ -9,7 +10,7 @@ import Stanze.bar.azioni.cocktail.Cocktail;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Bar {
+public class Bar implements Stanza {
     private Map<Integer, Azione> azioni = new HashMap<>();
 
     public Bar() {
@@ -23,25 +24,26 @@ public class Bar {
         this.azioni.put(0 , new Azione("Esci", "blabla"));
     }
 
-    public void runBar(){
-    
+    @Override
+    public void runStanza() {
         int scelta;
-       
-        do {GamePanel.giocatore.mostraStatistiche();
 
-            for(Map.Entry<Integer, Azione> elemento : azioni.entrySet()){
-                System.out.println(elemento.getKey() + ". " + elemento.getValue().getNome());
-            }
+        GamePanel.giocatore.mostraStatistiche();
 
-            scelta = In.inputForMaps(azioni);
-            GamePanel.clearScreen();
+        for(Map.Entry<Integer, Azione> elemento : azioni.entrySet()){
+            System.out.println(elemento.getKey() + ". " + elemento.getValue().getNome());
+        }
 
-            this.azioni.get(scelta).run();
+        scelta = In.inputForMaps(azioni);
+        GamePanel.clearScreen();
 
-        } while (scelta!=0);
+        this.azioni.get(scelta).run();
+
 
     }
 
-
-    
+    @Override
+    public String getNomeStanza() {
+        return "Bar";
+    }
 }
