@@ -48,14 +48,14 @@ public class Mercato {
         RandomDice rng = new RandomDice();
         int index = 1;
         Integer rngResult = rng.getDado(1,10);
-        if (rngResult <= 2){
+        if (rngResult > 1 && rngResult <= 3){
             TreCarte treCarte = new TreCarte();
             System.out.println("come il canto di una sirena, le urla di un tizio poco affidabile" +
                     " ti incantano sino a raggiungere il tavolo, l'incantatore prestigia con 3 carte " +
                     " e ti invita a sceglierne 1");
             treCarte.runAction(newInput);
         }
-        if (rngResult <= 1){
+        if (rngResult == 1){
             Napoletano ciro = new Napoletano();
             ciro.furto(newInput);
         }
