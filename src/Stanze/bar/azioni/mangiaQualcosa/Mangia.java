@@ -5,7 +5,9 @@ import Input.In;
 import Main.GamePanel;
 import Stanze.bar.Azione;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Mangia extends Azione {
 

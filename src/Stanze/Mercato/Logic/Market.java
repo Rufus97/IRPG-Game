@@ -23,8 +23,9 @@ public class Market {
     public List<BancItem> getOneRandomInventory(Integer key){
         List<BancItem> newInventory = this.mapOfBancs.get(key);
         List<BancItem> newRngInventory = new ArrayList<>();
+        int rngItems = Casuale.numeroCasualeTra(1,5);
 
-        for (int index = 2; index < newInventory.size(); index++){
+        for (int index = rngItems; index < newInventory.size(); index++){
             int rngWichItems = Casuale.numeroCasualeTra(0, newInventory.size()-1);
             if (!newRngInventory.contains(newInventory.get(rngWichItems))){
             newRngInventory.add(newInventory.get(rngWichItems));

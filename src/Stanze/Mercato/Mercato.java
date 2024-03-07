@@ -3,6 +3,8 @@ package Stanze.Mercato;
 import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
+import Stanze.Mercato.AzioniMercato.RandomDice;
+import Stanze.Mercato.AzioniMercato.SubAzioni.TreCarte;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Logic.Market;
@@ -12,7 +14,7 @@ import java.util.Map;
 
 public class Mercato {
 
-
+    private MercatoInputs input = new MercatoInputs();
     private String nome;
     public Mercato(String nome){
         this.nome = nome;
@@ -27,30 +29,32 @@ public class Mercato {
             System.out.println(":" + (banc.getKey()+1) + " per  " + banc.getValue().getFirst().getTypeOfBanc());
         }
         System.out.println(":" + 0 + " per uscire");
-        choice = In.inputInt();
+        choice = input.getInt();
         if (choice > 0 && choice < BancType.values().length+1){
-        BancItem shoppedItem = shopping(runningMarket, choice-1);
+        BancItem shoppedItem = shopping(runningMarket, choice-1, this.input);
             if (shoppedItem != null){
-            calculatePrice(shoppedItem);
+            calculatePrice(shoppedItem, input);
             }
-        }
-        else {
-            System.out.println("cerchi una bancarella che non esiste in balia dell' alzheimer, " +
-                    " il camminare senza meta, immerso nelle urla dei mercanti, raffiora in te il ricordo del campo di battaglia, " +
-                    " il tuo cuore si riempe di gioia al ricordo dei TEDESKEN perforati dai tuoi proiettili, " +
-                    " sino a che le loro urla non si perdono tra quelle dei mercanti, e con esse i tuoi ricordi, " +
-                    " ti fanno male i piedi e ti sei cagato addosso ");
-
         }
         } while (choice != 0);
     }
 
 
 
-    public BancItem shopping(Market inizializedMarket, Integer userChoice){
+    public BancItem shopping(Market inizializedMarket, int userChoice, MercatoInputs newInput){
+
         List<BancItem> shopInventory = inizializedMarket.getOneRandomInventory(userChoice);
+        RandomDice rng = new RandomDice();
         int index = 1;
-        int choice = 0;
+        Integer rngResult = rng.getDado(1,10);
+        if (rngResult <= 2){
+            TreCarte treCarte = new TreCarte();
+            System.out.println("come il canto di una sirena, le urla di un tizio poco affidabile" +
+                    " ti incantano sino a raggiungere il tavolo, l'incantatore prestigia con 3 carte " +
+                    " e ti invita a sceglierne 1");
+            treCarte.runAction(newInput);
+        }
+
         BancItem chosedItem;
         System.out.println("cosa desidera? ");
         for (BancItem item : shopInventory){
@@ -58,17 +62,23 @@ public class Mercato {
             index ++;
         }
         System.out.println(0 + ": per uscire");
-        choice = In.inputInt();
-        if (choice == 0){
+
+        userChoice = newInput.getInt();
+
+
+        if (userChoice == 0){
            return null;
-        } else {
-        chosedItem = shopInventory.get(choice-1);
+        } else if (userChoice > 1 && userChoice < shopInventory.size()){
+        chosedItem = shopInventory.get(userChoice-1);
         return chosedItem;
+        } else {
+            System.out.println("non ci sta quello che vuoi te, torni a vedere le bancarelle");
+            return null;
         }
     }
 
 
-    public void calculatePrice(BancItem item){
+    public void calculatePrice(BancItem item, MercatoInputs input){
         double price = 0;
         int quantity = 0;
         BancItem chosedItem = item;
@@ -78,7 +88,7 @@ public class Mercato {
             quantity += 1;
         } else {
              System.out.println("quanti grammi vuoi?: ");
-             int grammi = In.inputInt();
+             int grammi = input.getInt();
              quantity += grammi;
              price = item.getPrezzoAlKg() * grammi / 1000;
             System.out.println("hai comprato " + grammi + " di " + item.getItemName() + " per " + price);
