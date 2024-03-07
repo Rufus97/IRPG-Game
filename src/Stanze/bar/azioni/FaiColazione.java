@@ -11,10 +11,11 @@ public class FaiColazione extends Azione {
     @Override
     public void run(){
 
+        GamePanel.clearScreen();
 
         if(GamePanel.giocatore.controllaSoldi(-2.5)) {
             GamePanel.giocatore.controlloSetHP(5);
-            System.out.println("Hai inzuppato il cornetto nel cappuccino e stai subito meglio!");
+            System.out.println("Bono sto cornetto inzuppato ner cappuccino!");
         }
     }
 }
