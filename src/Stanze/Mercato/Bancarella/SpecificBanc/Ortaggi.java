@@ -1,6 +1,6 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
-import Stanze.Mercato.Bancarella.BancType;
+
 import Stanze.Mercato.Bancarella.BancItem;
 
 public class Ortaggi extends BancItem {

@@ -58,17 +58,25 @@ public class MarketTest {
 
         assertEquals(98.2, GamePanel.giocatore.getSoldi(), 1);
     }
+
     @Test
-    public void shoppingTest(){
+    public void shoppingIsWorking(){
         MercatoInputs input = Mockito.mock(MercatoInputs.class);
         Market newMarket = Mockito.mock(Market.class);
-
-        List<BancItem> testList = BancType.PESCE.getInventory();
-        when(newMarket.getOneRandomInventory(1)).thenReturn(testList);
+        Mercato testMercato = new Mercato("test");
         when(input.getInt()).thenReturn(1);
+        when(newMarket.getOneRandomInventory(1)).thenReturn(BancType.VESTITI.getInventory());
 
-        Mercato newMercato = new Mercato("newMarket");
-        BancItem test = newMercato.shopping(newMarket, input.getInt());
-        assertEquals("aringa", test.getItemName());
+       assertEquals(BancType.VESTITI.getInventory().getFirst(),testMercato.shopping(newMarket, 1,input) );
+    }
+    @Test
+    public void shoppingReturnsNull(){
+        MercatoInputs input = Mockito.mock(MercatoInputs.class);
+        Market newMarket = Mockito.mock(Market.class);
+        Mercato testMercato = new Mercato("test");
+        when(input.getInt()).thenReturn(10);
+        when(newMarket.getOneRandomInventory(1)).thenReturn(BancType.VESTITI.getInventory());
+
+        assertEquals(null,testMercato.shopping(newMarket, 1,input) );
     }
 }

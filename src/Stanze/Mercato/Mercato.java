@@ -2,9 +2,7 @@ package Stanze.Mercato;
 
 import Input.In;
 import Main.GamePanel;
-import Player.Inventario;
 import Player.Oggetto;
-import Player.Personaggio;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Logic.Market;
@@ -31,7 +29,7 @@ public class Mercato {
         System.out.println(":" + 0 + " per uscire");
         choice = input.getInt();
         if (choice > 0 && choice < BancType.values().length+1){
-        BancItem shoppedItem = shopping(runningMarket, choice-1);
+        BancItem shoppedItem = shopping(runningMarket, choice-1, this.input);
             if (shoppedItem != null){
             calculatePrice(shoppedItem, input);
             }
@@ -41,7 +39,7 @@ public class Mercato {
 
 
 
-    public BancItem shopping(Market inizializedMarket, int userChoice){
+    public BancItem shopping(Market inizializedMarket, int userChoice, MercatoInputs newInput){
 
         List<BancItem> shopInventory = inizializedMarket.getOneRandomInventory(userChoice);
         int index = 1;
@@ -53,13 +51,16 @@ public class Mercato {
             index ++;
         }
         System.out.println(0 + ": per uscire");
-        userChoice = input.getInt();
+        userChoice = newInput.getInt();
 
         if (userChoice == 0){
            return null;
-        } else {
+        } else if (userChoice > 1 && userChoice < shopInventory.size()){
         chosedItem = shopInventory.get(userChoice-1);
         return chosedItem;
+        } else {
+            System.out.println("non ci sta quello che vuoi te, torni a vedere le bancarelle");
+            return null;
         }
     }
 

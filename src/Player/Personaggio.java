@@ -2,11 +2,12 @@ package Player;
 
 import Main.GamePanel;
 import Stanze.Ospedale;
+import prompt.Prompt;
 
 public class Personaggio {
 	private String nome;
 	private String sesso;
-	private int HP = 50;
+	private int HP = 0;
 	private double soldi = 100;
 	private double karma = 0;
 	private double livelloSballo = 0;
@@ -72,54 +73,71 @@ public class Personaggio {
 	}
 
 	public void setLivelloSballo(double livelloSballo) {
-		this.livelloSballo = livelloSballo;
+		this.livelloSballo += livelloSballo;
 	}
 
 	public void setLivelloSoddisfazione(double livelloSoddisfazione) {
-		this.livelloSoddisfazione = livelloSoddisfazione;
+		this.livelloSoddisfazione += livelloSoddisfazione;
 	}
 
 	public boolean controllaSoldi(Double prezzo) {
 		boolean checkSoldi = false;
+		Prompt prompt = Prompt.getPrompt();
 		// se i soldi del giocatore sono uguali o maggiori del prezzo il boleano ritorna
 		// vero
 		if (GamePanel.giocatore.getSoldi() >= Math.abs(prezzo)) {
 			GamePanel.giocatore.setSoldi(Math.round(prezzo * 100.0) / 100.0);
 			checkSoldi = true;
 		} else {
-			System.out.println("NON HAI UNA LIRA");
+			prompt.choosePrompt(prompt.getPromptNoMoney());;
 		}
 		return checkSoldi;
 	}
 
-	public void controllaHP(int HPValue) {
+	public void controlloSetHP(int HPValue) {
 
-		if (GamePanel.giocatore.getHP() + HPValue <= 0) {
-			GamePanel.giocatore.setHP(HPValue);
+		if (GamePanel.giocatore.getHP() + HPValue > 100) {
+			HP = 100;
+		}else if(GamePanel.giocatore.getHP() + HPValue <= 0) {
+			this.HP = 0;
 			System.out.println("sei morto" + GamePanel.giocatore.getHP());
 			Ospedale.HP0();
-		} else if (GamePanel.giocatore.getHP() + HPValue > 100) {
-			HP = 100;
 		} else {
-			GamePanel.giocatore.setHP(HPValue);
+			setHP(HPValue);
 		}
 	}
-	public void controllaKarma(double karmaValue){
+	public void controlloSetKarma(double karmaValue){
 
 		if(GamePanel.giocatore.getKarma() + karmaValue >= 1){
 			this.karma = 1;
 		}else if(GamePanel.giocatore.getKarma() + karmaValue < -1){
 			this.karma = -1;
+		}else{
+			setKarma(karmaValue);
 		}
 	}
 
-	public void controllaSballo(double sballoValue){
+	public void controlloSetSoddisfazione(double soddisfazioneValue){
+
+		if(GamePanel.giocatore.getLivelloSoddisfazione() + soddisfazioneValue >= 1){
+			this.livelloSoddisfazione = 1;
+		}else if(GamePanel.giocatore.getLivelloSoddisfazione() + soddisfazioneValue < -1){
+			this.livelloSoddisfazione = -1;
+		}else{
+			setLivelloSoddisfazione(soddisfazioneValue);
+		}
+	}
+
+	public void controlloSetSballo(double sballoValue){
 
 		if(GamePanel.giocatore.getLivelloSballo() + sballoValue >= 1){
 			this.livelloSballo = 1;
-		}else if(GamePanel.giocatore.getLivelloSballo() + sballoValue < -1){
-			this.livelloSballo = -1;
+		}else if(GamePanel.giocatore.getLivelloSballo() + sballoValue < 0){
+			this.livelloSballo = 0;
+		}else{
+			setLivelloSballo(sballoValue);
 		}
-
 	}
+
+	
 }
