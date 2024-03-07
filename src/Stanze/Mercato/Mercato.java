@@ -8,19 +8,17 @@ import Stanze.Mercato.AzioniMercato.SubAzioni.TreCarte;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Logic.Market;
+import Stanze.Stanza;
 
 import java.util.List;
 import java.util.Map;
 
-public class Mercato {
+public class Mercato implements Stanza {
 
     private MercatoInputs input = new MercatoInputs();
-    private String nome;
-    public Mercato(String nome){
-        this.nome = nome;
-    }
 
-    public void runMercato(){
+    @Override
+    public void runStanza(){
         Market runningMarket = new Market();
         Integer choice = 0;
         do {
@@ -39,6 +37,10 @@ public class Mercato {
         } while (choice != 0);
     }
 
+    @Override
+    public String getNomeStanza() {
+        return "Mercato";
+    }
 
 
     public BancItem shopping(Market inizializedMarket, int userChoice, MercatoInputs newInput){
@@ -110,5 +112,7 @@ public class Mercato {
         System.out.println(GamePanel.inventario);
         System.out.println("Soldi attuali: " + GamePanel.giocatore.getSoldi());
     }
+
+
 
 }
