@@ -1,8 +1,14 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
+
+import Main.GamePanel;
+import Player.Oggetto;
+import Stanze.Mercato.Bancarella.BancType;
+
 import Stanze.Mercato.Bancarella.BancItem;
 
-public class Carne extends BancItem {
+
+ public  class Carne extends BancItem{
 
     public Carne(String meatName, double prezzoAlKg){
         super.setItemName(meatName);
@@ -16,4 +22,5 @@ public class Carne extends BancItem {
                 " prezzo al Kg: " + super.getPrezzoAlKg() +
                 '}';
     }
+
 }
