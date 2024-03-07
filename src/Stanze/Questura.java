@@ -30,6 +30,7 @@ public class Questura {
                     break;
                 case 3:
                     questura.chiamaAvvocato();
+                    continua = false;
                     break;
                 case 4:
                     questura.tentaLaFuga();
@@ -55,6 +56,7 @@ public class Questura {
         System.out.println("Il telefono squilla e senti la voce dell'avvocato Diprè che ti dice di stare tranquillo e che pagherà la cauzione.");
         GamePanel.giocatore.setSoldi(GamePanel.giocatore.getSoldi() - 500); // Sottrai 500 euro dai soldi del giocatore
         System.out.println("Ti vengono scalati 500 euro, ma almeno torni a piede libero.");
+
 
         // Ritorna al menu principale
         Menu.VaiA();

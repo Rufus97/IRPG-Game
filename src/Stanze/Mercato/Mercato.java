@@ -4,6 +4,7 @@ import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
 import Stanze.Mercato.AzioniMercato.RandomDice;
+import Stanze.Mercato.AzioniMercato.SubAzioni.Napoletano;
 import Stanze.Mercato.AzioniMercato.SubAzioni.TreCarte;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
@@ -31,7 +32,7 @@ public class Mercato {
         System.out.println(":" + 0 + " per uscire");
         choice = input.getInt();
         if (choice > 0 && choice < BancType.values().length+1){
-        BancItem shoppedItem = shopping(runningMarket, choice-1, this.input);
+        BancItem shoppedItem = shopping(runningMarket, choice-1, input);
             if (shoppedItem != null){
             calculatePrice(shoppedItem, input);
             }
@@ -54,6 +55,10 @@ public class Mercato {
                     " e ti invita a sceglierne 1");
             treCarte.runAction(newInput);
         }
+        if (rngResult <= 1){
+            Napoletano ciro = new Napoletano();
+            ciro.furto(newInput);
+        }
 
         BancItem chosedItem;
         System.out.println("cosa desidera? ");
@@ -68,7 +73,7 @@ public class Mercato {
 
         if (userChoice == 0){
            return null;
-        } else if (userChoice > 0 && userChoice < shopInventory.size()){
+        } else if (userChoice > 0 && userChoice <= shopInventory.size()){
         chosedItem = shopInventory.get(userChoice-1);
         return chosedItem;
         } else {

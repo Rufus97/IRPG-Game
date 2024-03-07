@@ -41,10 +41,19 @@ public class TreCarte implements AzioniMercato {
                 System.out.println("ma come è possibile... ha vinto...");
                 GamePanel.giocatore.setSoldi(20.0);
                 System.out.println(GamePanel.giocatore.getSoldi());
+
             } else {
                 System.out.println("aaah ma che zella, c'eri quasi!");
-                GamePanel.giocatore.setSoldi(-20.0);
-                System.out.println(GamePanel.giocatore.getSoldi());
+                if (GamePanel.giocatore.controllaSoldi(-20.0)){
+                    System.out.println(GamePanel.giocatore.getSoldi());
+                } else {
+                    System.out.println("ah si non hai 20 euro? PAGHERAI CON LA VITA!!!" +
+                             "\n il buon mercante ti accoltella con la sua daga, i 20 euro li hai pagati in hp");
+                    GamePanel.giocatore.controlloSetHP(-20);
+                    GamePanel.giocatore.mostraStatistiche();
+                }
+
+
             }
         } else {
             chooseACard(userInput);
