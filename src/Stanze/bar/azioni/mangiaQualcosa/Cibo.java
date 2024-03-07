@@ -1,4 +1,4 @@
-package Stanze.bar.azioni.Mangia;
+package Stanze.bar.azioni.mangiaQualcosa;
 
 public enum Cibo {
     CORNETTO("Cornetto", 1.20),

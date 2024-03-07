@@ -4,6 +4,8 @@ import Input.In;
 import Player.Inventario;
 import Player.Personaggio;
 
+import java.io.IOException;
+
 public class GamePanel {
 
 	public static final Personaggio giocatore = new Personaggio();
@@ -53,4 +55,9 @@ public class GamePanel {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}
+
+	public static void prova() throws IOException, InterruptedException {
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+	}
+	
 }

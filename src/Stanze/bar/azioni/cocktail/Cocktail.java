@@ -1,16 +1,21 @@
-package Stanze.barvecchio.alcolici;
+package Stanze.bar.azioni.cocktail;
 
 import Input.In;
+import Stanze.bar.Azione;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cocktail {
+public class Cocktail extends Azione {
     private double tassoAlcolico;
     private int capienzaMassima = 200;
     List<TipoAlcolico> alcolici = new ArrayList<>();
-    public Cocktail() {
+    public Cocktail(String nome, double prezzo, String descrizione) {
+        super(nome, prezzo, descrizione);
+    }
+
+    public void run() {
 
         int counter = 3;
         int scelta;
@@ -28,7 +33,6 @@ public class Cocktail {
         double percentualeTassoAlcolemico = (sommaTassoAlcolemico / (counter * 100)) * capienzaMassima;
 
     }
-
     @Override
     public String toString() {
         return "Cocktail{" +

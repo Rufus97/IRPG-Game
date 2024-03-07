@@ -1,4 +1,4 @@
-package Stanze.bar.azioni.Mangia;
+package Stanze.bar.azioni.mangiaQualcosa;
 
 import Input.Casuale;
 import Input.In;

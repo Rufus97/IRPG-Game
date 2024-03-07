@@ -46,5 +46,7 @@ public class BeviUnaBirra extends Azione {
         scelta = In.inputInt();
         GamePanel.clearScreen();
 
+
+
     }
 }
