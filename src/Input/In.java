@@ -1,5 +1,6 @@
 package Input;
 
+import java.util.Map;
 import java.util.Scanner;
 
 /* Classe dedicata unicamente agli input degli utenti.
@@ -26,6 +27,21 @@ public class In {
 
 		} while (check);
 		return sc;
+	}
+
+	public static int inputForMaps(Map mappa){
+		int x;
+		boolean check;
+		do {
+			check = true;
+			x = inputInt();
+			if (!(x <= mappa.size() && x >= 0)) {
+				check = false;
+				System.out.println("input errato");
+			}
+
+		} while (!check);
+		return x;
 	}
 
 }
