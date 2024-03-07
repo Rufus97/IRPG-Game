@@ -68,7 +68,7 @@ public class Mercato {
 
         if (userChoice == 0){
            return null;
-        } else if (userChoice > 1 && userChoice < shopInventory.size()){
+        } else if (userChoice > 0 && userChoice < shopInventory.size()){
         chosedItem = shopInventory.get(userChoice-1);
         return chosedItem;
         } else {
