@@ -1,17 +1,14 @@
-package Stanze.Mercato.AzioniMercato.SubAzioni;
+package Stanze.Mercato.AzioniMercato.RandomEvents;
 
-import Input.In;
 import Main.GamePanel;
-import Stanze.Mercato.AzioniMercato.AzioniMercato;
 import Stanze.Mercato.AzioniMercato.RandomDice;
 import Stanze.Mercato.MercatoInputs;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TreCarte implements AzioniMercato {
+public class TreCarte{
 
     public String nome;
     public Map<Integer, String> carte = Map.of(1, "carta 1", 2, "carta 2", 3, "carta 3");
@@ -19,7 +16,7 @@ public class TreCarte implements AzioniMercato {
     private MercatoInputs treCarteInput = new MercatoInputs();
 
 
-    @Override
+
     public void runAction(Object userInput) {
         chooseACard(treCarteInput);
     }

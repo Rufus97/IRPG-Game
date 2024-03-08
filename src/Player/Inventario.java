@@ -33,6 +33,10 @@ public class Inventario {
 	public void svuotaInventario(){inventario.clear();}
 
 
+	public ArrayList<Oggetto> getInventario() {
+		return inventario;
+	}
+
 	public int quantitaItem(Oggetto item) {
 		int quantita = 0;
 		for (Oggetto oggettoDaContare : inventario) {

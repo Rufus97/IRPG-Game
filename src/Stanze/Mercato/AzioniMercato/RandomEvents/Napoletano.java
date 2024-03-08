@@ -1,11 +1,8 @@
-package Stanze.Mercato.AzioniMercato.SubAzioni;
+package Stanze.Mercato.AzioniMercato.RandomEvents;
 
-import Input.In;
 import Main.GamePanel;
 import Stanze.Mercato.AzioniMercato.RandomDice;
 import Stanze.Mercato.MercatoInputs;
-
-import java.util.Scanner;
 
 public class Napoletano {
 

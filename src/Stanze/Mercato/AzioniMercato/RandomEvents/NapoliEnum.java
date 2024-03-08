@@ -1,4 +1,4 @@
-package Stanze.Mercato.AzioniMercato.SubAzioni;
+package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 public enum NapoliEnum {
     GOLLUM(1,10),

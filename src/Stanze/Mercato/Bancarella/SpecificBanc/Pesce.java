@@ -1,9 +1,10 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.ConsumableItems;
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Bancarella.BancItem;
 
-public class Pesce extends BancItem {
+public class Pesce extends BancItem implements ConsumableItems {
 
     public Pesce(String fishName, double prezzoAlKg){
         super.setItemName(fishName);
@@ -15,6 +16,17 @@ public class Pesce extends BancItem {
         return
                 "Item name: " + super.getItemName() + '\'' +
                 " prezzo al Kg: " + super.getPrezzoAlKg() +
-                '}';
+                        " quantita: " + super.getQuantity() +
+                        '}';
+    }
+
+    @Override
+    public void consumeItem() {
+
+    }
+
+    @Override
+    public void removeItem() {
+
     }
 }
