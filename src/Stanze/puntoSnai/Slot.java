@@ -23,8 +23,9 @@ public class Slot {
 			GamePanel.clearScreen();
 			int[][] risultato = spin();
 			stampaRisultato(risultato);
-			int vincita = vincitaTotale(risultato);
+			double vincita = vincitaTotale(risultato);
 			System.out.println("Vincita totale: " + vincita);
+			GamePanel.giocatore.controllaSoldi(vincita);
 		} else {
 			System.out.println("Non è stato possibile effettuare la giocata");
 		}

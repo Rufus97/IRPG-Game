@@ -4,6 +4,7 @@ import Input.In;
 import Player.Inventario;
 import Player.Personaggio;
 import Stanze.Stanza;
+import Stanze.puntoSnai.HorseP;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -35,6 +36,7 @@ public class GamePanel {
 			case 1:
 				Menu menu = new Menu();
 				menu.VaiA();
+			
 				break;
 
 			case 2:
@@ -57,8 +59,8 @@ public class GamePanel {
 
 	// METODO CANCELLA SCHERMO
 	public static void clearScreen() {
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
+		//System.out.print("\033[H\033[2J");
+		//System.out.flush();
 	}
 
 	public static void prova() throws IOException, InterruptedException {

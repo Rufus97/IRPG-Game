@@ -27,8 +27,8 @@ public class PuntoSNAI implements Stanza {
 				break;
 
 			case 2:
-				System.out.println();
-				HorseP.runHorses();
+				HorseP cavallo = new HorseP();
+				cavallo.runHorses();
 				break;
 
 			case 0:

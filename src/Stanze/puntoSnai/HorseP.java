@@ -1,9 +1,6 @@
 package Stanze.puntoSnai;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import Input.Casuale;
+import java.util.ArrayList;
 import Main.GamePanel;
 import Stanze.puntoSnai.cavalli.Cavallo;
 
@@ -11,53 +8,68 @@ import Stanze.puntoSnai.cavalli.Cavallo;
 // "\uD83D\u25CB"
 // "\uD83D\u25CF"
 public class HorseP {
-	private static Map<Integer, Cavallo> cavalli = new HashMap<>();
+	private static ArrayList<Cavallo> cavalli = new ArrayList<>();
 
 	public HorseP() {
-		cavalli.put(1, new Cavallo("Pasquale "));
-		cavalli.put(2, new Cavallo("Shadow   "));
-		cavalli.put(3, new Cavallo("Spirit   "));
-		cavalli.put(4, new Cavallo("Midnight "));
-		cavalli.put(5, new Cavallo("Bella    "));
-		cavalli.put(6, new Cavallo("Apollo   "));
-		cavalli.put(7, new Cavallo("Dusty    "));
-		cavalli.put(8, new Cavallo("Rusty    "));
-		cavalli.put(9, new Cavallo("Whisper  "));
-		cavalli.put(10, new Cavallo("Stormy   "));
-		cavalli.put(11, new Cavallo("Blaze    "));
-		cavalli.put(12, new Cavallo("Sunny    "));
+		cavalli.add(new Cavallo("Pasquale "));
+		cavalli.add(new Cavallo("Shadow   "));
+		cavalli.add(new Cavallo("Spirit   "));
+		cavalli.add(new Cavallo("Midnight "));
+		cavalli.add(new Cavallo("Bella    "));
+		cavalli.add(new Cavallo("Apollo   "));
+		cavalli.add(new Cavallo("Dusty    "));
+		cavalli.add(new Cavallo("Rusty    "));
+		cavalli.add(new Cavallo("Whisper  "));
+		cavalli.add(new Cavallo("Stormy   "));
+		cavalli.add(new Cavallo("Blaze    "));
+		cavalli.add(new Cavallo("Sunny    "));
 	}
 
 	public static void runHorses() {
-	    GamePanel.clearScreen();
-	    double karma = GamePanel.giocatore.getKarma();
-	    int cavalliNumero = Casuale.numeroCasualeTra(6, 12);
+		// double karma = GamePanel.giocatore.getKarma();
+		// int cavalliNumero = Casuale.numeroCasualeTra(6, 12);
+		boolean isRaceOver = false;
+		Cavallo winnerStud = null;
+		int vincita = 0;
+		do {
+			StringBuilder output = new StringBuilder();
+			for (Cavallo cavalloMovente : cavalli) {
+				StringBuilder distanza = cavalloMovente.getDistanza();
+				int emptyIndex = distanza.indexOf("□");
+				int incremento;
+				incremento = Input.Casuale.numeroCasualeTra(1, 3);
 
-	    for (int i = 0; i < 20; i++) { // Per 20 tick
-	        GamePanel.clearScreen();
-	        StringBuilder output = new StringBuilder();
-	        
-	        for (Map.Entry<Integer, Cavallo> entry : cavalli.entrySet()) {
-	            Cavallo cavallo = entry.getValue();
-	            StringBuilder distanza = cavallo.getDistanza();
-	            int index = distanza.indexOf("□"); // Trova l'indice della prima casella vuota
-	            if (index != -1) { // Se c'è almeno una casella vuota
-	                distanza.setCharAt(index, '■'); // Riempie la casella vuota più vicina da sinistra
-	            }
-	            output.append(cavallo.getNome()).append(" ").append(distanza).append("\n");
-	        }
-	        
-	        System.out.println(output.toString());
+				for (int i = 0; i < incremento; i++) {
+					int indexTemp = emptyIndex + i;
+					if (indexTemp >= 0 && indexTemp <= distanza.length() - 1 && indexTemp != distanza.length()) {
+						distanza.setCharAt(emptyIndex + i, '■');
+					} else {
+						isRaceOver = true;
+						winnerStud = cavalloMovente;
+						break;
+					}
+				}
 
-	        try {
-	        	Thread.sleep(1100);
-	        	GamePanel.clearScreen();
-	            Thread.sleep(1000); // Attendi 200ms tra i tick
-	            
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	    }
+				output.append(cavalloMovente.getNome()).append(distanza).append("\n");
+				if (isRaceOver)
+					break;
+
+			}
+			GamePanel.clearScreen();
+			System.out.println(output.toString());
+
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		} while (!isRaceOver);
+		if (vincita > 0) {
+			System.out.println("Il cavallo vincente è " + winnerStud.getNome() + " hai vinto: " + vincita);
+		} else {
+			System.out.println("Il cavallo vincente è " + winnerStud.getNome() + " \nMi spiace non vinci nulla");
+		}
+
 	}
 
 }
