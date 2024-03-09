@@ -2,6 +2,8 @@ package Stanze.Mercato;
 
 import Main.GamePanel;
 import Player.Oggetto;
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.Inventory;
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
 import Stanze.Mercato.AzioniMercato.RandomDice;
 import Stanze.Mercato.AzioniMercato.RandomEvents.Napoletano;
 import Stanze.Mercato.AzioniMercato.RandomEvents.TreCarte;
@@ -101,6 +103,9 @@ public class Mercato {
 
 
         if (GamePanel.giocatore.controllaSoldi(-price)){
+            NewInventory inventory = NewInventory.getInventory();
+            inventory.addToBackpack(chosedItem);
+            System.out.println(inventory.getBackpack());
             playerGetItem(shoppedItem);
         }
     }

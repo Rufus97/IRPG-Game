@@ -1,9 +1,6 @@
 package Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class NewInventory {
@@ -18,32 +15,42 @@ public class NewInventory {
     public Map<Integer, Inventory> getBackpack() {
         return backpack;
     }
-    public void addToBackpack(Inventory item){
-        Set<Integer> backpackKeys = backpack.keySet();
-        cleanBackpack(item);
-        if (backpackKeys.isEmpty()){
-            backpack.put(1, item);
-        }  else  {
-            backpack.put(backpackKeys.size()+1, item);
+    public  Map<Integer, Inventory> addToBackpack(Inventory item){
+        Map<Integer, Inventory> newMap = backpack;
+        if (!checkIfExists(item, backpack)){
+            newMap.put(getNewKey(newMap), item);
+        } else {
+            item.setQuantity();
+            return newMap;
         }
+        return newMap;
     }
+    public  boolean checkIfExists(Inventory map, Map<Integer, Inventory> mappa){
 
+        boolean foundFlag = false;
+        for (Map.Entry<Integer, Inventory> element : mappa.entrySet()){
+            if (element.getValue().equals(map)){
+                foundFlag = true;
+            }
+        }
+        return foundFlag;
+    }
+    public  Integer getNewKey(Map<Integer,?> map){
 
-    public void cleanBackpack(Inventory item){
-        Set<Map.Entry<Integer, Inventory>> repeatedEntries = new HashSet<>();
-        AtomicInteger counter = new AtomicInteger(0);
-        backpack.entrySet().forEach(( v) ->{
-            counter.getAndIncrement();
-            if (counter.get() == 1){
+        Set<Integer> keys = map.keySet();
+        Iterator<Integer> it = keys.iterator();
+        Integer key = 0;
+        if (map.isEmpty()){
+            key = 1;
+        } else {
+            while(it.hasNext()){
+                key = it.next();
+                if(!it.hasNext()){
+                    key++;
+                }
             }
-            if (v.getValue().equals(item)){
-                repeatedEntries.add( v);
-            }
-            });
-        repeatedEntries.forEach(k -> {
-            k.getValue().setQuantity();
-            backpack.remove(k.getKey());
-        });
+        }
+        return key;
     }
 
     public void getAllEquipment(){
