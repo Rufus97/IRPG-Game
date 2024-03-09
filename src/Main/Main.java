@@ -1,6 +1,7 @@
 package Main;
 
 
+import Input.In;
 import Stanze.Mercato.AzioniMercato.CharacterEquipment.CharEquip;
 import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.ConsumableItems;
 import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
@@ -15,33 +16,52 @@ import java.util.*;
 public class Main {
 	public static void main(String[] args) {
 
+		Map<Integer, String> newInventory = new HashMap<Integer, String>();
+		newInventory = addToBackpack("ciao", newInventory);
+		newInventory = addToBackpack("bibi", newInventory);
+		newInventory = addToBackpack("simona bocchinona", newInventory);
+		newInventory = addToBackpack("nikitina al sugo", newInventory);
+		newInventory = addToBackpack("ciao", newInventory);
+		newInventory = addToBackpack("simona bocchinona", newInventory);
+		newInventory = addToBackpack("wuoahwuw", newInventory);
 
-		   List<BancItem> pippo2 = BancType.VESTITI.getInventory();
-
-		for (BancItem element : pippo2){
-			if (element instanceof Inventory){
-				System.out.println(element);
-			}else {
-				System.out.println(" non trovato ");
-			}
-		}
-		NewInventory backpackHero = NewInventory.getInventory();
-
-
-		backpackHero.addToBackpack(pippo2.get(2));
-		backpackHero.addToBackpack(pippo2.get(2));
-		backpackHero.addToBackpack(pippo2.get(2));
-		backpackHero.addToBackpack(pippo2.get(1));
-		backpackHero.addToBackpack(pippo2.get(1));
-		backpackHero.addToBackpack(pippo2.get(3));
-		backpackHero.addToBackpack(pippo2.get(3));
-		backpackHero.addToBackpack(pippo2.get(3));
-		backpackHero.addToBackpack(pippo2.get(3));
-		backpackHero.addToBackpack(pippo2.get(5));
-
-		System.out.println(backpackHero.getBackpack());
-		backpackHero.getAllEquipment();
-		}
-
+        System.out.println(newInventory);
 	}
+	public static Map<Integer, String> addToBackpack(String item, Map<Integer, String> map){
+		Map<Integer, String> newMap = map;
+		if (!checkIfExists(item, map)){
+			newMap.put(getNewKey(newMap), item);
+		} else {
+			return newMap;
+		}
+		return newMap;
+	}
+	public static boolean checkIfExists(String map, Map<Integer, String> mappa){
+
+		boolean foundFlag = false;
+			for (Map.Entry<Integer, String> element : mappa.entrySet()){
+				 if (element.getValue().equals(map)){
+					 foundFlag = true;
+				 }
+			}
+		return foundFlag;
+	}
+	public static Integer getNewKey(Map<Integer,?> map){
+
+		Set<Integer> keys = map.keySet();
+		Iterator<Integer> it = keys.iterator();
+		Integer key = 0;
+			if (map.isEmpty()){
+				key = 1;
+			} else {
+				while(it.hasNext()){
+					key = it.next();
+					if(!it.hasNext()){
+						key++;
+					}
+				}
+			}
+		return key;
+	}
+}
 

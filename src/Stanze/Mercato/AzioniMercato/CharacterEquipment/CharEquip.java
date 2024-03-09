@@ -29,15 +29,6 @@ public class CharEquip {
         return playerEquipment;
     }
 
-    public int getAllArmor(){
-        int result = 0;
-        for (EquipSlot slots : EquipSlot.values()){
-            if (slots != null){
-                result += slots.getArmorValue();
-            }
-        }
-        return result;
-    }
 
 
 
