@@ -1,5 +1,8 @@
 package Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew;
 
+import Stanze.Mercato.Bancarella.BancItem;
+import Stanze.Mercato.MercatoInputs;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -8,6 +11,7 @@ public class NewInventory {
     private Map<Integer, Inventory> backpack = new HashMap<>();
     private static NewInventory inventory = new NewInventory();
     private NewInventory(){}
+    MercatoInputs input = new MercatoInputs();
 
     public static NewInventory getInventory() {
         return inventory;
@@ -19,6 +23,15 @@ public class NewInventory {
         Map<Integer, Inventory> newMap = backpack;
         if (!checkIfExists(item, backpack)){
             newMap.put(getNewKey(newMap), item);
+            if (item instanceof EquippableItems){
+                System.out.println("equip it? \n1: yes \n2: no");
+                if(input.getInt() == 1){
+                    ((EquippableItems) item).equipItem();
+                    System.out.println("equipped " + item);
+                } else {
+
+                }
+            }
         } else {
             item.setQuantity();
             return newMap;

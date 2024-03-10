@@ -2,6 +2,7 @@ package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 import Main.GamePanel;
 import Stanze.Mercato.AzioniMercato.RandomDice;
+import Stanze.Mercato.AzioniMercato.Utility.ParametersToTest;
 import Stanze.Mercato.MercatoInputs;
 
 public class Napoletano {
@@ -105,7 +106,7 @@ public class Napoletano {
     }
 
     public void vincitoreScontro(int playerHp){
-        if (playerHp > 0){
+        if (ParametersToTest.NO_HP.getTestMethod().runTest()){
             GamePanel.giocatore.setSoldi(10.0);
             System.out.println("hai vinto! recuperi i 10 euro dal corpo del napoli");
             GamePanel.giocatore.mostraStatistiche();

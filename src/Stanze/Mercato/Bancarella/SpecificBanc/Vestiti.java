@@ -18,13 +18,21 @@ public class Vestiti extends BancItem implements EquippableItems {
         return
                 "Item name: " + super.getItemName() + '\'' +
                 " prezzo: " + super.getPrice() +
-                " quantita: " + super.getQuantity() +
+                " armatura: " + this.armorValue +
                 '}';
+    }
+
+    public int getArmorValue() {
+        return armorValue;
+    }
+
+    public void setArmorValue(int armorValue) {
+        this.armorValue = armorValue;
     }
 
     @Override
     public int getArmor() {
-        return 0;
+        return this.armorValue;
     }
 
     @Override

@@ -5,6 +5,7 @@ import Player.Oggetto;
 import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
 import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.Inventory;
 import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
+import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.MercatoInputs;
 
 import java.util.ArrayList;
@@ -39,29 +40,47 @@ public class CharEquip {
 
         System.out.println("wich item you want to equip?");
         Map<Integer, EquippableItems> equip = inventory.getAllEquipment();
+
         choseAnItem(equip);
         showAllSlots();
 
-
     }
     public void choseAnItem(Map<Integer, EquippableItems> equip){
-    boolean flag = false;
-    while (!flag){
-        equip.forEach((k,v)-> System.out.println(k + ": " + v));
-        int choice = input.getInt();
-        equip.get(choice).equipItem();
-        System.out.println("continue to equip? \n1: yes \n2: no");
-        if (input.getInt() == 2){
-            flag = true;
+        boolean flag = false;
+        {   do{
+            equip.forEach((k,v)-> System.out.println(k + ": " + v));
+            System.out.println("0: exit");
+            int choice = input.getInt();
+            if (choice != 0){
+                equip.get(choice).equipItem();
+                System.out.println("continue to equip? \n1: yes \n2: no");
+                if (input.getInt() == 2){
+                    flag = true;
+                }
+            } else {
+               flag = true;
+            }
+        } while (!flag);
         }
     }
+    public int getAllArmor(){
+        List<EquippableItems> equipped = new ArrayList<>();
+        int armorSum = 0;
+        for (EquipSlot item : EquipSlot.values()){
+            if (item.isEquipped()){
+                equipped.add((EquippableItems)item.getEquippedItem());
+            }
+        }
+        for (EquippableItems item : equipped){
+            armorSum += item.getArmor();
+        }
+        return armorSum;
     }
     public void showAllSlots(){
 
         for (EquipSlot element : EquipSlot.values()){
 
                  System.out.println(element.getSlotName() + ": " + element.getEquippedItem());
-
         }
     }
 

@@ -35,7 +35,7 @@ public enum BancType {
             new Vestiti("Pantalone" , 18, 1, EquipSlot.LEGS),
             new Vestiti("Barbon gloves", 16, 1, EquipSlot.HANDS),
             new Vestiti("mithril armor", 21, 5, EquipSlot.TORSO),
-            new Vestiti("belt of giant's strength" , 10, 2, EquipSlot.TORSO),
+            new Vestiti("belt of giant's strength" , 10, 2, EquipSlot.BELT),
             new Vestiti("maglietta bellina", 16, 1, EquipSlot.TORSO),
             new Vestiti("maglietta bruttina", 14, 2, EquipSlot.TORSO)
     ), "Barbon shop"),

@@ -1,24 +1,31 @@
 package Stanze.Mercato.AzioniMercato.CharacterEquipment;
 
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.Inventory;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
 
 public enum EquipSlot {
     HEAD(false, null, "Testa"),
     TORSO(false, null, "Torso"),
+    BELT(false, null, "Cinta"),
     LEGS(false, null, "Gambe"),
     FEET(false, null, "Piedi"),
-    HANDS(false, null, "Mani");
+    HANDS(false, null, "Mani"),
+    ACCESSORY(false, null, "Accessorio"),
+    RING_ONE(false, null, "Anello 1"),
+    RING_TWO(false, null, "Anello 2"),
+    WEAPON(false, null, "Arma")
+    ;
 
     private boolean isEquipped;
 
-    private BancItem equippedItem;
+    private Inventory equippedItem;
 
     private String slotName;
 
 
 
-    private EquipSlot(boolean isEquipped, BancItem equippedItem, String name){
+    private EquipSlot(boolean isEquipped, Inventory equippedItem, String name){
 
         this.isEquipped = isEquipped;
         this.equippedItem = equippedItem;
@@ -40,7 +47,7 @@ public enum EquipSlot {
         this.equippedItem = equippedItem;
     }
 
-    public BancItem getEquippedItem() {
+    public Inventory getEquippedItem() {
         return equippedItem;
     }
 }
