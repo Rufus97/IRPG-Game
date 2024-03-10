@@ -53,12 +53,14 @@ public class NewInventory {
         return key;
     }
 
-    public void getAllEquipment(){
-        backpack.forEach((k,v) ->{
-            if (v instanceof EquippableItems){
-            System.out.println(k + ": " + v);
+    public Map<Integer, EquippableItems> getAllEquipment(){
+        Map<Integer, EquippableItems> equip = new HashMap<>();
+        for (Map.Entry<Integer, Inventory> entries : backpack.entrySet()){
+            if (entries.getValue() instanceof EquippableItems){
+                equip.put(getNewKey(equip), (EquippableItems) entries.getValue());
             }
-        });
+        }
+        return equip;
     }
 }
 

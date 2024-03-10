@@ -1,5 +1,6 @@
 package Stanze.Mercato.Bancarella;
 
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.EquipSlot;
 import Stanze.Mercato.Bancarella.SpecificBanc.*;
 
 import java.util.Arrays;
@@ -31,12 +32,12 @@ public enum BancType {
             new Ortaggi("Banane", 14)
     ), "Verduraio"),
     VESTITI( Arrays.asList(
-            new Vestiti("Pantalone" , 18, 1),
-            new Vestiti("Barbon gloves", 16, 1),
-            new Vestiti("mithril armor", 21, 5),
-            new Vestiti("belt of giant's strength" , 10, 2),
-            new Vestiti("maglietta bellina", 16, 1),
-            new Vestiti("maglietta bruttina", 14, 2)
+            new Vestiti("Pantalone" , 18, 1, EquipSlot.LEGS),
+            new Vestiti("Barbon gloves", 16, 1, EquipSlot.HANDS),
+            new Vestiti("mithril armor", 21, 5, EquipSlot.TORSO),
+            new Vestiti("belt of giant's strength" , 10, 2, EquipSlot.TORSO),
+            new Vestiti("maglietta bellina", 16, 1, EquipSlot.TORSO),
+            new Vestiti("maglietta bruttina", 14, 2, EquipSlot.TORSO)
     ), "Barbon shop"),
     BIGIOTTERIA (
             Arrays.asList(
