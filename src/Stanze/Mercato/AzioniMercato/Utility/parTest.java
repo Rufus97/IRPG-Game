@@ -3,15 +3,16 @@ package Stanze.Mercato.AzioniMercato.Utility;
 
 import Stanze.Mercato.AzioniMercato.Utility.TestsPar.TestHp;
 
-public enum ParametersToTest {
+public enum parTest {
     NO_HP(new TestHp());
 
 
     private TestPar testMethod;
-    private ParametersToTest(TestPar test){
+
+    private parTest(TestPar test){
         this.testMethod = test;
     }
-    public TestPar getTestMethod() {
+    public TestPar getTest() {
         return testMethod;
     }
 

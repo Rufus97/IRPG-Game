@@ -2,7 +2,7 @@ package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 import Main.GamePanel;
 import Stanze.Mercato.AzioniMercato.RandomDice;
-import Stanze.Mercato.AzioniMercato.Utility.ParametersToTest;
+import Stanze.Mercato.AzioniMercato.Utility.parTest;
 import Stanze.Mercato.MercatoInputs;
 
 public class Napoletano {
@@ -24,7 +24,7 @@ public class Napoletano {
                     "\n2: lascio perdere");
             choice = userInput.getInt();
             if (choice == 1){
-                scontroNapoletanico(determinaNapoletano(), userInput);
+                //scontroNapoletanico(determinaNapoletano(), userInput);
             } else if (choice == 2){
                 System.out.println("hai lasciato perde");
                 GamePanel.giocatore.mostraStatistiche();
@@ -43,7 +43,7 @@ public class Napoletano {
         } else {
             System.out.println("gli occhi delusi di un uomo ti squadrano, il pensiero che tieni i soldi " +
                     "nascosti nel culo rende lo scontro inevitabile");
-            scontroNapoletanico(determinaNapoletano(), userInput);
+            //scontroNapoletanico(determinaNapoletano(), userInput);
         };
     }
     public NapoliEnum determinaNapoletano(){
@@ -66,47 +66,10 @@ public class Napoletano {
             return NapoliEnum.LEGGENDARIO;
         }
     }
-    public void scontroNapoletanico(NapoliEnum napoliType, MercatoInputs userInput){
-        int setNapoliHp = napoliType.getNapoleanHp();
-        int setNapoliDamage = napoliType.getNapoleanDamage();
-        int setPlayerDmg = 5;
 
-        boolean escapeFlag = false;
-        System.out.println(napoliType);
-        do {
-            // turno giocatore
-            System.out.println("turno giocatore, cosa fai?");
-            System.out.println("1: attacca " +
-                    "\n2: fuga");
-            int choice = userInput.getInt();
-            switch (choice){
-                case 1 -> {setNapoliHp -= setPlayerDmg;
-                          System.out.println("hai inferto " + setPlayerDmg + " napoletano hp: " + setNapoliHp);}
-                case 2 -> {
-                    if (rng.getDado(1,20) >= 13){
-                        System.out.println("sei riuscito a fuggire dalle grinfie napoletaniche");
-                        escapeFlag = true;
-                    } else {
-                        System.out.println("fuga fallita");
-                    }
-                }
-            }
-            // turno napoletano
-            if (setNapoliHp > 0){
-            GamePanel.giocatore.setHP(-setNapoliDamage);
-            System.out.println("il napoletano ti attacca con tutto il suo furore! " +
-                    "subisci " + setNapoliDamage + " danni! player hp: " + GamePanel.giocatore.getHP());
-            }
-
-        } while ((setNapoliHp > 0 && GamePanel.giocatore.getHP() > 0) && !escapeFlag);
-
-        if (!escapeFlag){
-            vincitoreScontro(GamePanel.giocatore.getHP());
-        }
-    }
 
     public void vincitoreScontro(int playerHp){
-        if (ParametersToTest.NO_HP.getTestMethod().runTest()){
+        if (parTest.NO_HP.getTest().runTest()){
             GamePanel.giocatore.setSoldi(10.0);
             System.out.println("hai vinto! recuperi i 10 euro dal corpo del napoli");
             GamePanel.giocatore.mostraStatistiche();

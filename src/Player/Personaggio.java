@@ -1,13 +1,26 @@
 package Player;
 
 import Main.GamePanel;
+import Stanze.Mercato.AzioniMercato.Utility.Entity;
+import Stanze.Mercato.AzioniMercato.Utility.Moves;
+import Stanze.Mercato.AzioniMercato.Utility.PlayerUtils.PlayerMoves;
 import Stanze.Ospedale;
 import prompt.Prompt;
 
-public class Personaggio {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Personaggio implements Entity{
+
+
+
+	private List<Moves> playMoves = new ArrayList<>(Arrays.asList(PlayerMoves.values()));
 	private String nome;
 	private String sesso;
 	private int HP = 100;
+
+	private int dmg = 5;
 	private double soldi = 100;
 	private double karma = 0;
 	private double livelloSballo = 0;
@@ -139,5 +152,26 @@ public class Personaggio {
 		}
 	}
 
-	
+
+	@Override
+	public int getHp() {
+		return this.HP;
+	}
+
+	@Override
+	public int getDmg() {
+		return 0;
+	}
+
+	@Override
+	public List<Moves> getMoves(){
+		return this.playMoves;
+	}
+
+	@Override
+	public String toString() {
+		return "Personaggio{" +
+				", HP=" + HP +
+				'}';
+	}
 }
