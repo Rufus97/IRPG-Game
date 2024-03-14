@@ -2,6 +2,7 @@ package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 import Main.GamePanel;
 import Stanze.Mercato.AzioniMercato.RandomDice;
+import Stanze.Mercato.AzioniMercato.Utility.Scontro;
 import Stanze.Mercato.AzioniMercato.Utility.parTest;
 import Stanze.Mercato.MercatoInputs;
 
@@ -24,7 +25,10 @@ public class Napoletano {
                     "\n2: lascio perdere");
             choice = userInput.getInt();
             if (choice == 1){
-                //scontroNapoletanico(determinaNapoletano(), userInput);
+                Scontro fight = new Scontro();
+                if (fight.scontro(GamePanel.giocatore, determinaNapoletano())){
+                    GamePanel.giocatore.setSoldi(10.0);
+                };
             } else if (choice == 2){
                 System.out.println("hai lasciato perde");
                 GamePanel.giocatore.mostraStatistiche();

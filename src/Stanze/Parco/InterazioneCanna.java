@@ -2,7 +2,7 @@ package Stanze.Parco;
 
 import Main.GamePanel;
 import Player.Oggetto;
-import static Stanze.Parco.Brumotti.attivaEventoBrumotti;
+
 
 public class InterazioneCanna {
 
@@ -21,7 +21,8 @@ public class InterazioneCanna {
 
             // Evento randomico collegato al punteggio karma
             if (calcolaKarma() < 50) {
-                attivaEventoBrumotti();
+                Brumotti event = new Brumotti();
+                event.attivaEventoBrumotti();
             }
 
             possiedeErba = false;

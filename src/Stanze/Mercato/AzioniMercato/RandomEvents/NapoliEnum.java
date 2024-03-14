@@ -45,8 +45,8 @@ public enum NapoliEnum implements Entity{
 
     @Override
     public String toString() {
-        return "NapoliEnum{" +
-                ", napoleanHp=" + napoleanHp +
-                '}';
+        return
+                "napoli hp: " + napoleanHp
+               ;
     }
 }

@@ -19,9 +19,8 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-		NapoliEnum ciro = NapoliEnum.NORMALE;
-		Scontro due = new Scontro();
-		due.scontro(GamePanel.giocatore, ciro);
+	  GamePanel start = new GamePanel();
+	  start.startGame();
 
 
 	}

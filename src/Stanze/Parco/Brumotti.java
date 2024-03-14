@@ -2,11 +2,15 @@ package Stanze.Parco;
 import Input.In;
 import Main.GamePanel;
 import Player.Oggetto;
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
+import Stanze.Mercato.AzioniMercato.Utility.Scontro;
+import Stanze.Parco.BruEntity.BruEnt;
+import Stanze.Parco.BruEntity.Bycycle;
 import Stanze.Questura;
 
 public class Brumotti {
 
-    public static void attivaEventoBrumotti() {
+    public void attivaEventoBrumotti() {
         System.out.println("Oh no! In lontananza senti strillare: ABBOMBAZZA AMICI DI STRISCIA, Brumotti fa la sua comparsa!");
         System.out.println("Cosa vuoi fare?");
         System.out.println("1. Minaccia Brumotti, telefoni al Brasiliano");
@@ -30,7 +34,7 @@ public class Brumotti {
         }
     }
 
-    private static void minacciaBrumotti() {
+    private void minacciaBrumotti() {
         System.out.println("Decidi di telefonare al Brasiliano...");
 
         GamePanel.giocatore.setLivelloSoddisfazione(5);
@@ -39,7 +43,7 @@ public class Brumotti {
         System.out.println("Nuovo punteggio Soddisfazione: " + GamePanel.giocatore.getLivelloSoddisfazione());
     }
 
-    private static void cercaDiFuggireDaBrumotti() {
+    private void cercaDiFuggireDaBrumotti() {
         System.out.println("Decidi di cercare di fuggire da Brumotti...");
 
         if (GamePanel.giocatore.getHP() < 50) {
@@ -52,18 +56,15 @@ public class Brumotti {
         }
     }
 
-    private static void cercaScontroConBrumotti() {
+    private void cercaScontroConBrumotti() {
         System.out.println("Decidi di cercare uno scontro con Brumotti per dargli una lezione");
-
+        Scontro fight = new Scontro();
         GamePanel.giocatore.setLivelloSoddisfazione(10);
         GamePanel.giocatore.setKarma(-0.5);
 
         System.out.println("Inizi uno scontro con Brumotti!");
 
-        // Risoluzione dello scontro
-        int risultatoScontro = risolviScontroConBrumotti();
-
-        if (risultatoScontro > 0) {
+        if (fight.scontro(GamePanel.giocatore, new BruEnt())) {
             rubaBiciclettaBrumotti();
             System.out.println("Hai sconfitto Brumotti! Il tuo karma diminuisce ma te la sei scampata.");
         } else {
@@ -72,20 +73,12 @@ public class Brumotti {
             //GamePanel.inventario.svuotaInventario();
         }
         System.out.println("Nuovo punteggio Karma: " + GamePanel.giocatore.getKarma());
-        // Continua il gioco nella questura
-        Questura questura = new Questura();
-        questura.runQuestura();
+
     }
 
-    private static int risolviScontroConBrumotti() {
-        // Implementa la logica per la risoluzione dello scontro
-        return 0;
-    }
-
-    private static void rubaBiciclettaBrumotti() {
-        Oggetto bicicletta = new Oggetto("Bicicletta", 1);
-        GamePanel.inventario.aggiungiItem(bicicletta);
-
+    private void rubaBiciclettaBrumotti() {
+        Bycycle bike = new Bycycle();
+        NewInventory.getInventory().addToBackpack(bike);
         System.out.println("Hai rubato la bicicletta di Brumotti! Ora è nel tuo inventario. ABBOMBAZZA!");
     }
 }
