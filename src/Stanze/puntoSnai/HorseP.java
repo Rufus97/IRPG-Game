@@ -31,9 +31,18 @@ public class HorseP {
 		boolean isRaceOver = false;
 		Cavallo winnerStud = null;
 		int vincita = 0;
+		System.out.println("I tuoi soldi " + GamePanel.giocatore.getSoldi());
+		System.out.println("Da quanto la giocata? min 1 max 4 euro");
+		double costoPartita = (Input.In.scanner.nextInt() * -1);
+		System.out.println("Su quale cavallo punti?");
+		System.out.println(
+				"1. Pasquale \n2. Shadow \n3. Spirit \n4. Midnight \n5. Bella \n6. Apollo \n7. Dusty \n8. Rusty \n9. Whisper \n10. Stormy \n11. Blaze \n12. Sunny ");
+		int selezioneCavallo = (Input.In.scanner.nextInt() * -1);
 		do {
+
 			StringBuilder output = new StringBuilder();
 			for (Cavallo cavalloMovente : cavalli) {
+
 				StringBuilder distanza = cavalloMovente.getDistanza();
 				int emptyIndex = distanza.indexOf("□");
 				int incremento;
@@ -63,7 +72,7 @@ public class HorseP {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		} while (!isRaceOver);
+		} while (!isRaceOver); // hai vinto??
 		if (vincita > 0) {
 			System.out.println("Il cavallo vincente è " + winnerStud.getNome() + " hai vinto: " + vincita);
 		} else {
