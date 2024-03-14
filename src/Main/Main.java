@@ -1,5 +1,6 @@
 package Main;
 
+import Stanze.puntoSnai.HorseP;
 
 import Input.In;
 import Stanze.Mercato.AzioniMercato.CharacterEquipment.CharEquip;
@@ -19,9 +20,9 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
+
 	  GamePanel start = new GamePanel();
 	  start.startGame();
-
 
 	}
 

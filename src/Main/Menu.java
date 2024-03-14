@@ -1,6 +1,10 @@
 package Main;
 
 import Input.In;
+import Stanze.Ospedale;
+import Stanze.Questura;
+import Stanze.Stanza;
+import Stanze.bar.Azione;
 import Stanze.bar.Bar;
 import Stanze.Tabacchino.Tabacchino;
 import Stanze.puntoSnai.PuntoSNAI;
@@ -8,80 +12,43 @@ import Stanze.Cantiere.Cantiere;
 import Stanze.Parco.Parchetto;
 import Stanze.Mercato.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Menu {
 
-	Tabacchino tabachino;
+	Map<Integer, Stanza> stanze = new HashMap<>();
 
-	public static void VaiA() {
+	public Menu() {
+		stanze.put(1,new Tabacchino());
+		stanze.put(2,new Bar());
+		stanze.put(3,new Cantiere());
+		stanze.put(4,new PuntoSNAI());
+		stanze.put(5,new Parchetto());
+		stanze.put(6,new Ospedale());
+		stanze.put(7,new Mercato());
+		stanze.put(8,new Questura());
+	}
+
+	public void VaiA() {
 		int scelta;
-
 		do {
-			System.out.println("Dove vuoi andare?");
-			System.out.println("1. Tabacchino");
-			System.out.println("2. Bar");
-			System.out.println("3. Cantiere");
-			System.out.println("4. Punto SNAI");
-			System.out.println("5. Parco");
-			System.out.println("7. Mercato");
-			System.out.println("0. Torna al menu precedente");
+			GamePanel.giocatore.mostraStatistiche();
 
-			scelta = In.inputInt();
+			for (Map.Entry<Integer, Stanza> elemento : stanze.entrySet()) {
+				System.out.println(elemento.getKey() + ". " + elemento.getValue().getNomeStanza());
+			}
+			System.out.println("0. Esci");
+
+			scelta = In.inputForMaps(stanze);
 			GamePanel.clearScreen();
 
-			switch (scelta) {
-			case 1:
-				Tabacchino tabacchino = new Tabacchino();
-				System.out.println("Tabacchno");
-				tabacchino.runTabacchino();
-				break;
-
-			case 2:
-				Bar bar = new Bar();
-				System.out.println("Bar");
-				bar.runBar();
-				break;
-
-			case 3:
-				Cantiere cantiere = new Cantiere("Scavi archeologici");
-				System.out.println("Cantiere");
-				cantiere.runCantiere();
-				break;
-
-			case 4:
-				
-				PuntoSNAI pSnai = new PuntoSNAI();
-				System.out.println("Punto SNAI");
-				pSnai.runPSNAI();
-				break;
-
-
-            case 5:
-                Parchetto parco = new Parchetto();
-                System.out.println("Parco");
-                parco.runParcchetto();
-                break;
-
-			case 6:
-
-				break;
-
-			case 7:
-				Mercato mercato = new Mercato("Porta Portese");
-				System.out.println("Mercato");
-				mercato.runMercato();
-				break;
-
-			case 0:
-				System.out.println("Stai uscendo...");
-				break;
-
-			default:
-				System.out.println("Scelta errata");
-				break;
+			if (scelta != 0) {
+				this.stanze.get(scelta).runStanza();
 			}
 
-		} while (scelta != 0);
+		}while (scelta != 0);
 
 	}
 }

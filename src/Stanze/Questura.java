@@ -5,7 +5,7 @@ import Main.GamePanel;
 import Main.Menu;
 
 
-public class Questura {
+public class Questura implements Stanza {
 
     public static void runQuestura() {
         System.out.println("Sei finito dentro!");
@@ -59,7 +59,7 @@ public class Questura {
 
 
         // Ritorna al menu principale
-        Menu.VaiA();
+        //Menu.VaiA();
 
 
     }
@@ -68,6 +68,16 @@ public class Questura {
         System.out.println("Decidi di tentare di fuggire.");
         GamePanel.giocatore.setHP(GamePanel.giocatore.getHP() - 10);
         System.out.println("Una guardia ti colpisce con un manganellata nello stomaco. Perdi 10 HP.");
+    }
+
+    @Override
+    public void runStanza() {
+
+    }
+
+    @Override
+    public String getNomeStanza() {
+        return "Questura";
     }
 }
 

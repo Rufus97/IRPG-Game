@@ -3,8 +3,12 @@ package Main;
 import Input.In;
 import Player.Inventario;
 import Player.Personaggio;
+import Stanze.Stanza;
+import Stanze.puntoSnai.HorseP;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GamePanel {
 
@@ -17,6 +21,7 @@ public class GamePanel {
 
 	public void startGame() {
 
+
 		int scelta;
 
 		// Loop menu
@@ -25,11 +30,13 @@ public class GamePanel {
 			System.out.println("1. Vai a...");
 			System.out.println("2. Apri Inventario...");
 			System.out.println("0. Esci dal gioco");
-			scelta = In.scanner.nextInt();
+			scelta = In.inputInt();
 			GamePanel.clearScreen();
 			switch (scelta) {
 			case 1:
-				Menu.VaiA();
+				Menu menu = new Menu();
+				menu.VaiA();
+			
 				break;
 
 			case 2:
@@ -52,8 +59,8 @@ public class GamePanel {
 
 	// METODO CANCELLA SCHERMO
 	public static void clearScreen() {
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
+		//System.out.print("\033[H\033[2J");
+		//System.out.flush();
 	}
 
 	public static void prova() throws IOException, InterruptedException {

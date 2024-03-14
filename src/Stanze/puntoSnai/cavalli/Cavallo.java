@@ -1,7 +1,4 @@
 package Stanze.puntoSnai.cavalli;
-
-//"🏇" "■" "□"
-
 import Input.Casuale;
 
 public class Cavallo {

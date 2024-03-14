@@ -3,7 +3,7 @@ package Stanze;
 import Input.Casuale;
 import Main.GamePanel;
 
-public class Ospedale {
+public class Ospedale implements Stanza {
     
     public static void HP0(){
 
@@ -28,5 +28,15 @@ public class Ospedale {
             System.out.println("Dottore: Brutte notizie... \n ti rimangono " + giorniVita + " giorni di vita" );
 
         }
+    }
+
+    @Override
+    public void runStanza() {
+        //TODO
+    }
+
+    @Override
+    public String getNomeStanza() {
+        return "Ospedale";
     }
 }

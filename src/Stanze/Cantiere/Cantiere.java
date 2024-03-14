@@ -2,16 +2,18 @@ package Stanze.Cantiere;
 
 import Input.In;
 import Main.GamePanel;
+import Stanze.Stanza;
 
-public class Cantiere {
+public class Cantiere implements Stanza {
 
   
 //costruttore
-   public Cantiere(String nome){
+   public Cantiere(){
     
    }
 
-    public void runCantiere(){
+   @Override
+    public void runStanza(){
         
         int scelta;
 
@@ -52,5 +54,10 @@ public class Cantiere {
                         break;
                 }
         }while(scelta != 0 );
-    }   
+    }
+
+    @Override
+    public String getNomeStanza() {
+        return "Cantiere";
+    }
 }

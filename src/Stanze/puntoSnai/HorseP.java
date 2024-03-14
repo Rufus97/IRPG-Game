@@ -1,9 +1,11 @@
 package Stanze.puntoSnai;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
-import Input.Casuale;
+import Input.Dado;
 import Main.GamePanel;
 import Stanze.puntoSnai.cavalli.Cavallo;
 
@@ -29,35 +31,68 @@ public class HorseP {
 	}
 
 	public static void runHorses() {
-	    GamePanel.clearScreen();
-	    double karma = GamePanel.giocatore.getKarma();
-	    int cavalliNumero = Casuale.numeroCasualeTra(6, 12);
+		double karma = GamePanel.giocatore.getKarma();
+		boolean isRaceOver = false;
+		int winnerStud = 0;
+		double vincita = 0;
+		Dado dado = new Dado();
+		System.out.println("I tuoi soldi " + GamePanel.giocatore.getSoldi());
+		System.out.println("Da quanto la giocata? min 1 max 4 euro");
+		double costoPartita = (Input.In.scanner.nextInt() * -1);
+		System.out.println("Su quale cavallo punti?");
+		System.out.println("1. Pasquale \n2. Shadow \n3. Spirit \n4. Midnight \n5. Bella \n6. Apollo "
+				+ "\n7. Dusty \n8. Rusty \n9. Whisper \n10. Stormy \n11. Blaze \n12. Sunny ");
+		int selezioneCavallo = (Input.In.scanner.nextInt());
+		do {
 
-	    for (int i = 0; i < 20; i++) { // Per 20 tick
-	        GamePanel.clearScreen();
-	        StringBuilder output = new StringBuilder();
-	        
-	        for (Map.Entry<Integer, Cavallo> entry : cavalli.entrySet()) {
-	            Cavallo cavallo = entry.getValue();
-	            StringBuilder distanza = cavallo.getDistanza();
-	            int index = distanza.indexOf("□"); // Trova l'indice della prima casella vuota
-	            if (index != -1) { // Se c'è almeno una casella vuota
-	                distanza.setCharAt(index, '■'); // Riempie la casella vuota più vicina da sinistra
-	            }
-	            output.append(cavallo.getNome()).append(" ").append(distanza).append("\n");
-	        }
-	        
-	        System.out.println(output.toString());
+			StringBuilder output = new StringBuilder();
+			for (Entry<Integer, Cavallo> cavalloMovente : cavalli.entrySet()) {
 
-	        try {
-	        	Thread.sleep(1100);
-	        	GamePanel.clearScreen();
-	            Thread.sleep(1000); // Attendi 200ms tra i tick
-	            
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	    }
+				StringBuilder distanza = cavalloMovente.getValue().getDistanza();
+				int emptyIndex = distanza.indexOf("□");
+				int incremento;
+				incremento = Input.Casuale.numeroCasualeTra(1, 3);
+
+				for (int i = 0; i < incremento; i++) {
+					if (dado.getDado(1, 20)>13 && cavalloMovente.getKey()==selezioneCavallo) {
+						incremento=+1;
+					}
+					int indexTemp = emptyIndex + i;
+					if (indexTemp >= 0 && indexTemp <= distanza.length() - 1 && indexTemp != distanza.length()) {
+						distanza.setCharAt(emptyIndex + i, '■');
+					} else {
+						isRaceOver = true;
+						winnerStud = cavalloMovente.getKey();
+						if (winnerStud == selezioneCavallo) {
+							vincita = costoPartita*12*-1;
+						}
+						break;
+
+					}
+				}
+
+				output.append(cavalloMovente.getValue().getNome()).append(distanza).append("\n");
+				if (isRaceOver)
+					break;
+
+			}
+			GamePanel.clearScreen();
+			System.out.println(output.toString());
+
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		} while (!isRaceOver); // hai vinto??
+		if (vincita > 0) {
+			System.out.println("Il cavallo vincente è " + cavalli.get(winnerStud).getNome() + " hai vinto: " + vincita);
+			System.out.println(vincita);
+		} else {
+			System.out.println(vincita);
+			System.out.println("Il cavallo vincente è " + cavalli.get(winnerStud).getNome() + " \nMi spiace non vinci nulla");
+		}
+
 	}
 
 }

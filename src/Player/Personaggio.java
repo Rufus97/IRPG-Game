@@ -114,7 +114,8 @@ public class Personaggio implements Entity{
 		}else if(GamePanel.giocatore.getHP() + HPValue <= 0) {
 			this.HP = 0;
 			System.out.println("sei morto" + GamePanel.giocatore.getHP());
-			Ospedale.HP0();
+			Ospedale HPO = new Ospedale();
+			HPO.runStanza();
 		} else {
 			setHP(HPValue);
 		}
