@@ -21,14 +21,14 @@ public class Menu {
 	Map<Integer, Stanza> stanze = new HashMap<>();
 
 	public Menu() {
-		stanze.put(1,new Tabacchino());
-		stanze.put(2,new Bar());
-		stanze.put(3,new Cantiere());
-		stanze.put(4,new PuntoSNAI());
-		stanze.put(5,new Parchetto());
-		stanze.put(6,new Ospedale());
-		stanze.put(7,new Mercato());
-		stanze.put(8,new Questura());
+		stanze.put(1, new Tabacchino());
+		stanze.put(2, new Bar());
+		stanze.put(3, new Cantiere());
+		stanze.put(4, new PuntoSNAI());
+		stanze.put(5, new Parchetto());
+		stanze.put(6, new Ospedale());
+		stanze.put(7, new Mercato());
+		stanze.put(8, new Questura());
 	}
 
 	public void VaiA() {
@@ -45,10 +45,14 @@ public class Menu {
 			GamePanel.clearScreen();
 
 			if (scelta != 0) {
-				this.stanze.get(scelta).runStanza();
+				if (stanze.containsKey(scelta)) {
+					stanze.get(scelta).runStanza();
+				} else {
+					System.out.println("Scelta non valida. Riprova.");
+				}
 			}
 
-		}while (scelta != 0);
-
+		} while (scelta != 0);
 	}
 }
+
