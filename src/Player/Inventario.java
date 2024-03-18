@@ -5,33 +5,30 @@ import java.util.ArrayList;
 public class Inventario {
 	private ArrayList<Oggetto> inventario;
 
-	// Crea l'istanza Struttura.Inventario come ArrayList e la chiama inventario
 	public Inventario() {
 		inventario = new ArrayList<>();
 	}
 
 	public void aggiungiItem(Oggetto item) {
-
 		boolean oggettoPresente = false;
 		for (Oggetto i : inventario) {
-
-			if(i.getNome().equalsIgnoreCase(item.getNome())){
-
-				i.setQuantita(item.getQuantita()+i.getQuantita());
+			if (i.getNome().equalsIgnoreCase(item.getNome())) {
+				i.setQuantita(item.getQuantita() + i.getQuantita());
 				oggettoPresente = true;
 			}
 		}
 		if (!oggettoPresente) {
 			inventario.add(item);
 		}
-
 	}
 
 	public void rimuoviItem(Oggetto item) {
 		inventario.remove(item);
 	}
-	public void svuotaInventario(){inventario.clear();}
 
+	public void svuotaInventario() {
+		inventario.clear();
+	}
 
 	public int quantitaItem(Oggetto item) {
 		int quantita = 0;
@@ -43,12 +40,21 @@ public class Inventario {
 		return quantita;
 	}
 
+	public boolean contieneItem(Oggetto item) {
+		for (Oggetto oggetto : inventario) {
+			if (oggetto.getNome().equalsIgnoreCase(item.getNome())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public String toString() {
 		return "Inventario \n" + inventario + "\n";
 	}
-
 }
+
 /*
  * Guida su come avviare l'istanza, creando un oggetto, per poi aggiungerlo
  * all'inventario:

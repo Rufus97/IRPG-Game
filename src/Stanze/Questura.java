@@ -4,11 +4,14 @@ import Input.In;
 import Main.GamePanel;
 import Main.Menu;
 
-
 public class Questura implements Stanza {
 
     public static void runQuestura() {
-        System.out.println("Sei finito dentro!");
+    }
+
+    @Override
+    public void runStanza() {
+        System.out.println("Benvenuto in questura. Sei stato arrestato!");
         boolean continua = true;
 
         while (continua) {
@@ -17,22 +20,25 @@ public class Questura implements Stanza {
             System.out.println("2. Parla con il maresciallo");
             System.out.println("3. Chiama l'avvocato");
             System.out.println("4. Tenta la fuga");
+            System.out.println("0. Torna al menu principale");
 
             int sceltaAzione = In.inputInt();
-            Questura questura = new Questura();
 
             switch (sceltaAzione) {
                 case 1:
-                    questura.guardatiIntorno();
+                    guardatiIntorno();
                     break;
                 case 2:
-                    questura.parlaConMaresciallo();
+                    parlaConMaresciallo();
                     break;
                 case 3:
-                    questura.chiamaAvvocato();
+                    chiamaAvvocato();
                     break;
                 case 4:
-                    questura.tentaLaFuga();
+                    tentaLaFuga();
+                    break;
+                case 0:
+                    tornaAlMenuPrincipale();
                     break;
                 default:
                     System.out.println("Scelta non valida. Riprova.");
@@ -55,11 +61,7 @@ public class Questura implements Stanza {
         System.out.println("Il telefono squilla e senti la voce dell'avvocato Diprè che ti dice di stare tranquillo e che pagherà la cauzione.");
         GamePanel.giocatore.setSoldi(GamePanel.giocatore.getSoldi() - 500); // Sottrai 500 euro dai soldi del giocatore
         System.out.println("Ti vengono scalati 500 euro, ma almeno torni a piede libero.");
-
-        // Ritorna al menu principale
-        //Menu.VaiA();
-
-
+        tornaAlMenuPrincipale();
     }
 
     private void tentaLaFuga() {
@@ -68,14 +70,18 @@ public class Questura implements Stanza {
         System.out.println("Una guardia ti colpisce con un manganellata nello stomaco. Perdi 10 HP.");
     }
 
-    @Override
-    public void runStanza() {
-
+    private void tornaAlMenuPrincipale() {
+        System.out.println("Torni al menu principale.");
+        Menu menu = new Menu();
+        menu.VaiA();
     }
 
     @Override
     public String getNomeStanza() {
-        return "Questura";
+        return "Qvestvra";
     }
 }
+
+
+
 

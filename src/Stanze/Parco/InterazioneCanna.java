@@ -2,35 +2,31 @@ package Stanze.Parco;
 
 import Main.GamePanel;
 import Player.Oggetto;
-import static Stanze.Parco.Brumotti.attivaEventoBrumotti;
 
 public class InterazioneCanna {
+    public InterazioneCanna() {
+    }
 
-    public static void rollaUnaCanna(boolean possiedeErba) {
-        System.out.println("Hai scelto di rollare una canna.");
-
-        if (possiedeErba) {
-            GamePanel.giocatore.setLivelloSoddisfazione(10);
+    public static void rollaUnaCanna(boolean b) {
+        Oggetto erba = new Oggetto("Erba", 1);
+        if (GamePanel.inventario.contieneItem(erba)) {
+            System.out.println("Hai scelto di rollare una canna.");
+            GamePanel.giocatore.setLivelloSoddisfazione(10.0);
             GamePanel.giocatore.setHP(-5);
-
-            System.out.println("Rolli un cannone e la accendi!");
+            System.out.println("Rolli un cannone e lo accendi! Stai tutto fattoooo!");
             System.out.println("Punti Soddisfazione: " + GamePanel.giocatore.getLivelloSoddisfazione());
             System.out.println("HP attuali: " + GamePanel.giocatore.getHP());
-            Oggetto erba = new Oggetto("Erba", 1);
             GamePanel.inventario.rimuoviItem(erba);
-
-            // Evento randomico collegato al punteggio karma
             if (calcolaKarma() < 50) {
-                attivaEventoBrumotti();
+                Brumotti.attivaEventoBrumotti();
             }
-
-            possiedeErba = false;
         } else {
             System.out.println("Non possiedi dell'erba per rollare una canna.");
         }
     }
 
     private static int calcolaKarma() {
-        return 0;
+        return 0; // Implementa il calcolo del karma
     }
 }
+
