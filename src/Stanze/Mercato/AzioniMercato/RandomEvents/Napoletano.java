@@ -72,7 +72,7 @@ public class Napoletano {
 
 
     public void vincitoreScontro(int playerHp){
-        if (parTest.NO_HP.getTest().runTest()){
+        if (GamePanel.giocatore.getHP() > 0){
             GamePanel.giocatore.setSoldi(10.0);
             System.out.println("hai vinto! recuperi i 10 euro dal corpo del napoli");
             GamePanel.giocatore.mostraStatistiche();

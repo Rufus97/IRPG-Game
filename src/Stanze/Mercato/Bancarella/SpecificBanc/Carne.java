@@ -1,17 +1,19 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
 
+import Main.GamePanel;
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
 import Stanze.Mercato.Bancarella.BancItem;
 
 
  public  class Carne extends BancItem implements ConsumableItems {
-
-    public Carne(String meatName, double prezzoAlKg){
+    public int restoreValue;
+    public Carne(String meatName, double prezzoAlKg, int restoreValue){
         super.setItemName(meatName);
         super.setPrezzoAlKg(prezzoAlKg);
         super.setTypeOfBanc("macelleria");
+        this.restoreValue = restoreValue;
     }
     @Override
     public String toString() {
@@ -22,9 +24,14 @@ import Stanze.Mercato.Bancarella.BancItem;
                         '}';
     }
 
+     public int getRestoreValue() {
+         return restoreValue;
+     }
+
      @Override
      public void consumeItem() {
          super.consumeQuantity();
+         GamePanel.giocatore.controlloSetHP(this.restoreValue);
      }
 
  }

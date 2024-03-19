@@ -77,8 +77,16 @@ public class NewInventory {
 
     public void consumeAnItem(ConsumableItems item){
 
-        getAllConsumables().forEach((k,v)->
-                System.out.println(k + ": " + v));
+        getAllConsumables().forEach((k,v)->{
+               if (v.equals(item) &&
+                   item.getQuantity() > 0){
+                   item.consumeItem();
+
+                } else {
+                   System.out.println("not enough: " + item);
+               }
+            }
+       );
     }
 
     public Map<Integer, EquippableItems> getAllEquipment(){

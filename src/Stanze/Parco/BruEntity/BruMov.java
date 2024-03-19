@@ -22,7 +22,8 @@ public class BruMov implements Moves {
     }
 
     @Override
-    public void useMove() {
+    public void moveEff() {
 
     }
+
 }
