@@ -1,10 +1,12 @@
 package Stanze.Parco.BruEntity;
 
+import Player.CharacterEquipment.EquipSlot;
 import Player.CharacterEquipment.InventoryNew.EquippableItems;
+import Player.CharacterEquipment.InventoryNew.Inventory;
 
 public class Bycycle implements EquippableItems {
     private String name = "bicicletta";
-    private int dmg;
+    private int dmg = 15;
 
 
     public Bycycle() {
