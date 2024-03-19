@@ -6,12 +6,16 @@ import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Stanze.Mercato.AzioniMercato.RandomDice;
 
-public class Escape {
-    public class UseItem implements Moves {
 
-        private String name = "Use Item";
+    public class Escape implements Moves {
+
+        private String name = "Escape";
 
         RandomDice rng = new RandomDice();
+
+        public static Escape Esc = new Escape();
+
+        private Escape(){}
 
 
 
@@ -38,4 +42,4 @@ public class Escape {
             }
         }
     }
-}
+

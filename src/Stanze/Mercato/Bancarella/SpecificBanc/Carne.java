@@ -29,9 +29,19 @@ import Stanze.Mercato.Bancarella.BancItem;
      }
 
      @Override
+     public String getItemName() {
+         return super.getItemName();
+     }
+
+     @Override
      public void consumeItem() {
          super.consumeQuantity();
          GamePanel.giocatore.controlloSetHP(this.restoreValue);
+     }
+
+     @Override
+     public int healAmount() {
+         return this.restoreValue;
      }
 
  }

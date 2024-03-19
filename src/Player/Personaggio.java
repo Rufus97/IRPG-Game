@@ -3,19 +3,19 @@ package Player;
 import Main.GamePanel;
 import Main.Utility.Entity;
 import Main.Utility.Moves;
-import Player.PlayerUtils.PlayerMoves;
+import Player.PlayerUtils.Moves.BasicAttack;
+import Player.PlayerUtils.Moves.Escape;
+import Player.PlayerUtils.Moves.UseItem;
 import Stanze.Ospedale;
 import prompt.Prompt;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Personaggio implements Entity{
 
 
 
-	private List<Moves> playMoves = new ArrayList<>(Arrays.asList(PlayerMoves.values()));
+	private Map<Integer, Moves> playMoves = Map.of(1, BasicAttack.Ba, 2, UseItem.Uitem, 3, Escape.Esc);
 	private String nome;
 	private String sesso;
 	private int HP = 100;
@@ -153,6 +153,12 @@ public class Personaggio implements Entity{
 		}
 	}
 
+	//equip weapon
+
+
+	public void setDmg(int dmg) {
+		this.dmg = dmg;
+	}
 
 	@Override
 	public int getHp() {
@@ -161,11 +167,16 @@ public class Personaggio implements Entity{
 
 	@Override
 	public int getDmg() {
-		return 0;
+		return this.dmg;
 	}
 
 	@Override
-	public List<Moves> getMoves(){
+	public void entIsDmg(int dmg) {
+		this.controlloSetHP(-dmg);
+	}
+
+	@Override
+	public Map<Integer, Moves> getMoves() {
 		return this.playMoves;
 	}
 

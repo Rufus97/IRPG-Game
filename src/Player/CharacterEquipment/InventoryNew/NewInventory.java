@@ -3,6 +3,7 @@ package Player.CharacterEquipment.InventoryNew;
 import Stanze.Mercato.MercatoInputs;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class NewInventory {
 
@@ -76,17 +77,9 @@ public class NewInventory {
     }
 
     public void consumeAnItem(ConsumableItems item){
-
-        getAllConsumables().forEach((k,v)->{
-               if (v.equals(item) &&
-                   item.getQuantity() > 0){
-                   item.consumeItem();
-
-                } else {
-                   System.out.println("not enough: " + item);
-               }
-            }
-       );
+        if (item.getQuantity() > 0){
+            item.consumeItem();
+        } else { System.out.println("not enough " + item);}
     }
 
     public Map<Integer, EquippableItems> getAllEquipment(){

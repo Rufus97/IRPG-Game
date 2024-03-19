@@ -27,6 +27,7 @@ public class Napoletano {
                 Scontro fight = new Scontro();
                 if (fight.scontro(GamePanel.giocatore, determinaNapoletano())){
                     GamePanel.giocatore.setSoldi(10.0);
+                    System.out.println("hai ripreso i tuoi 10 euri !!!" + GamePanel.giocatore.getSoldi());
                 };
             } else if (choice == 2){
                 System.out.println("hai lasciato perde");
@@ -69,6 +70,7 @@ public class Napoletano {
             return NapoliEnum.LEGGENDARIO;
         }
     }
+
 
 
     public void vincitoreScontro(int playerHp){

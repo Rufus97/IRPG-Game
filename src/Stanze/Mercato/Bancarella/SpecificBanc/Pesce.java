@@ -33,4 +33,13 @@ public class Pesce extends BancItem implements ConsumableItems {
         System.out.println("you consumed " + this + " for: " + restoreValue);
     }
 
+    @Override
+    public int healAmount() {
+        return this.restoreValue;
+    }
+    @Override
+    public String getItemName() {
+        return super.getItemName();
+    }
+
 }

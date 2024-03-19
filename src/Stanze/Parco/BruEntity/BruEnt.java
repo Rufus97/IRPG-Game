@@ -1,23 +1,22 @@
 package Stanze.Parco.BruEntity;
 
+import Input.In;
 import Main.Utility.Entity;
 import Main.Utility.Moves;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class BruEnt implements Entity {
 
    private int hp = 50;
 
-   private List<Moves> bruMov = new ArrayList<>(
-           Arrays.asList(
-                   new BruMov("basic attack", 5),
-                   new BruMov("A BOMBAZZA ", 40),
-                   new BruMov("Bycycle swing ", 20)
-           )
-   );
+   private Map<Integer, Moves> bruKit = Map.of(1,  new BruMov("basic attack", 5),
+           2, new BruMov("A BOMBAZZA ", 40),
+           3,  new BruMov("Bycycle swing ", 20) );
+
 
 
     @Override
@@ -31,8 +30,13 @@ public class BruEnt implements Entity {
     }
 
     @Override
-    public List<Moves> getMoves() {
-        return this.bruMov;
+    public void entIsDmg(int dmg) {
+        this.hp -= dmg;
+    }
+
+    @Override
+    public Map<Integer, Moves> getMoves() {
+        return this.bruKit;
     }
 
     @Override

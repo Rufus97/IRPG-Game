@@ -26,6 +26,10 @@ public class Bigiotteria extends BancItem implements EquippableItems {
     public int getArmor() {
         return 0;
     }
+    @Override
+    public String getItemName() {
+        return super.getItemName();
+    }
 
     @Override
     public void equipItem() {

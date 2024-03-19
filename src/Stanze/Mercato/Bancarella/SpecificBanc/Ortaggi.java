@@ -33,4 +33,13 @@ public class Ortaggi extends BancItem implements ConsumableItems {
         GamePanel.giocatore.controlloSetHP(this.restoreValue);
     }
 
+    @Override
+    public int healAmount() {
+        return this.restoreValue;
+    }
+    @Override
+    public String getItemName() {
+        return super.getItemName();
+    }
+
 }

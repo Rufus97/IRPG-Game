@@ -9,7 +9,9 @@ public class UseItem implements Moves {
 
     private String name = "Use Item";
 
+    public static UseItem Uitem = new UseItem();
 
+    private UseItem(){};
 
     @Override
     public String getName() {
@@ -23,7 +25,10 @@ public class UseItem implements Moves {
 
     @Override
     public void moveEff() {
+        NewInventory.getInventory().getAllConsumables().forEach((k,v)->
+                System.out.println(k + ": " + v));
         ConsumableItems choice = NewInventory.getInventory().getAllConsumables().get(In.inputInt());
         NewInventory.getInventory().consumeAnItem(choice);
+
     }
 }
