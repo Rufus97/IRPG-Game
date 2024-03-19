@@ -3,6 +3,10 @@ package Main;
 import Input.In;
 import Player.Inventario;
 import Player.Personaggio;
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.CharEquip;
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.Inventory;
+import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
+import Stanze.Mercato.MercatoInputs;
 import Stanze.Stanza;
 import Stanze.puntoSnai.HorseP;
 
@@ -36,16 +40,19 @@ public class GamePanel {
 			case 1:
 				Menu menu = new Menu();
 				menu.VaiA();
-			
 				break;
 
 			case 2:
-				System.out.println("Nell inventario hai:");
-				System.out.println(GamePanel.inventario.toString());
+				System.out.println("Nell'inventario hai:");
+				System.out.println(NewInventory.getInventory().getBackpack());
+				try{
+					CharEquip.getPlayerEquipment().equipItem(new MercatoInputs());
+					break;
+				} catch (Exception e){
+					System.out.println("indice errato");
+				}
 
-				break;
-
-			case 3:
+			case 0:
 				System.out.println("Exit Game");
 				break;
 
@@ -59,8 +66,8 @@ public class GamePanel {
 
 	// METODO CANCELLA SCHERMO
 	public static void clearScreen() {
-		//System.out.print("\033[H\033[2J");
-		//System.out.flush();
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
 
 	public static void prova() throws IOException, InterruptedException {

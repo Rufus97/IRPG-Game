@@ -1,7 +1,6 @@
 package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 import Stanze.Mercato.AzioniMercato.Utility.Moves;
-import org.mockito.Mockito;
 
 public class NapoliMoves implements Moves {
     private int dmg;

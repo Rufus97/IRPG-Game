@@ -30,7 +30,7 @@ public class Tabacchino implements Stanza {
         System.out.println("3. Compra Sigarette");
         System.out.println("0. Esci");
 
-        scelta = In.scanner.nextInt();
+        scelta = In.inputForMaps(methodMap);
         GamePanel.clearScreen();
 
         if(scelta != 0){

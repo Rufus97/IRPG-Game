@@ -23,7 +23,7 @@ public class DiecieLotto implements Itabacchino{
         System.out.println("I tuoi soldi " + GamePanel.giocatore.getSoldi());
         System.out.println("Da quanto la giocata? min 1 max 200 euro");
       
-        costoPartita = (In.scanner.nextInt()*-1);
+        costoPartita = (In.inputInt()*-1);
 
 
         if (GamePanel.giocatore.controllaSoldi(costoPartita)  == true){

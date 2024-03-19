@@ -83,9 +83,4 @@ public class CharEquip {
                  System.out.println(element.getSlotName() + ": " + element.getEquippedItem());
         }
     }
-
-
-
-
-
 }
