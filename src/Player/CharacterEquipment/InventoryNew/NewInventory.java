@@ -38,7 +38,7 @@ public class NewInventory {
         }
         return newMap;
     }
-    public  boolean checkIfExists(Inventory map, Map<Integer, Inventory> mappa){
+    public boolean checkIfExists(Inventory map, Map<Integer, Inventory> mappa){
 
         boolean foundFlag = false;
         for (Map.Entry<Integer, Inventory> element : mappa.entrySet()){

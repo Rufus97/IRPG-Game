@@ -1,5 +1,4 @@
 package Stanze.Mercato.AzioniMercato.RandomEvents;
-
 import Main.Utility.Moves;
 
 public class NapoliMoves implements Moves {

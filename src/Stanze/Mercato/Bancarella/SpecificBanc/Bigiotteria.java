@@ -41,4 +41,9 @@ public class Bigiotteria extends BancItem implements EquippableItems {
             this.slot.setEquippedItem(this);
         }
     }
+
+    @Override
+    public int getDanni() {
+        return 0;
+    }
 }

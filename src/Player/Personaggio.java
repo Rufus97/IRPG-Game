@@ -23,7 +23,7 @@ public class Personaggio implements Entity{
 	private int dmg = 5;
 	private double soldi = 100;
 	private double karma = 0;
-	private double livelloSballo = 0;
+	private Double livelloSballo = 0D;
 	private double livelloSoddisfazione = 0;
 	private int posizione = 1;
 
@@ -57,7 +57,7 @@ public class Personaggio implements Entity{
 		return Math.round(soldi * 100.0) / 100.0;
 	}
 
-	public double getLivelloSballo() {
+	public Double getLivelloSballo() {
 		return livelloSballo;
 	}
 
@@ -113,7 +113,7 @@ public class Personaggio implements Entity{
 			HP = 100;
 		}else if(GamePanel.giocatore.getHP() + HPValue <= 0) {
 			this.HP = 0;
-			System.out.println("sei morto" + GamePanel.giocatore.getHP());
+			System.out.println("sei morto " + GamePanel.giocatore.getHP());
 			Ospedale HPO = new Ospedale();
 			HPO.runStanza();
 		} else {
@@ -145,9 +145,9 @@ public class Personaggio implements Entity{
 	public void controlloSetSballo(double sballoValue){
 
 		if(GamePanel.giocatore.getLivelloSballo() + sballoValue >= 1){
-			this.livelloSballo = 1;
+			this.livelloSballo = 1D;
 		}else if(GamePanel.giocatore.getLivelloSballo() + sballoValue < 0){
-			this.livelloSballo = 0;
+			this.livelloSballo = 0D;
 		}else{
 			setLivelloSballo(sballoValue);
 		}
@@ -172,7 +172,7 @@ public class Personaggio implements Entity{
 
 	@Override
 	public void entIsDmg(int dmg) {
-		this.controlloSetHP(-dmg);
+		this.HP -= dmg;
 	}
 
 	@Override

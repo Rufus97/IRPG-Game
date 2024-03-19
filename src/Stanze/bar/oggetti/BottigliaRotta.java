@@ -1,22 +1,18 @@
-package Stanze.Parco.BruEntity;
+package Stanze.bar.oggetti;
 
 import Player.CharacterEquipment.EquipSlot;
 import Player.CharacterEquipment.InventoryNew.EquippableItems;
 
-public class Bycycle implements EquippableItems {
-    private String name = "bicicletta";
-    private int dmg = 15;
+public class BottigliaRotta implements EquippableItems {
+    private String name = "bottiglia";
+    private int dmg = 7;
     private EquipSlot slot = EquipSlot.WEAPON;
 
-
-    public Bycycle() {
-    }
 
     @Override
     public int getArmor() {
         return 0;
     }
-
     @Override
     public void equipItem() {
         if (!this.slot.isEquipped()){
@@ -45,9 +41,10 @@ public class Bycycle implements EquippableItems {
 
     @Override
     public String toString() {
-        return
+        return "BottigliaRotta{" +
                 "name='" + name + '\'' +
-                ", dmg=" + dmg ;
-
+                ", dmg=" + dmg +
+                ", slot=" + slot +
+                '}';
     }
 }

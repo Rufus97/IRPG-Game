@@ -1,5 +1,6 @@
 package Player.CharacterEquipment;
 
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 import Player.CharacterEquipment.InventoryNew.Inventory;
 import Stanze.Mercato.Bancarella.BancItem;
 
@@ -18,13 +19,13 @@ public enum EquipSlot {
 
     private boolean isEquipped;
 
-    private Inventory equippedItem;
+    private EquippableItems equippedItem;
 
     private String slotName;
 
 
 
-    private EquipSlot(boolean isEquipped, Inventory equippedItem, String name){
+    private EquipSlot(boolean isEquipped, EquippableItems equippedItem, String name){
 
         this.isEquipped = isEquipped;
         this.equippedItem = equippedItem;
@@ -42,11 +43,11 @@ public enum EquipSlot {
         return slotName;
     }
 
-    public void setEquippedItem(BancItem equippedItem) {
+    public void setEquippedItem(EquippableItems equippedItem) {
         this.equippedItem = equippedItem;
     }
 
-    public Inventory getEquippedItem() {
+    public EquippableItems getEquippedItem() {
         return equippedItem;
     }
 }

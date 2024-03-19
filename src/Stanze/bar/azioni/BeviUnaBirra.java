@@ -1,15 +1,23 @@
 package Stanze.bar.azioni;
 
+import Input.Casuale;
 import Input.In;
 import Main.GamePanel;
+import Main.Utility.Scontro;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Player.Oggetto;
+import Stanze.Parco.BruEntity.Bycycle;
 import Stanze.bar.Azione;
+import Stanze.bar.azioni.entyties.Barista;
+import Stanze.bar.oggetti.Bottiglia;
+import Stanze.bar.oggetti.BottigliaRotta;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class BeviUnaBirra extends Azione {
 
+    double fixedDouble = GamePanel.giocatore.getLivelloSballo() * 10;
     private Map<Integer, Azione> azioni = new HashMap<>();
     public BeviUnaBirra(String nome, double prezzo, String descrizione) {
         super(nome, prezzo, descrizione);
@@ -24,29 +32,28 @@ public class BeviUnaBirra extends Azione {
             GamePanel.giocatore.controlloSetSballo(0.1);
             GamePanel.giocatore.mostraStatistiche();
 
-            if(GamePanel.giocatore.getLivelloSballo() >= 0.5){
+            if(Casuale.numeroCasualeTraDouble(0, GamePanel.giocatore.getLivelloSballo()) > 1.2){
+                System.out.println("SEI TROPPO BRILLO PER CONTINUARE A BERE! Spacchi la bottiglia...");
+                NewInventory.getInventory().addToBackpack(new BottigliaRotta());
                 rissaConArma();
             }else{
-                Oggetto bottiglia = new Oggetto("bottiglia", 1);
-                GamePanel.inventario.aggiungiItem(bottiglia);
-                System.out.println("hai ottenuto un'arma di tipo Bottiglia!");
+                NewInventory.getInventory().addToBackpack(new Bottiglia());
+                System.out.println("hai ottenuto un consumabile di tipo Bottiglia!");
                 System.out.println("Bottiglia +1");
             }
         }
     }
 
     public void rissaConArma(){
-        int scelta;
 
-        System.out.println("SEI TROPPO BRILLO PER CONTINUARE A BERE! Spacchi la bottiglia e minacci il barista...");
-        GamePanel.giocatore.controlloSetSoddisfazione(6);
+        Scontro scontro = new Scontro();
+
         GamePanel.giocatore.mostraStatistiche();
+        if(scontro.scontro(GamePanel.giocatore, new Barista())){
+            new RubaDallaCassa("ruba dalla cassa", "bla bla").run();
+        }
 
-
-        scelta = In.inputInt();
         GamePanel.clearScreen();
-
-
 
     }
 }

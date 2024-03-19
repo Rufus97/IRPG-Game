@@ -45,6 +45,12 @@ public class Vestiti extends BancItem implements EquippableItems {
           this.slot.setEquippedItem(this);
       }
     }
+
+    @Override
+    public int getDanni() {
+        return 0;
+    }
+
     @Override
     public String getItemName() {
         return super.getItemName();
