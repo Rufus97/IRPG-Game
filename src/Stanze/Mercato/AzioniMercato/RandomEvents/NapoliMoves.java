@@ -1,7 +1,6 @@
 package Stanze.Mercato.AzioniMercato.RandomEvents;
 
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
-import org.mockito.Mockito;
+import Main.Utility.Moves;
 
 public class NapoliMoves implements Moves {
     private int dmg;
@@ -19,5 +18,10 @@ public class NapoliMoves implements Moves {
     @Override
     public int getDmg() {
         return this.dmg;
+    }
+
+    @Override
+    public void useMove() {
+
     }
 }

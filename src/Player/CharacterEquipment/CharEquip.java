@@ -1,11 +1,7 @@
-package Stanze.Mercato.AzioniMercato.CharacterEquipment;
+package Player.CharacterEquipment;
 
-import Main.GamePanel;
-import Player.Oggetto;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.Inventory;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
-import Stanze.Mercato.Bancarella.BancItem;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 import Stanze.Mercato.MercatoInputs;
 
 import java.util.ArrayList;

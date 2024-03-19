@@ -1,7 +1,7 @@
 package Stanze.Parco.BruEntity;
 
-import Stanze.Mercato.AzioniMercato.Utility.Entity;
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
+import Main.Utility.Entity;
+import Main.Utility.Moves;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,8 +37,7 @@ public class BruEnt implements Entity {
 
     @Override
     public String toString() {
-        return "BruEnt{" +
-                "hp=" + hp +
-                '}';
+        return "Brumotti " +
+                "hp: " + hp ;
     }
 }

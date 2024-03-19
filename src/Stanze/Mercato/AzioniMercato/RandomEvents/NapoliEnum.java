@@ -1,7 +1,7 @@
 package Stanze.Mercato.AzioniMercato.RandomEvents;
 
-import Stanze.Mercato.AzioniMercato.Utility.Entity;
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
+import Main.Utility.Entity;
+import Main.Utility.Moves;
 
 import java.util.Arrays;
 import java.util.List;

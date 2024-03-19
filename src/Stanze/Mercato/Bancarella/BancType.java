@@ -1,6 +1,6 @@
 package Stanze.Mercato.Bancarella;
 
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.EquipSlot;
+import Player.CharacterEquipment.EquipSlot;
 import Stanze.Mercato.Bancarella.SpecificBanc.*;
 
 import java.util.Arrays;

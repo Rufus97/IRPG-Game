@@ -1,6 +1,6 @@
 package Stanze.Parco.BruEntity;
 
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 
 public class Bycycle implements EquippableItems {
     private String name = "bicicletta";
@@ -26,7 +26,7 @@ public class Bycycle implements EquippableItems {
     }
 
     @Override
-    public void setQuantity() {
+    public void increaseQuantity() {
 
     }
 }

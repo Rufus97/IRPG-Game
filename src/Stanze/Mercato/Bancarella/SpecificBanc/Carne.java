@@ -1,10 +1,7 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
 
-import Main.GamePanel;
-import Player.Oggetto;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.ConsumableItems;
-import Stanze.Mercato.Bancarella.BancType;
+import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
 import Stanze.Mercato.Bancarella.BancItem;
 
@@ -27,11 +24,7 @@ import Stanze.Mercato.Bancarella.BancItem;
 
      @Override
      public void consumeItem() {
-
+         super.consumeQuantity();
      }
 
-     @Override
-     public void removeItem() {
-
-     }
  }

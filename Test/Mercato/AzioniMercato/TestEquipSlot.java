@@ -2,8 +2,8 @@ package Mercato.AzioniMercato;
 
 import Player.Inventario;
 import Player.Oggetto;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.CharEquip;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
+import Player.CharacterEquipment.CharEquip;
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 import Stanze.Mercato.Bancarella.BancType;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -24,7 +24,7 @@ public class TestEquipSlot {
         when(test.getInventario()).thenReturn(testInventory);
 
         testInventory.add(new Oggetto(BancType.VESTITI.getInventory().getFirst().getItemName(), 1));
-        List<EquippableItems> equipment = testEquip.getAvaibleEquipFromInventory();
+        List<EquippableItems> equipment = testEqui();
         System.out.println(equipment);
         assertTrue(equipment.size() == 1);
 

@@ -1,13 +1,10 @@
-package Stanze.Mercato.AzioniMercato.Utility;
+package Main.Utility;
 
 import Input.Casuale;
 import Main.GamePanel;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.CharEquip;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.EquipSlot;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
+import Player.CharacterEquipment.CharEquip;
 import Stanze.Mercato.AzioniMercato.RandomDice;
-import Stanze.Mercato.AzioniMercato.Utility.PlayerUtils.PlayerMoves;
-import Stanze.Mercato.Mercato;
+import Player.PlayerUtils.PlayerMoves;
 import Stanze.Mercato.MercatoInputs;
 
 import java.util.List;
@@ -20,7 +17,7 @@ RandomDice rng = new RandomDice();
         int hp1 = ent1.getHp();
         List<Moves> ent2Moves = ent2.getMoves();
         int hp2 = ent2.getHp();
-        System.out.println(ent2 + " " + ent2.getDmg());
+
         MercatoInputs input = new MercatoInputs();
 
         System.out.println(ent1 + " is fighting " + ent2);
@@ -36,9 +33,11 @@ RandomDice rng = new RandomDice();
                 case 1: hp2 -= PlayerMoves.values()[choice-1].getDmg();
                 System.out.println("enemy has " + hp2);
             }
+
             System.out.println(ent2 + " turn");
             Moves chosedMove = ent2Moves.get(Casuale.numeroCasualeTra(0, ent2Moves.size()-1));
             hp1 -= (chosedMove.getDmg() - CharEquip.getPlayerEquipment().getAllArmor());
+
             System.out.println(ent2 + " strike with: " + chosedMove.getName());
             System.out.println(ent1 + " get: " + (chosedMove.getDmg() - CharEquip.getPlayerEquipment().getAllArmor()) + " damage");
             System.out.println(ent1 + " has: " + hp1);

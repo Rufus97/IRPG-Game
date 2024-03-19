@@ -1,10 +1,8 @@
-package Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew;
+package Player.CharacterEquipment.InventoryNew;
 
-import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.MercatoInputs;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class NewInventory {
 
@@ -33,7 +31,8 @@ public class NewInventory {
                 }
             }
         } else {
-            item.setQuantity();
+
+            item.increaseQuantity();
             return newMap;
         }
         return newMap;
@@ -64,6 +63,22 @@ public class NewInventory {
             }
         }
         return key;
+    }
+
+    public Map<Integer, ConsumableItems> getAllConsumables(){
+        Map<Integer, ConsumableItems> equip = new HashMap<>();
+        for (Map.Entry<Integer, Inventory> entries : backpack.entrySet()){
+            if (entries.getValue() instanceof ConsumableItems){
+                equip.put(getNewKey(equip), (ConsumableItems) entries.getValue());
+            }
+        }
+        return equip;
+    }
+
+    public void consumeAnItem(ConsumableItems item){
+
+        getAllConsumables().forEach((k,v)->
+                System.out.println(k + ": " + v));
     }
 
     public Map<Integer, EquippableItems> getAllEquipment(){

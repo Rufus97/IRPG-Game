@@ -2,8 +2,7 @@ package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 import Main.GamePanel;
 import Stanze.Mercato.AzioniMercato.RandomDice;
-import Stanze.Mercato.AzioniMercato.Utility.Scontro;
-import Stanze.Mercato.AzioniMercato.Utility.parTest;
+import Main.Utility.Scontro;
 import Stanze.Mercato.MercatoInputs;
 
 public class Napoletano {

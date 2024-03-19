@@ -1,7 +1,7 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.ConsumableItems;
-import Stanze.Mercato.Bancarella.BancType;
+import Player.CharacterEquipment.InventoryNew.ConsumableItems;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Stanze.Mercato.Bancarella.BancItem;
 
 public class Pesce extends BancItem implements ConsumableItems {
@@ -22,11 +22,7 @@ public class Pesce extends BancItem implements ConsumableItems {
 
     @Override
     public void consumeItem() {
-
+     super.consumeQuantity();
     }
 
-    @Override
-    public void removeItem() {
-
-    }
 }

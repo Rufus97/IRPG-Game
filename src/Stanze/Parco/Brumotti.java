@@ -1,12 +1,10 @@
 package Stanze.Parco;
 import Input.In;
 import Main.GamePanel;
-import Player.Oggetto;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
-import Stanze.Mercato.AzioniMercato.Utility.Scontro;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
+import Main.Utility.Scontro;
 import Stanze.Parco.BruEntity.BruEnt;
 import Stanze.Parco.BruEntity.Bycycle;
-import Stanze.Questura;
 
 public class Brumotti {
 

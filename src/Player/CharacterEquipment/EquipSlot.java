@@ -1,8 +1,7 @@
-package Stanze.Mercato.AzioniMercato.CharacterEquipment;
+package Player.CharacterEquipment;
 
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.Inventory;
+import Player.CharacterEquipment.InventoryNew.Inventory;
 import Stanze.Mercato.Bancarella.BancItem;
-import Stanze.Mercato.Bancarella.BancType;
 
 public enum EquipSlot {
     HEAD(false, null, "Testa"),

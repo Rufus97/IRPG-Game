@@ -1,10 +1,13 @@
-package Stanze.Mercato.AzioniMercato.Utility.PlayerUtils;
+package Player.PlayerUtils;
 
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
+import Main.Utility.Moves;
 
 public enum PlayerMoves implements Moves {
 
-    Attack(5, "basic attack");
+
+    Attack(5, "basic attack"),
+    Run(0,"escape"),
+    Item(0, "use an item");
 
     private int dmg;
     private String nome;
@@ -23,4 +26,9 @@ public enum PlayerMoves implements Moves {
     public int getDmg() {
         return this.dmg;
     }
+    @Override
+    public void moveEff() {
+
+    }
+
 }

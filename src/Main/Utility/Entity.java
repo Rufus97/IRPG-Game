@@ -1,4 +1,4 @@
-package Stanze.Mercato.AzioniMercato.Utility;
+package Main.Utility;
 
 import java.util.List;
 

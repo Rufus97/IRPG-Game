@@ -1,9 +1,9 @@
 package Player;
 
 import Main.GamePanel;
-import Stanze.Mercato.AzioniMercato.Utility.Entity;
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
-import Stanze.Mercato.AzioniMercato.Utility.PlayerUtils.PlayerMoves;
+import Main.Utility.Entity;
+import Main.Utility.Moves;
+import Player.PlayerUtils.PlayerMoves;
 import Stanze.Ospedale;
 import prompt.Prompt;
 
@@ -171,8 +171,7 @@ public class Personaggio implements Entity{
 
 	@Override
 	public String toString() {
-		return "Personaggio{" +
-				", HP=" + HP +
-				'}';
+		return "Player " +
+				" HP: " + HP ;
 	}
 }

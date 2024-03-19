@@ -1,6 +1,6 @@
 package Stanze.Parco.BruEntity;
 
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
+import Main.Utility.Moves;
 
 public class BruMov implements Moves {
     private String name;
@@ -19,5 +19,10 @@ public class BruMov implements Moves {
     @Override
     public int getDmg() {
         return dmg;
+    }
+
+    @Override
+    public void useMove() {
+
     }
 }

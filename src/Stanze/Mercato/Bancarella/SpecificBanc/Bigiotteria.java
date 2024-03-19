@@ -1,6 +1,6 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 import Stanze.Mercato.Bancarella.BancItem;
 
 public class Bigiotteria extends BancItem implements EquippableItems {

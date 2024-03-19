@@ -1,6 +1,6 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.EquipSlot;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
+import Player.CharacterEquipment.EquipSlot;
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 import Stanze.Mercato.Bancarella.BancItem;
 
 public class Vestiti extends BancItem implements EquippableItems {

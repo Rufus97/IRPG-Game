@@ -1,7 +1,7 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
 
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.ConsumableItems;
+import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 import Stanze.Mercato.Bancarella.BancItem;
 
 public class Ortaggi extends BancItem implements ConsumableItems {
