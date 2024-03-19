@@ -2,8 +2,7 @@ package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 import Main.GamePanel;
 import Stanze.Mercato.AzioniMercato.RandomDice;
-import Stanze.Mercato.AzioniMercato.Utility.Scontro;
-import Stanze.Mercato.AzioniMercato.Utility.parTest;
+import Main.Utility.Scontro;
 import Stanze.Mercato.MercatoInputs;
 
 public class Napoletano {
@@ -28,6 +27,7 @@ public class Napoletano {
                 Scontro fight = new Scontro();
                 if (fight.scontro(GamePanel.giocatore, determinaNapoletano())){
                     GamePanel.giocatore.setSoldi(10.0);
+                    System.out.println("hai ripreso i tuoi 10 euri !!!" + GamePanel.giocatore.getSoldi());
                 };
             } else if (choice == 2){
                 System.out.println("hai lasciato perde");
@@ -72,8 +72,9 @@ public class Napoletano {
     }
 
 
+
     public void vincitoreScontro(int playerHp){
-        if (parTest.NO_HP.getTest().runTest()){
+        if (GamePanel.giocatore.getHP() > 0){
             GamePanel.giocatore.setSoldi(10.0);
             System.out.println("hai vinto! recuperi i 10 euro dal corpo del napoli");
             GamePanel.giocatore.mostraStatistiche();

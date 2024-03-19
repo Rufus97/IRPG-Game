@@ -1,16 +1,12 @@
-package Stanze.Parco.BruEntity;
+package Stanze.bar.mossa;
 
 import Main.Utility.Moves;
 
-public class BruMov implements Moves {
-    private String name;
-    private int dmg;
-    public BruMov(String name, int dmg){
-        this.name = name;
-        this.dmg = dmg;
-    }
+import java.lang.module.ModuleFinder;
 
-
+public class DropKick implements Moves {
+    private String name = "doppio calcio";
+    private int dmg = 10;
     @Override
     public String getName() {
         return name;
@@ -25,5 +21,4 @@ public class BruMov implements Moves {
     public void moveEff() {
 
     }
-
 }

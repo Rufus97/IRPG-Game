@@ -1,16 +1,18 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
 
 
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.ConsumableItems;
+import Main.GamePanel;
+import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 import Stanze.Mercato.Bancarella.BancItem;
 
 public class Ortaggi extends BancItem implements ConsumableItems {
 
-
-    public Ortaggi(String ortaggiName, double prezzoAlKg){
+    public int restoreValue;
+    public Ortaggi(String ortaggiName, double prezzoAlKg, int restoreValue){
         super.setItemName(ortaggiName);
         super.setPrezzoAlKg(prezzoAlKg);
         super.setTypeOfBanc("tra oltraggi e ortaggi");
+        this.restoreValue = restoreValue;
     }
     @Override
     public String toString() {
@@ -21,13 +23,23 @@ public class Ortaggi extends BancItem implements ConsumableItems {
                         '}';
     }
 
+    public int getRestoreValue() {
+        return restoreValue;
+    }
+
     @Override
     public void consumeItem() {
-
+        super.consumeQuantity();
+        GamePanel.giocatore.controlloSetHP(this.restoreValue);
     }
 
     @Override
-    public void removeItem() {
-
+    public int healAmount() {
+        return this.restoreValue;
     }
+    @Override
+    public String getItemName() {
+        return super.getItemName();
+    }
+
 }

@@ -1,19 +1,12 @@
 package Main;
-
 import Input.In;
+import Player.CharacterEquipment.CharEquip;
+import Player.CharacterEquipment.InventoryNew.ConsumableItems;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Player.Inventario;
 import Player.Personaggio;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.CharEquip;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.Inventory;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.NewInventory;
 import Stanze.Mercato.MercatoInputs;
-import Stanze.Stanza;
-import Stanze.puntoSnai.HorseP;
-
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 public class GamePanel {
 
 	public static final Personaggio giocatore = new Personaggio();
@@ -43,13 +36,20 @@ public class GamePanel {
 				break;
 
 			case 2:
-				System.out.println("Nell'inventario hai:");
+				System.out.println("Nell inventario hai:");
 				System.out.println(NewInventory.getInventory().getBackpack());
-				try{
+				System.out.println("Ulteriori operazioni? \n1: Equipaggia oggetto \n2: Usa oggetto \n0: esci");
+				int choice2 = In.inputInt();
+				switch (choice2){
+					case 1 -> {System.out.println(NewInventory.getInventory().getAllEquipment());
 					CharEquip.getPlayerEquipment().equipItem(new MercatoInputs());
-					break;
-				} catch (Exception e){
-					System.out.println("indice errato");
+					}
+					case 2 -> {System.out.println(NewInventory.getInventory().getAllConsumables());
+					System.out.println("chose an item");
+						ConsumableItems item = NewInventory.getInventory().getAllConsumables().get(In.inputInt());
+						NewInventory.getInventory().consumeAnItem(item);
+					}
+					case 0 -> {}
 				}
 
 			case 0:

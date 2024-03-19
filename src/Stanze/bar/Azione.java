@@ -1,9 +1,12 @@
 package Stanze.bar;
 
+import Stanze.Mercato.AzioniMercato.RandomDice;
+
 public class Azione {
     private String nome;
     private String descrizione;
     private Double prezzo;
+    protected RandomDice rng = new RandomDice();
 
     public Azione(String nome, String descrizione) {
         this.nome = nome;

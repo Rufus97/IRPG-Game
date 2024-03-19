@@ -1,6 +1,5 @@
 package Stanze.Mercato.AzioniMercato.RandomEvents;
-
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
+import Main.Utility.Moves;
 
 public class NapoliMoves implements Moves {
     private int dmg;
@@ -19,4 +18,11 @@ public class NapoliMoves implements Moves {
     public int getDmg() {
         return this.dmg;
     }
+
+    @Override
+    public void moveEff() {
+
+    }
+
+
 }

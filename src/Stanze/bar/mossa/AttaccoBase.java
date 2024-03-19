@@ -1,15 +1,12 @@
-package Stanze.Parco.BruEntity;
+package Stanze.bar.mossa;
 
+import Input.In;
 import Main.Utility.Moves;
 
-public class BruMov implements Moves {
-    private String name;
-    private int dmg;
-    public BruMov(String name, int dmg){
-        this.name = name;
-        this.dmg = dmg;
-    }
+public class AttaccoBase implements Moves {
 
+    private String name = "attacco base";
+    private int dmg = 5;
 
     @Override
     public String getName() {
@@ -25,5 +22,4 @@ public class BruMov implements Moves {
     public void moveEff() {
 
     }
-
 }

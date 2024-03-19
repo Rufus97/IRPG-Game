@@ -1,28 +1,29 @@
 package Stanze.Mercato.AzioniMercato.RandomEvents;
 
-import Stanze.Mercato.AzioniMercato.Utility.Entity;
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
+import Main.Utility.Entity;
+import Main.Utility.Moves;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public enum NapoliEnum implements Entity{
-    GOLLUM(10, Arrays.asList(new NapoliMoves(1, "basic attack"), new NapoliMoves(5, "my precious"))),
-    SMILZO(20, Arrays.asList(new NapoliMoves(3, "basic attack"), new NapoliMoves(7, "mozzarella strike"))),
-    NORMALE(30, Arrays.asList(new NapoliMoves(5, "basic attack"), new NapoliMoves(10, "backstab"))),
-    PIAZZATO(40, Arrays.asList(new NapoliMoves(10, "basic attack"), new NapoliMoves(15, "mandolin combo"))),
-    LEGGENDARIO(60, Arrays.asList(new NapoliMoves(20, "basic attack"), new NapoliMoves(5, "vesuvian punch")));
+    GOLLUM(10, Map.of(1, new NapoliMoves(1, "basic attack"), 2, new NapoliMoves(5, "my precious"))),
+    SMILZO(20, Map.of(1, new NapoliMoves(3, "basic attack"), 2, new NapoliMoves(7, "mozzarella strike"))),
+    NORMALE(30, Map.of(1, new NapoliMoves(5, "basic attack"), 2, new NapoliMoves(10, "backstab"))),
+    PIAZZATO(40, Map.of(1, new NapoliMoves(10, "basic attack"), 2, new NapoliMoves(15, "mandolin combo"))),
+    LEGGENDARIO(60, Map.of(1, new NapoliMoves(20, "basic attack"), 2, new NapoliMoves(50, "vesuvian punch")));
 
     private int napoleanHp;
 
-    private List<Moves> moves;
+    private Map<Integer, Moves> moves;
 
 
     public int getNapoleanHp() {
         return napoleanHp;
     }
 
-    NapoliEnum( int napoleanHp, List<Moves> moves) {
+    NapoliEnum( int napoleanHp, Map<Integer, Moves> moves) {
         this.napoleanHp = napoleanHp;
         this.moves = moves;
     }
@@ -39,7 +40,12 @@ public enum NapoliEnum implements Entity{
     }
 
     @Override
-    public List<Moves> getMoves() {
+    public void entIsDmg(int dmg) {
+        this.napoleanHp -= dmg;
+    }
+
+    @Override
+    public Map<Integer, Moves> getMoves() {
         return moves;
     }
 

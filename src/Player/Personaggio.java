@@ -1,21 +1,21 @@
 package Player;
 
 import Main.GamePanel;
-import Stanze.Mercato.AzioniMercato.Utility.Entity;
-import Stanze.Mercato.AzioniMercato.Utility.Moves;
-import Stanze.Mercato.AzioniMercato.Utility.PlayerUtils.PlayerMoves;
+import Main.Utility.Entity;
+import Main.Utility.Moves;
+import Player.PlayerUtils.Moves.BasicAttack;
+import Player.PlayerUtils.Moves.Escape;
+import Player.PlayerUtils.Moves.UseItem;
 import Stanze.Ospedale;
 import prompt.Prompt;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Personaggio implements Entity{
 
 
 
-	private List<Moves> playMoves = new ArrayList<>(Arrays.asList(PlayerMoves.values()));
+	private Map<Integer, Moves> playMoves = Map.of(1, BasicAttack.Ba, 2, UseItem.Uitem, 3, Escape.Esc);
 	private String nome;
 	private String sesso;
 	private int HP = 100;
@@ -23,7 +23,7 @@ public class Personaggio implements Entity{
 	private int dmg = 5;
 	private double soldi = 100;
 	private double karma = 0;
-	private double livelloSballo = 0;
+	private Double livelloSballo = 0D;
 	private double livelloSoddisfazione = 0;
 	private int posizione = 1;
 
@@ -57,7 +57,7 @@ public class Personaggio implements Entity{
 		return Math.round(soldi * 100.0) / 100.0;
 	}
 
-	public double getLivelloSballo() {
+	public Double getLivelloSballo() {
 		return livelloSballo;
 	}
 
@@ -145,14 +145,20 @@ public class Personaggio implements Entity{
 	public void controlloSetSballo(double sballoValue){
 
 		if(GamePanel.giocatore.getLivelloSballo() + sballoValue >= 1){
-			this.livelloSballo = 1;
+			this.livelloSballo = 1D;
 		}else if(GamePanel.giocatore.getLivelloSballo() + sballoValue < 0){
-			this.livelloSballo = 0;
+			this.livelloSballo = 0D;
 		}else{
 			setLivelloSballo(sballoValue);
 		}
 	}
 
+	//equip weapon
+
+
+	public void setDmg(int dmg) {
+		this.dmg = dmg;
+	}
 
 	@Override
 	public int getHp() {
@@ -161,18 +167,22 @@ public class Personaggio implements Entity{
 
 	@Override
 	public int getDmg() {
-		return 0;
+		return this.dmg;
 	}
 
 	@Override
-	public List<Moves> getMoves(){
+	public void entIsDmg(int dmg) {
+		this.controlloSetHP(-dmg);
+	}
+
+	@Override
+	public Map<Integer, Moves> getMoves() {
 		return this.playMoves;
 	}
 
 	@Override
 	public String toString() {
-		return "Personaggio{" +
-				", HP=" + HP +
-				'}';
+		return "Player " +
+				" HP: " + HP ;
 	}
 }

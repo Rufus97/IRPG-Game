@@ -1,6 +1,6 @@
 package Stanze.Mercato.Bancarella.SpecificBanc;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.EquipSlot;
-import Stanze.Mercato.AzioniMercato.CharacterEquipment.InventoryNew.EquippableItems;
+import Player.CharacterEquipment.EquipSlot;
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 import Stanze.Mercato.Bancarella.BancItem;
 
 public class Vestiti extends BancItem implements EquippableItems {
@@ -44,5 +44,15 @@ public class Vestiti extends BancItem implements EquippableItems {
           System.out.println("replacing previous item");
           this.slot.setEquippedItem(this);
       }
+    }
+
+    @Override
+    public int getDanni() {
+        return 0;
+    }
+
+    @Override
+    public String getItemName() {
+        return super.getItemName();
     }
 }
