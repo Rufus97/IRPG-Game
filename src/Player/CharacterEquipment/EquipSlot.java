@@ -1,5 +1,6 @@
 package Player.CharacterEquipment;
 
+import Player.CharacterEquipment.InventoryNew.EquippableItems;
 import Player.CharacterEquipment.InventoryNew.Inventory;
 import Stanze.Mercato.Bancarella.BancItem;
 
@@ -42,7 +43,7 @@ public enum EquipSlot {
         return slotName;
     }
 
-    public void setEquippedItem(BancItem equippedItem) {
+    public void setEquippedItem(EquippableItems equippedItem) {
         this.equippedItem = equippedItem;
     }
 

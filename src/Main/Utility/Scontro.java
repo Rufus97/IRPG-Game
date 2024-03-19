@@ -30,6 +30,7 @@ RandomDice rng = new RandomDice();
           else if (chosedMove.getDmg() <= 0){
               chosedMove.moveEff();
           } else {
+              System.out.println("you hit for: " + chosedMove.getDmg());
               ent2.entIsDmg(chosedMove.getDmg());
           }
       //scelta mossa

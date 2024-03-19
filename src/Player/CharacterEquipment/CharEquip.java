@@ -13,7 +13,6 @@ public class CharEquip {
 
     private MercatoInputs input = new MercatoInputs();
 
-    private int armorStat;
 
     private Map<EquipSlot, EquippableItems> playerSlots = new HashMap<>();
 
