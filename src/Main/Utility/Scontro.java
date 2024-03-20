@@ -22,6 +22,7 @@ public class  Scontro {
         int playerArmor = CharEquip.getPlayerEquipment().getAllArmor();
         boolean isPlayerEscaped = false;
         boolean enemiesAreAlive = true;
+
         if (enemies.isEmpty()) {
             enemiesAreAlive = false;
         }
@@ -42,10 +43,18 @@ public class  Scontro {
                 chosedTarget.entIsDmg(chosedMove.getDmg());
             }
 
-            //scelta mossa avversario
-            List<Entity> newEnemiesContains = enemiesTurn(enemies, playerArmor);
+            Entity temp = null;
 
-            enemies = newEnemiesContains;
+            //scelta mossa avversario
+            for(Entity elemento : enemies){
+                if(elemento.getHp() <= 0){
+                    temp = elemento;
+                }
+            }
+            if(temp != null){
+                enemies.remove(temp);
+            }
+            enemies = enemiesTurn(enemies, playerArmor);
         };
 
         //RESULTS
