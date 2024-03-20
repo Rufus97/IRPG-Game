@@ -22,30 +22,34 @@ public class Scontro {
         int playerArmor = CharEquip.getPlayerEquipment().getAllArmor();
         boolean isPlayerEscaped = false;
         boolean enemiesAreAlive = true;
-        if (enemies.isEmpty()) {
-            enemiesAreAlive = false;
-        }
+
 
         while (GamePanel.giocatore.getHp() > 0 && enemiesAreAlive  && !isPlayerEscaped) {
+            if (enemies.isEmpty()) {
+                enemiesAreAlive = false;
+            }
 
             showALlPlayMoves(ent1Moves);
             Moves chosedMove = ent1Moves.get(In.inputInt());
             System.out.println("chose target: ");
             System.out.println(enemies);
-            Entity chosedTarget = ent2.get(In.inputInt()-1);
+
+
             if (chosedMove instanceof Escape) {
                 isPlayerEscaped = ((Escape) chosedMove).escapeEff();
             } else if (chosedMove.getDmg() <= 0) {
                 chosedMove.moveEff();
             } else {
                 System.out.println("you hit for: " + chosedMove.getDmg());
+                Entity chosedTarget = ent2.get(In.inputInt()-1);
                 chosedTarget.entIsDmg(chosedMove.getDmg());
             }
 
             //scelta mossa avversario
-            List<Entity> newEnemiesContains = enemiesTurn(enemies, playerArmor);
+             enemiesTurn(enemies, playerArmor);
 
-            enemies = newEnemiesContains;
+
+
         };
 
         //RESULTS
@@ -68,9 +72,8 @@ public class Scontro {
     }
 
     public List<Entity> enemiesTurn(List<Entity> enemies, int playerArmor) {
-        List<Entity> updatedEnemies = enemies;
+        List<Entity> updatedEnemies = cleanEnemies(enemies);
         int cycles = updatedEnemies.size();
-
 
         for (int i = 0; i < cycles; i++) {
                 int rng = Casuale.numeroCasualeTra(1, updatedEnemies.get(i).getMoves().size());
@@ -87,7 +90,17 @@ public class Scontro {
                 }
             }
         }
+
         return updatedEnemies;
+    }
+    public List<Entity> cleanEnemies(List<Entity> enemies){
+        List<Entity> cleanEnemies = new ArrayList<>();
+        for (Entity enemy : enemies){
+            if (enemy.getHp() > 0){
+                cleanEnemies.add(enemy);
+            }
+        }
+        return cleanEnemies;
     }
 }
 

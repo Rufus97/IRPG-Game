@@ -34,7 +34,7 @@ public class InterazioneSpacciatore {
         double prezzoErba = 12;
 
         if (GamePanel.giocatore.getSoldi() >= prezzoErba) {
-           GamePanel.giocatore.controllaSoldi(prezzoErba); // Sottrai il prezzo dell'erba ai soldi del giocatore
+           GamePanel.giocatore.controllaSoldi(-prezzoErba);
 
             NewInventory.getInventory().addToBackpack(Erba.erbosa);
             System.out.println("Hai acquistato dell'erba da Aziz.");
