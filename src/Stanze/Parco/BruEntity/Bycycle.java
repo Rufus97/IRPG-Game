@@ -39,6 +39,11 @@ public class Bycycle implements EquippableItems {
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public int getQuantity() {
         return 0;
     }

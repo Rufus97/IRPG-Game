@@ -18,6 +18,11 @@ public class Bottiglia implements ConsumableItems {
     }
 
     @Override
+    public String getName() {
+        return "bottiglia";
+    }
+
+    @Override
     public int getQuantity() {
         return this.quantita;
     }

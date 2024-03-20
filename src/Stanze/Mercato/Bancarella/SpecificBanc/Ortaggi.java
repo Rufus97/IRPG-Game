@@ -26,7 +26,10 @@ public class Ortaggi extends BancItem implements ConsumableItems {
     public int getRestoreValue() {
         return restoreValue;
     }
-
+    @Override
+    public String getName() {
+        return super.getItemName();
+    }
     @Override
     public void consumeItem() {
         super.consumeQuantity();

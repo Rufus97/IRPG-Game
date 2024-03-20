@@ -6,6 +6,12 @@ public class Rame implements MaterialItems {
 
     private int quantity = 1;
     private int upgradeValue = 3;
+
+    @Override
+    public String getName() {
+        return "rame";
+    }
+
     @Override
     public int getQuantity() {
         return 0;

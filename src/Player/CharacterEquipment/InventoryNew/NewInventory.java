@@ -21,19 +21,19 @@ public class NewInventory {
     }
     public  Map<Integer, Inventory> addToBackpack(Inventory item){
         Map<Integer, Inventory> newMap = backpack;
+
         if (!checkIfExists(item, backpack)){
             newMap.put(getNewKey(newMap), item);
+
             if (item instanceof EquippableItems){
                 System.out.println("equip it? \n1: yes \n2: no");
                 if(input.getInt() == 1){
                     ((EquippableItems) item).equipItem();
                     System.out.println("equipped " + item);
-                } else {
-
                 }
             }
         } else {
-
+            System.out.println("sono entrato qua dentro");
             item.increaseQuantity();
             return newMap;
         }
@@ -43,7 +43,7 @@ public class NewInventory {
 
         boolean foundFlag = false;
         for (Map.Entry<Integer, Inventory> element : mappa.entrySet()){
-            if (element.getValue().equals(map)){
+            if (element.getValue().getName().equalsIgnoreCase(map.getName())){
                 foundFlag = true;
             }
         }

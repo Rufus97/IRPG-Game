@@ -24,7 +24,8 @@ public class Parchetto implements Stanza {
                     interazioneSpacciatore.approcciaLoSpacciatore();
                     break;
                 case 2:
-                    InterazioneCanna.rollaUnaCanna(true);
+                    InterazioneCanna canna = new InterazioneCanna();
+                    canna.rollaUnaCanna();
                     break;
                 case 3:
                     System.out.println("Hai scelto di uscire dal parco.");
