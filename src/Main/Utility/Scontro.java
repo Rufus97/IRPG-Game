@@ -19,6 +19,7 @@ RandomDice rng = new RandomDice();
       Map<Integer, Moves> ent1Moves = ent1.getMoves();
       Map<Integer, Moves> ent2Moves = ent2.getMoves();
       int playerArmor = CharEquip.getPlayerEquipment().getAllArmor();
+
       boolean isPlayerEscaped = false;
 
       while (GamePanel.giocatore.getHp() > 0 && ent2.getHp() > 0 && !isPlayerEscaped ){
