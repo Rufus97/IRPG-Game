@@ -1,4 +1,4 @@
-package Stanze.bar.azioni.entyties;
+package Stanze.bar.entyties;
 
 import Main.Utility.Entity;
 import Main.Utility.Moves;
