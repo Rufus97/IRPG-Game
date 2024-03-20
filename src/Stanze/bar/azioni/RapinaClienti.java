@@ -23,7 +23,7 @@ public class RapinaClienti extends Azione {
 
         Scontro scontro = new Scontro();
 
-        List<Entity> enemies = new ArrayList<>(Arrays.asList(ClientiEnum.choiseCliente()));
+        List<Entity> enemies = new ArrayList<>(Arrays.asList(ClientiEnum.choiseCliente(), ClientiEnum.choiseCliente()));
         scontro.scontro(enemies);
 
         GamePanel.giocatore.mostraStatistiche();

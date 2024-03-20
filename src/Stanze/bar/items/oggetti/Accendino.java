@@ -5,7 +5,16 @@ import Player.CharacterEquipment.InventoryNew.Inventory;
 
 public class Accendino implements ConsumableItems {
 
+    private String name = "accendino";
+
     private Integer quantita = 1;
+
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
     @Override
     public int getQuantity() {
         return 0;

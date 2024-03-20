@@ -4,8 +4,16 @@ import Player.CharacterEquipment.InventoryNew.MaterialItems;
 
 public class Rame implements MaterialItems {
 
+    private String name = "rame";
     private int quantity = 1;
     private int upgradeValue = 3;
+
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
     @Override
     public int getQuantity() {
         return 0;

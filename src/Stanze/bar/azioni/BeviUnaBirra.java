@@ -25,7 +25,6 @@ public class BeviUnaBirra extends Azione {
         GamePanel.giocatore.mostraStatistiche();
 
         if(GamePanel.giocatore.controllaSoldi(-3D)) {
-            GamePanel.giocatore.controlloSetHP(-2);
             GamePanel.giocatore.controlloSetSballo(0.1);
             GamePanel.giocatore.mostraStatistiche();
 

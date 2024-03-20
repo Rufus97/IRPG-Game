@@ -23,6 +23,8 @@ public class GamePanel {
 
 		// Loop menu
 		do {
+
+			System.out.println("...storiella");
 			System.out.println("Cosa vuoi fare?");
 			System.out.println("1. Vai a...");
 			System.out.println("2. Apri Inventario...");

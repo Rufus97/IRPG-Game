@@ -1,18 +1,17 @@
-package Stanze.bar.items.oggetti;
+package Stanze.Tabacchino.itemsTabacchino.items;
 
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
-import java.util.Objects;
+public class TabaccoLS implements ConsumableItems {
 
-
-public class Bottiglia implements ConsumableItems {
-    private String nome = "bottiglia";
-    private Integer quantita = 1;
+    private String nome = "Tabacco Lucky Strike";
+    private int quantita = 30;
 
     @Override
     public String getName() {
         return nome;
     }
+
     @Override
     public void consumeItem() {
         quantita--;
@@ -35,9 +34,9 @@ public class Bottiglia implements ConsumableItems {
 
     @Override
     public String toString() {
-        return "Bottiglia{" +
+        return "TabaccoLS{" +
                 "nome='" + nome + '\'' +
-                ", quantita=" + quantita +
+                ", grammi=" + quantita +
                 '}';
     }
 }

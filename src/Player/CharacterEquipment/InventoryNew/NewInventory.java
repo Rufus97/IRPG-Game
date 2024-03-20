@@ -21,6 +21,7 @@ public class NewInventory {
     }
     public  Map<Integer, Inventory> addToBackpack(Inventory item){
         Map<Integer, Inventory> newMap = backpack;
+
         if (!checkIfExists(item, backpack)){
             newMap.put(getNewKey(newMap), item);
             if (item instanceof EquippableItems){
@@ -42,8 +43,8 @@ public class NewInventory {
     public boolean checkIfExists(Inventory map, Map<Integer, Inventory> mappa){
 
         boolean foundFlag = false;
-        for (Map.Entry<Integer, Inventory> element : mappa.entrySet()){
-            if (element.getValue().equals(map)){
+        for (Inventory element : mappa.values()){
+            if (element.getName().equals(map.getName())){
                 foundFlag = true;
             }
         }

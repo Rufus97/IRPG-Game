@@ -1,13 +1,12 @@
-package Stanze.bar.items.oggetti;
+package Stanze.Tabacchino.itemsTabacchino.items;
 
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
-import java.util.Objects;
+public class Marlboro implements ConsumableItems {
 
 
-public class Bottiglia implements ConsumableItems {
-    private String nome = "bottiglia";
-    private Integer quantita = 1;
+    private String nome = "Marlboro rosse";
+    private int quantita = 20;
 
     @Override
     public String getName() {
@@ -35,7 +34,7 @@ public class Bottiglia implements ConsumableItems {
 
     @Override
     public String toString() {
-        return "Bottiglia{" +
+        return "Marlboro{" +
                 "nome='" + nome + '\'' +
                 ", quantita=" + quantita +
                 '}';

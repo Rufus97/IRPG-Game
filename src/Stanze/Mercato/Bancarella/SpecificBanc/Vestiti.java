@@ -60,4 +60,9 @@ public class Vestiti extends BancItem implements EquippableItems {
     public String getItemName() {
         return super.getItemName();
     }
+
+    @Override
+    public String getName() {
+        return super.getItemName();
+    }
 }

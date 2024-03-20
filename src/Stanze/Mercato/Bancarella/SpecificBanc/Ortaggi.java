@@ -42,4 +42,9 @@ public class Ortaggi extends BancItem implements ConsumableItems {
         return super.getItemName();
     }
 
+    @Override
+    public String getName() {
+        return super.getItemName();
+    }
+
 }

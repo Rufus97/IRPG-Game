@@ -44,4 +44,9 @@ import Stanze.Mercato.Bancarella.BancItem;
          return this.restoreValue;
      }
 
+     @Override
+     public String getName() {
+         return super.getItemName();
+     }
+
  }

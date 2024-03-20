@@ -2,12 +2,10 @@ package Stanze.bar.items.oggetti;
 
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
-import java.util.Objects;
+public class Fumo implements ConsumableItems {
 
-
-public class Bottiglia implements ConsumableItems {
-    private String nome = "bottiglia";
-    private Integer quantita = 1;
+    private String nome = "Fumo";
+    private int quantita = 1;
 
     @Override
     public String getName() {
@@ -35,7 +33,7 @@ public class Bottiglia implements ConsumableItems {
 
     @Override
     public String toString() {
-        return "Bottiglia{" +
+        return "Fumo{" +
                 "nome='" + nome + '\'' +
                 ", quantita=" + quantita +
                 '}';
