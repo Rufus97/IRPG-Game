@@ -22,7 +22,6 @@ public class RapinaClienti extends Azione {
     public void run() {
 
         Scontro scontro = new Scontro();
-        scontro.scontro(ClientiEnum.choiseCliente());
         GamePanel.giocatore.mostraStatistiche();
         if(scontro.scontro(ClientiEnum.choiseCliente())){
 

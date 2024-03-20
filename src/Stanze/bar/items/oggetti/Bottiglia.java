@@ -1,11 +1,13 @@
-package Stanze.bar.oggetti;
+package Stanze.bar.items.oggetti;
 
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
-public enum ItemsEnam implements ConsumableItems {
+public class Bottiglia implements ConsumableItems {
+    private Integer quantita = 1;
+
     @Override
     public void consumeItem() {
-
+        this.quantita --;
     }
 
     @Override
@@ -15,11 +17,11 @@ public enum ItemsEnam implements ConsumableItems {
 
     @Override
     public int getQuantity() {
-        return 0;
+        return this.quantita;
     }
 
     @Override
     public void increaseQuantity() {
-
+        this.quantita ++;
     }
 }

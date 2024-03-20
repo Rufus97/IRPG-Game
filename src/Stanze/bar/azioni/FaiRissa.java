@@ -19,7 +19,6 @@ public class FaiRissa extends Azione {
     @Override
     public void run() {
         Scontro scontro = new Scontro();
-        scontro.scontro(new Barista());
         GamePanel.giocatore.mostraStatistiche();
         if(scontro.scontro(new Barista())){
             new RubaDallaCassa("ruba dalla cassa", "bla bla").run();
