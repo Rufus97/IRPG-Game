@@ -9,10 +9,7 @@ public class Bottiglia implements ConsumableItems {
     private String nome = "bottiglia";
     private Integer quantita = 1;
 
-    @Override
-    public String getName() {
-        return nome;
-    }
+    public static Bottiglia bottiglia = new Bottiglia();
     @Override
     public void consumeItem() {
         quantita--;
@@ -21,6 +18,11 @@ public class Bottiglia implements ConsumableItems {
     @Override
     public int healAmount() {
         return 0;
+    }
+
+    @Override
+    public String getName() {
+        return "bottiglia";
     }
 
     @Override

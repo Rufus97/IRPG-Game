@@ -26,7 +26,7 @@ public class CompraFumo extends Azione {
 
             if (GamePanel.giocatore.controllaSoldi(-20D)) {
                 GamePanel.giocatore.setSoldi(-20D);
-                NewInventory.getInventory().addToBackpack(new Fumo());
+                NewInventory.getInventory().addToBackpack(Fumo.fumo);
                 System.out.println("SENTI CHE SMELLA STO FUMO!");
             }
         }
@@ -38,7 +38,7 @@ public class CompraFumo extends Azione {
             if(!scontro.scontro(caramba)){
                 new Questura().runStanza();
             }
-            NewInventory.getInventory().addToBackpack(new Fumo());
+            NewInventory.getInventory().addToBackpack(Fumo.fumo);
         }
     }
 }

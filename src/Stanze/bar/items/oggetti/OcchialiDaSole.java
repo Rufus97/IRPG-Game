@@ -7,8 +7,10 @@ import Stanze.bar.items.ItemsBar;
 
 public class OcchialiDaSole extends ItemsBar implements EquippableItems {
 
+    public static OcchialiDaSole occhialiDaSole = new OcchialiDaSole();
 
-    public OcchialiDaSole(String name, int armorOrDmg, EquipSlot slot) {
+
+    public OcchialiDaSole() {
         super("occhiali da sole", 1, EquipSlot.HEAD);
     }
 

@@ -7,6 +7,8 @@ import Stanze.Mercato.Bancarella.BancItem;
 public class Bigiotteria extends BancItem implements EquippableItems {
 
     private EquipSlot slot;
+
+
     public Bigiotteria(String bigioName, double prezzo, EquipSlot slot){
         super.setItemName(bigioName);
         super.setPrice(prezzo);
@@ -41,7 +43,10 @@ public class Bigiotteria extends BancItem implements EquippableItems {
             this.slot.setEquippedItem(this);
         }
     }
-
+    @Override
+    public String getName() {
+        return super.getItemName();
+    }
     @Override
     public int getDanni() {
         return 0;
@@ -49,11 +54,5 @@ public class Bigiotteria extends BancItem implements EquippableItems {
 
     @Override
     public void setArmor(int upgrade) {
-
-    }
-
-    @Override
-    public String getName() {
-        return super.getItemName();
     }
 }

@@ -4,7 +4,7 @@ import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
 public class Marlboro implements ConsumableItems {
 
-
+    public static Marlboro marlboro = new Marlboro();
     private String nome = "Marlboro rosse";
     private int quantita = 20;
 

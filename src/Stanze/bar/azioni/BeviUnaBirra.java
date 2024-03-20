@@ -30,10 +30,10 @@ public class BeviUnaBirra extends Azione {
 
             if(Casuale.numeroCasualeTraDouble(0, GamePanel.giocatore.getLivelloSballo()) > 1.3){
                 System.out.println("SEI TROPPO BRILLO PER CONTINUARE A BERE! Spacchi la bottiglia...");
-                NewInventory.getInventory().addToBackpack(new BottigliaRotta());
+                NewInventory.getInventory().addToBackpack(BottigliaRotta.bottigliaRotta);
                 rissaConArma();
             }else{
-                NewInventory.getInventory().addToBackpack(new Bottiglia());
+                NewInventory.getInventory().addToBackpack(Bottiglia.bottiglia);
                 System.out.println("hai ottenuto un consumabile di tipo Bottiglia!");
                 System.out.println("Bottiglia +1");
             }
@@ -43,7 +43,7 @@ public class BeviUnaBirra extends Azione {
     public void rissaConArma(){
 
         Scontro scontro = new Scontro();
-        List<Entity> enemies = new ArrayList<>(Arrays.asList(new Barista()));
+        List<Entity> enemies = new ArrayList<>(List.of(new Barista()));
         GamePanel.giocatore.mostraStatistiche();
         if(scontro.scontro(enemies)){
             new RubaDallaCassa("ruba dalla cassa", "bla bla").run();

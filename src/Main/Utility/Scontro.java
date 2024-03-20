@@ -46,12 +46,9 @@ public class Scontro {
             List<Entity> newEnemiesContains = enemiesTurn(enemies, playerArmor);
 
             enemies = newEnemiesContains;
-        }
-        ;
+        };
 
         //RESULTS
-
-
         if (GamePanel.giocatore.getHp() > 0 && !isPlayerEscaped) {
             return true;
         } else if (isPlayerEscaped) {

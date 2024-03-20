@@ -4,6 +4,8 @@ import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
 public class Cartine implements ConsumableItems {
 
+    public static Cartine cartine = new Cartine();
+
     private String nome = "Cartine";
     private int quantita = 50;
 

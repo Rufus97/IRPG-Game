@@ -32,7 +32,10 @@ public class Pesce extends BancItem implements ConsumableItems {
         GamePanel.giocatore.controlloSetHP(this.restoreValue);
         System.out.println("you consumed " + this + " for: " + restoreValue);
     }
-
+    @Override
+    public String getName() {
+        return super.getItemName();
+    }
     @Override
     public int healAmount() {
         return this.restoreValue;
@@ -42,9 +45,5 @@ public class Pesce extends BancItem implements ConsumableItems {
         return super.getItemName();
     }
 
-    @Override
-    public String getName() {
-        return super.getItemName();
-    }
 
 }

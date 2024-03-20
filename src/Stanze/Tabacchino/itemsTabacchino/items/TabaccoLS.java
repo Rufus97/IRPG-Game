@@ -4,6 +4,8 @@ import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
 public class TabaccoLS implements ConsumableItems {
 
+    public static TabaccoLS tabaccoLS = new TabaccoLS();
+
     private String nome = "Tabacco Lucky Strike";
     private int quantita = 30;
 

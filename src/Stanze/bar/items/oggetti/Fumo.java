@@ -7,6 +7,8 @@ public class Fumo implements ConsumableItems {
     private String nome = "Fumo";
     private int quantita = 1;
 
+    public static Fumo fumo = new Fumo();
+
     @Override
     public String getName() {
         return nome;

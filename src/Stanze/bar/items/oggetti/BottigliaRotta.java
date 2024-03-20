@@ -6,6 +6,8 @@ import Stanze.bar.items.ItemsBar;
 
 public class BottigliaRotta extends ItemsBar implements EquippableItems  {
 
+    public static BottigliaRotta bottigliaRotta = new BottigliaRotta();
+
     public BottigliaRotta() {
         super("bottiglia", 7, EquipSlot.WEAPON);
 

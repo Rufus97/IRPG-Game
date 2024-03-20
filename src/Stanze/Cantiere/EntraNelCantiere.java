@@ -5,6 +5,7 @@ import Main.GamePanel;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Player.Oggetto;
 import Stanze.Cantiere.Materials.Rame;
+import Stanze.Cantiere.Materials.Trapano;
 
 public class EntraNelCantiere {
     
@@ -23,8 +24,8 @@ public class EntraNelCantiere {
                 switch (scelta) {
                     case 1:
                         GamePanel.clearScreen();
-                        Oggetto trapano = new Oggetto("Trapano", 1);
-                        GamePanel.inventario.aggiungiItem(trapano);
+
+                        NewInventory.getInventory().addToBackpack(Trapano.trapano);
                         GamePanel.giocatore.setKarma(-0.05);
                         GamePanel.giocatore.mostraStatistiche();
                         break;
@@ -32,7 +33,7 @@ public class EntraNelCantiere {
                         case 2:
                         GamePanel.clearScreen();
 
-                        NewInventory.getInventory().addToBackpack(new Rame());
+                        NewInventory.getInventory().addToBackpack(Rame.rame);
                         GamePanel.giocatore.setKarma(-0.05);
                         GamePanel.giocatore.mostraStatistiche();
                         break;

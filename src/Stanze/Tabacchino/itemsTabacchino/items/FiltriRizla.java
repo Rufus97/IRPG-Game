@@ -3,7 +3,7 @@ package Stanze.Tabacchino.itemsTabacchino.items;
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
 public class FiltriRizla implements ConsumableItems {
-
+    public static FiltriRizla filtriRizla = new FiltriRizla();
     private String nome = "Fitri Rizla";
     private int quantita = 50;
 

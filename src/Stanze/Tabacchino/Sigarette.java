@@ -33,7 +33,7 @@ public class Sigarette implements Itabacchino{
                 
                 System.out.println(GamePanel.giocatore.getSoldi());
                 System.out.println("Hai comprato un pacco di Marlboro");
-                NewInventory.getInventory().addToBackpack(new Marlboro());
+                NewInventory.getInventory().addToBackpack(Marlboro.marlboro);
 
                 }
             break;
@@ -43,7 +43,7 @@ public class Sigarette implements Itabacchino{
 
                     System.out.println(GamePanel.giocatore.getSoldi());
                     System.out.println("Hai comprato un pacco di tabacco");
-                    NewInventory.getInventory().addToBackpack(new TabaccoLS());
+                    NewInventory.getInventory().addToBackpack(TabaccoLS.tabaccoLS);
                 }
 
             break;
@@ -53,7 +53,7 @@ public class Sigarette implements Itabacchino{
                    
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di filtri");
-                    NewInventory.getInventory().addToBackpack(new FiltriRizla());
+                    NewInventory.getInventory().addToBackpack(FiltriRizla.filtriRizla);
                     
                 }
             break;
@@ -63,7 +63,7 @@ public class Sigarette implements Itabacchino{
                     
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di cartine");
-                    NewInventory.getInventory().addToBackpack(new Cartine());
+                    NewInventory.getInventory().addToBackpack(Cartine.cartine);
                 }
             break;
 

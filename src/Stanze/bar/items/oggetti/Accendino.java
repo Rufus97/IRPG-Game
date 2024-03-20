@@ -9,6 +9,8 @@ public class Accendino implements ConsumableItems {
 
     private Integer quantita = 1;
 
+    public static Accendino accendino = new Accendino();
+
 
     @Override
     public String getName() {
@@ -35,3 +37,4 @@ public class Accendino implements ConsumableItems {
         return 0;
     }
 }
+
