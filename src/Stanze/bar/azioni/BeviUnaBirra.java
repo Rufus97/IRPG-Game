@@ -23,10 +23,9 @@ public class BeviUnaBirra extends Azione {
     @Override
     public void run() {
         GamePanel.giocatore.mostraStatistiche();
-
         if(GamePanel.giocatore.controllaSoldi(-3D)) {
             GamePanel.giocatore.controlloSetSballo(0.1);
-            GamePanel.giocatore.mostraStatistiche();
+
 
             if(Casuale.numeroCasualeTraDouble(0, GamePanel.giocatore.getLivelloSballo()) > 1.3){
                 System.out.println("SEI TROPPO BRILLO PER CONTINUARE A BERE! Spacchi la bottiglia...");
@@ -50,6 +49,5 @@ public class BeviUnaBirra extends Azione {
         }
 
         GamePanel.clearScreen();
-
     }
 }

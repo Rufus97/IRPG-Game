@@ -15,6 +15,7 @@ public class Questura implements Stanza {
 
     public void runStanza() {
         System.out.println("Sei finito dentro!");
+        GamePanel.giocatore.mostraStatistiche();
         boolean continua = true;
 
         while (continua) {
@@ -45,6 +46,8 @@ public class Questura implements Stanza {
     private boolean parlaConMaresciallo() {
 
         System.out.println("Cerci di persuadere il maresciallo inventando una storia incredibile e commuovente...");
+
+
 
         if(dado.getDado(1,20) < 7){
             System.out.println("NON INCANTI NESSUNO!");

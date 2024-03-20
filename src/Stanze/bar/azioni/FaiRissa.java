@@ -30,6 +30,4 @@ public class FaiRissa extends Azione {
 
         GamePanel.clearScreen();
     }
-
-
 }

@@ -3,14 +3,12 @@ import Input.In;
 import Player.CharacterEquipment.CharEquip;
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
-import Player.Inventario;
 import Player.Personaggio;
 import Stanze.Mercato.MercatoInputs;
 import java.io.IOException;
 public class GamePanel {
 
 	public static final Personaggio giocatore = new Personaggio();
-	public static final Inventario inventario = new Inventario(); // far vedere
 
 	// costruttore
 	public GamePanel() {
@@ -40,7 +38,7 @@ public class GamePanel {
 			case 2:
 				System.out.println("Nell inventario hai:");
 				System.out.println(NewInventory.getInventory().getBackpack());
-				System.out.println("Ulteriori operazioni? \n1: Equipaggia oggetto \n2: Usa oggetto \n3: upgrade an item \n0: esci");
+				System.out.println("Ulteriori operazioni? \n1. Equipaggia oggetto \n2. Usa oggetto \n3. upgrade an item \n0: esci");
 				int choice2 = In.inputInt();
 				switch (choice2){
 					case 1 -> {System.out.println(NewInventory.getInventory().getAllEquipment());
@@ -51,9 +49,7 @@ public class GamePanel {
 						ConsumableItems item = NewInventory.getInventory().getAllConsumables().get(In.inputInt());
 						NewInventory.getInventory().consumeAnItem(item);
 					}
-					case 3 ->{NewInventory.getInventory().upgradeAnItem();
-
-					}
+					case 3 -> NewInventory.getInventory().upgradeAnItem();
 					case 0 -> {}
 				}
 

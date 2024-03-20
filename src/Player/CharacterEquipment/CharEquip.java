@@ -12,8 +12,6 @@ import java.util.Map;
 public class CharEquip {
 
     private MercatoInputs input = new MercatoInputs();
-
-
     private Map<EquipSlot, EquippableItems> playerSlots = new HashMap<>();
 
     private static CharEquip playerEquipment = new CharEquip();
@@ -43,12 +41,12 @@ public class CharEquip {
     public void choseAnItem(Map<Integer, EquippableItems> equip){
         boolean flag = false;
         {   do{
-            equip.forEach((k,v)-> System.out.println(k + ": " + v));
-            System.out.println("0: exit");
+            equip.forEach((k,v)-> System.out.println(k + ". " + v));
+            System.out.println("0. exit");
             int choice = input.getInt();
             if (choice != 0){
                 equip.get(choice).equipItem();
-                System.out.println("continue to equip? \n1: yes \n2: no");
+                System.out.println("continue to equip? \n1. yes \n2. no");
                 if (input.getInt() == 2){
                     flag = true;
                 }
@@ -75,7 +73,7 @@ public class CharEquip {
 
         for (EquipSlot element : EquipSlot.values()){
 
-                 System.out.println(element.getSlotName() + ": " + element.getEquippedItem());
+                 System.out.println(element.getSlotName() + ". " + element.getEquippedItem());
         }
     }
 }

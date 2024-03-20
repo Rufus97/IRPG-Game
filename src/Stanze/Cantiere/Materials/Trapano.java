@@ -30,22 +30,18 @@ public class Trapano implements EquippableItems {
     public int getDanni() {
         return this.dmg;
     }
-
     @Override
     public void setArmor(int upgrade) {
 
     }
-
     @Override
     public String getName() {
         return name;
     }
-
     @Override
     public int getQuantity() {
         return 0;
     }
-
     @Override
     public void increaseQuantity() {
 
@@ -53,9 +49,10 @@ public class Trapano implements EquippableItems {
 
     @Override
     public String toString() {
-        return
-                "name='" + name + '\'' +
-                        ", dmg=" + dmg ;
-
+        return "Trapano {" +
+                "name: '" + name + '\'' +
+                ", dmg: " + dmg +
+                ", slot: " + slot +
+                '}' + '\n';
     }
 }

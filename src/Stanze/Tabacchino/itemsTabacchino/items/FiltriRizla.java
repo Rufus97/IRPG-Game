@@ -33,9 +33,9 @@ public class FiltriRizla implements ConsumableItems {
 
     @Override
     public String toString() {
-        return "FiltriRizla{" +
-                "nome='" + nome + '\'' +
-                ", quantita=" + quantita +
+        return "FiltriRizla{ " +
+                "nome: '" + nome + '\'' +
+                ", quantita: " + quantita +
                 '}';
     }
 }

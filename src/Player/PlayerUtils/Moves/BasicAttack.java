@@ -7,7 +7,6 @@ public class BasicAttack implements Moves {
 
     String name = "Basic Attack";
     int dmg = 5;
-
     public static BasicAttack Ba = new BasicAttack();
 
     private BasicAttack(){}
@@ -28,8 +27,6 @@ public class BasicAttack implements Moves {
 
     @Override
     public void moveEff() {
-
-
     }
 
 }

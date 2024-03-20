@@ -31,13 +31,12 @@ public class RubaDallaCassa extends Azione {
                 int soldi = super.rng.getDado(10,100);
                 GamePanel.giocatore.setSoldi((double) soldi);
                 System.out.println("Soldi +" + soldi);
-
             }
 
             GamePanel.giocatore.setLivelloSoddisfazione(0.06);
             System.out.println("Soddisfazione +" + 0.06);
 
-        } else {System.out.println("Te dice male! Non c'è 'na lira in cassa");}
+        }
 
         GamePanel.giocatore.controlloSetKarma(- 0.06);
         System.out.println("karma -" + 0.06);

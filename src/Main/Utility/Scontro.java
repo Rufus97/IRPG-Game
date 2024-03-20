@@ -12,7 +12,7 @@ import Stanze.Ospedale;
 
 import java.util.*;
 
-public class Scontro {
+public class  Scontro {
     RandomDice rng = new RandomDice();
 
     public boolean scontro(List<Entity> ent2) {
@@ -31,7 +31,7 @@ public class Scontro {
             showALlPlayMoves(ent1Moves);
             Moves chosedMove = ent1Moves.get(In.inputInt());
             System.out.println("chose target: ");
-            System.out.println(enemies);
+            showAllEnemies(enemies);
             Entity chosedTarget = ent2.get(In.inputInt()-1);
             if (chosedMove instanceof Escape) {
                 isPlayerEscaped = ((Escape) chosedMove).escapeEff();
@@ -61,10 +61,20 @@ public class Scontro {
         return false;
     }
 
+
+    public void showAllEnemies(List<Entity> enemies){
+        final int[] counter = {0};
+        enemies.forEach((v) -> {
+            System.out.println(counter[0] + ". " + v);
+            counter[0]++;
+        });
+
+    }
+
     public void showALlPlayMoves(Map<Integer, Moves> ent1Moves) {
         System.out.println("player turn, player hp: " + GamePanel.giocatore.getHp());
         ent1Moves.forEach((k, v) ->
-                System.out.println(k + ": " + v.getName()));
+                System.out.println(k + ". " + v.getName()));
     }
 
     public List<Entity> enemiesTurn(List<Entity> enemies, int playerArmor) {

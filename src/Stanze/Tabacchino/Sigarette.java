@@ -4,7 +4,6 @@ import Input.In;
 import Main.GamePanel;
 import Player.CharacterEquipment.InventoryNew.Inventory;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
-import Player.Oggetto;
 import Stanze.Tabacchino.itemsTabacchino.items.Cartine;
 import Stanze.Tabacchino.itemsTabacchino.items.FiltriRizla;
 import Stanze.Tabacchino.itemsTabacchino.items.Marlboro;

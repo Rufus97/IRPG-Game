@@ -47,9 +47,9 @@ public class Erba implements ConsumableItems{
 
     @Override
     public String toString() {
-        return "Erba{" +
-                "name='" + name + '\'' +
-                ", quantity=" + quantity +
+        return "Erba {" +
+                "name: '" + name + '\'' +
+                ", quantity: " + quantity +
                 '}';
     }
 }

@@ -32,6 +32,6 @@ public class InfamousGuards implements Entity {
     @Override
     public String toString() {
         return "InfamousGuards: " +
-                "hp=" + hp;
+                "hp: " + hp;
     }
 }

@@ -44,8 +44,7 @@ public class Parchetto implements Stanza {
 
     public void vieneArrestato() {
         GamePanel.giocatore.setHP(GamePanel.giocatore.getHP() - 10);
-        GamePanel.giocatore.setLivelloSoddisfazione(GamePanel.giocatore.getLivelloSoddisfazione() - 15);
-        GamePanel.inventario.svuotaInventario(); // Rimuovi tutti gli oggetti dall'inventario
+        GamePanel.giocatore.setLivelloSoddisfazione(GamePanel.giocatore.getLivelloSoddisfazione() -15);
         System.out.println("Sei stato arrestato! Hai perso punti HP, soddisfazione e i tuoi oggetti sono stati confiscati.");
     }
 

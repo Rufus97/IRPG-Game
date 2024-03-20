@@ -26,14 +26,13 @@ public class NewInventory {
             newMap.put(getNewKey(newMap), item);
 
             if (item instanceof EquippableItems){
-                System.out.println("equip it? \n1: yes \n2: no");
+                System.out.println("equip it? \n1. yes \n2. no");
                 if(input.getInt() == 1){
                     ((EquippableItems) item).equipItem();
                     System.out.println("equipped " + item);
                 }
             }
         } else {
-            System.out.println("sono entrato qua dentro");
             item.increaseQuantity();
             return newMap;
         }

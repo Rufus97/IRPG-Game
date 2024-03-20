@@ -3,7 +3,6 @@ package Stanze.Cantiere;
 import Input.In;
 import Main.GamePanel;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
-import Player.Oggetto;
 import Stanze.Cantiere.Materials.Rame;
 import Stanze.Cantiere.Materials.Trapano;
 
@@ -15,8 +14,7 @@ public class EntraNelCantiere {
         do{
             
             System.out.println("1. Ruba il trapano");         
-            System.out.println("2. Ruba del rame");  
-
+            System.out.println("2. Ruba del rame");
             System.out.println("0. Torna indietro");
 
             scelta = In.inputInt();

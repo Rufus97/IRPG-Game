@@ -4,7 +4,6 @@ import Main.GamePanel;
 import Main.Utility.Entity;
 import Main.Utility.Scontro;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
-import Player.Oggetto;
 import Stanze.Parco.BruEntity.Guards.InfamousGuards;
 import Stanze.Questura;
 import Stanze.bar.Azione;
@@ -25,13 +24,12 @@ public class CompraFumo extends Azione {
         if(super.rng.getDado(1,20) > 10){
 
             if (GamePanel.giocatore.controllaSoldi(-20D)) {
-                GamePanel.giocatore.setSoldi(-20D);
                 NewInventory.getInventory().addToBackpack(Fumo.fumo);
                 System.out.println("SENTI CHE SMELLA STO FUMO!");
             }
         }
         else{
-
+            GamePanel.giocatore.controllaSoldi(-20D);
             System.out.println("Entrano i CARRAMBA! Cerchi di nascondere il pacchetto nei pantaloni, ma non fai in tempo. La guardia ti afferra il braccio e ti carica in macchina");
             Scontro scontro = new Scontro();
             List<Entity> caramba = new ArrayList<>(Arrays.asList(new InfamousGuards(),new InfamousGuards(), new InfamousGuards()));

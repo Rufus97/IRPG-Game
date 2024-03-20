@@ -10,8 +10,6 @@ public class Commenti {
         this.frase = frase;
         this.risposta = risposta;
     }
-
-  
     @Override
     public String toString() {
         return frase;

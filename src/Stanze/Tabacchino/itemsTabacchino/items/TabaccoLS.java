@@ -36,9 +36,9 @@ public class TabaccoLS implements ConsumableItems {
 
     @Override
     public String toString() {
-        return "TabaccoLS{" +
-                "nome='" + nome + '\'' +
-                ", grammi=" + quantita +
+        return "TabaccoLS {" +
+                "nome: '" + nome + '\'' +
+                ", grammi: " + quantita +
                 '}';
     }
 }

@@ -3,7 +3,6 @@ package Stanze.Parco;
 import Input.In;
 import Main.GamePanel;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
-import Player.Oggetto;
 import Stanze.Parco.CannaItems.Erba;
 
 
@@ -33,8 +32,7 @@ public class InterazioneSpacciatore {
     private static void acquistaErba() {
         double prezzoErba = 12;
 
-        if (GamePanel.giocatore.getSoldi() >= prezzoErba) {
-           GamePanel.giocatore.controllaSoldi(prezzoErba); // Sottrai il prezzo dell'erba ai soldi del giocatore
+        if (GamePanel.giocatore.controllaSoldi(-prezzoErba)) {
 
             NewInventory.getInventory().addToBackpack(Erba.erbosa);
             System.out.println("Hai acquistato dell'erba da Aziz.");

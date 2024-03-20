@@ -25,8 +25,8 @@ public class Napoletano {
         int choice = 0;
         do {
             System.out.println("cosa fai? " +
-                    "\n1: insegui il malfattore, riavrò i miei 10 euro costi quel che costi " +
-                    "\n2: lascio perdere");
+                    "\n1. insegui il malfattore, riavrò i miei 10 euro costi quel che costi " +
+                    "\n2. lascio perdere");
             choice = userInput.getInt();
             if (choice == 1){
                 Scontro fight = new Scontro();

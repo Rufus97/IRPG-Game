@@ -7,14 +7,9 @@ import Stanze.Mercato.AzioniMercato.RandomDice;
     public class Escape implements Moves {
 
         private String name = "Escape";
-
         RandomDice rng = new RandomDice();
-
         public static Escape Esc = new Escape();
-
         private Escape(){}
-
-
 
         @Override
         public String getName() {

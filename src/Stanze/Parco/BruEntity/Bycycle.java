@@ -56,8 +56,8 @@ public class Bycycle implements EquippableItems {
     @Override
     public String toString() {
         return
-                "name='" + name + '\'' +
-                ", dmg=" + dmg ;
+                "name: '" + name + '\'' +
+                ", dmg: " + dmg ;
 
     }
 }

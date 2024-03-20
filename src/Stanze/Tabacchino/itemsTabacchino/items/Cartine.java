@@ -35,9 +35,9 @@ public class Cartine implements ConsumableItems {
 
     @Override
     public String toString() {
-        return "Cartine{" +
-                "nome='" + nome + '\'' +
-                ", quantita=" + quantita +
+        return "Cartine{ " +
+                "nome: '" + nome + '\'' +
+                ", quantita: " + quantita +
                 '}';
     }
 }

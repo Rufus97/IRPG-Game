@@ -51,7 +51,6 @@ public class Bigiotteria extends BancItem implements EquippableItems {
     public int getDanni() {
         return 0;
     }
-
     @Override
     public void setArmor(int upgrade) {
     }

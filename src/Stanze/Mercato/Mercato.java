@@ -24,9 +24,9 @@ public class Mercato implements Stanza {
         do {
         System.out.println("dove vai?");
         for (Map.Entry<Integer, List<BancItem>> banc : runningMarket.getMapOfBancs().entrySet()){
-            System.out.println(":" + (banc.getKey()+1) + " per  " + banc.getValue().getFirst().getTypeOfBanc());
+            System.out.println( (banc.getKey()+1) + ". " + banc.getValue().getFirst().getTypeOfBanc());
         }
-        System.out.println(":" + 0 + " per uscire");
+        System.out.println( 0 + ". " + "Esci");
         choice = input.getInt();
         if (choice > 0 && choice < BancType.values().length+1){
         BancItem shoppedItem = shopping(runningMarket, choice-1, input);
@@ -64,10 +64,10 @@ public class Mercato implements Stanza {
         BancItem chosedItem;
         System.out.println("cosa desidera? ");
         for (BancItem item : shopInventory){
-            System.out.println(index+ ": " + item);
+            System.out.println(index+ ". " + item);
             index ++;
         }
-        System.out.println(0 + ": per uscire");
+        System.out.println(0 + ". per uscire");
 
         userChoice = newInput.getInt();
 
@@ -104,9 +104,9 @@ public class Mercato implements Stanza {
             if (GamePanel.giocatore.controllaSoldi(-price)){
                 NewInventory inventory = NewInventory.getInventory();
                 inventory.addToBackpack(chosedItem);
-                System.out.println(inventory.getBackpack());
             }
         }
+        System.out.println(NewInventory.getInventory().getBackpack());
     }
 
 

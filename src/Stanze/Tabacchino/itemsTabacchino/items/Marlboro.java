@@ -34,9 +34,9 @@ public class Marlboro implements ConsumableItems {
 
     @Override
     public String toString() {
-        return "Marlboro{" +
-                "nome='" + nome + '\'' +
-                ", quantita=" + quantita +
+        return "Marlboro{ " +
+                "nome: '" + nome + '\'' +
+                ", quantita: " + quantita +
                 '}';
     }
 }
