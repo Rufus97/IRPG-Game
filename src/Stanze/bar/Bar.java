@@ -21,6 +21,7 @@ public class Bar implements Stanza {
         this.azioni.put(5 , new Cocktail("Componi il tuo cocktail", 7D, "blabla"));
         this.azioni.put(6 , new CompraFumo("Compra er fumo bono der barista ", 20D, "blabla"));
         this.azioni.put(7 , new FaiRissa("Sbrocca e inizia 'na rissa cor barista", "blabla"));
+        this.azioni.put(8 , new RapinaClienti("Rapina i clienti", "blabla"));
         this.azioni.put(0 , new Azione("Esci", "blabla"));
     }
 

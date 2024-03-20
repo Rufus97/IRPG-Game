@@ -1,14 +1,11 @@
 package Stanze.bar.azioni;
 
 import Input.Casuale;
-import Input.In;
 import Main.GamePanel;
 import Main.Utility.Scontro;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
-import Player.Oggetto;
-import Stanze.Parco.BruEntity.Bycycle;
 import Stanze.bar.Azione;
-import Stanze.bar.azioni.entyties.Barista;
+import Stanze.bar.entyties.Barista;
 import Stanze.bar.oggetti.Bottiglia;
 import Stanze.bar.oggetti.BottigliaRotta;
 
