@@ -7,8 +7,8 @@ import Main.Utility.Scontro;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Stanze.bar.Azione;
 import Stanze.bar.entyties.Barista;
-import Stanze.bar.oggetti.Bottiglia;
-import Stanze.bar.oggetti.BottigliaRotta;
+import Stanze.bar.items.oggetti.Bottiglia;
+import Stanze.bar.items.oggetti.BottigliaRotta;
 
 import java.util.*;
 

@@ -9,11 +9,11 @@ import java.util.Map;
 
 public enum ClientiEnum implements Entity {
 
-    GOLLUM(10, Map.of(1, new MosseClienti(1, "basic attack"), 2, new MosseClienti(5, "my precious"))),
-    SMILZO(20, Map.of(1, new MosseClienti(3, "basic attack"), 2, new MosseClienti(7, "mozzarella strike"))),
-    NORMALE(30, Map.of(1, new MosseClienti(5, "basic attack"), 2, new MosseClienti(10, "backstab"))),
-    PIAZZATO(40, Map.of(1, new MosseClienti(10, "basic attack"), 2, new MosseClienti(15, "mandolin combo"))),
-    LEGGENDARIO(60, Map.of(1, new MosseClienti(20, "basic attack"), 2, new MosseClienti(50, "vesuvian punch")));
+    GOLLUM(10, Map.of(1, new MosseClienti(1, "basic attack"), 2, new MosseClienti(5, "fionda del boccale"))),
+    SMILZO(20, Map.of(1, new MosseClienti(3, "basic attack"), 2, new MosseClienti(7, "scossa alcolica"))),
+    NORMALE(30, Map.of(1, new MosseClienti(5, "basic attack"), 2, new MosseClienti(10, "sbattito di Sgabelli"))),
+    PIAZZATO(40, Map.of(1, new MosseClienti(10, "basic attack"), 2, new MosseClienti(15, "vortice di tappi"))),
+    LEGGENDARIO(60, Map.of(1, new MosseClienti(20, "basic attack"), 2, new MosseClienti(50, "soffio dell'Ubriaco")));
 
     private int clienteHP;
     private Map<Integer, Moves> moves;

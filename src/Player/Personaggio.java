@@ -157,8 +157,8 @@ public class Personaggio implements Entity{
 
 		if(GamePanel.giocatore.getLivelloSballo() + sballoValue >= 1){
 			this.livelloSballo = 1D;
-		}else if(GamePanel.giocatore.getLivelloSballo() + sballoValue < 0){
-			this.livelloSballo = 0D;
+		}else if(GamePanel.giocatore.getLivelloSballo() + sballoValue < -1){
+			this.livelloSballo = -1D;
 		}else{
 			setLivelloSballo(sballoValue);
 		}
