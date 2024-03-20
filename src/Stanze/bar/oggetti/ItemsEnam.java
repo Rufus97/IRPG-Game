@@ -2,7 +2,9 @@ package Stanze.bar.oggetti;
 
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 
-public enum ItemsEnam implements ConsumableItems {
+public enum ItemsEnam implements ConsumableItems
+{
+    ;
     @Override
     public void consumeItem() {
 

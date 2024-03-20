@@ -1,10 +1,15 @@
 package Stanze.Parco;
 import Input.In;
 import Main.GamePanel;
+import Main.Utility.Entity;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Main.Utility.Scontro;
 import Stanze.Parco.BruEntity.BruEnt;
 import Stanze.Parco.BruEntity.Bycycle;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Brumotti {
 
@@ -61,8 +66,9 @@ public class Brumotti {
         GamePanel.giocatore.setKarma(-0.5);
 
         System.out.println("Inizi uno scontro con Brumotti!");
+        List<Entity> enemies = new ArrayList<>(Arrays.asList(new BruEnt()));
 
-        if (fight.scontro(new BruEnt())) {
+        if (fight.scontro(enemies)) {
             rubaBiciclettaBrumotti();
             System.out.println("Hai sconfitto Brumotti! Il tuo karma diminuisce ma te la sei scampata.");
         } else {

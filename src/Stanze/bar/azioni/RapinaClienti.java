@@ -1,14 +1,14 @@
 package Stanze.bar.azioni;
 
 import Main.GamePanel;
+import Main.Utility.Entity;
 import Main.Utility.Scontro;
 import Stanze.Mercato.AzioniMercato.RandomDice;
 import Stanze.bar.Azione;
 import Stanze.bar.entyties.Barista;
 import Stanze.bar.entyties.ClientiEnum;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RapinaClienti extends Azione {
     private Map<Integer, Azione> azioni = new HashMap<>();
@@ -22,11 +22,10 @@ public class RapinaClienti extends Azione {
     public void run() {
 
         Scontro scontro = new Scontro();
-        scontro.scontro(ClientiEnum.choiseCliente());
+        List<Entity> enemies = new ArrayList<>(Arrays.asList(ClientiEnum.choiseCliente()));
+        scontro.scontro(enemies);
         GamePanel.giocatore.mostraStatistiche();
-        if(scontro.scontro(ClientiEnum.choiseCliente())){
 
-        }
 
         GamePanel.clearScreen();
     }

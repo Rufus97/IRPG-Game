@@ -1,12 +1,12 @@
 package Stanze.bar.azioni;
 
 import Main.GamePanel;
+import Main.Utility.Entity;
 import Main.Utility.Scontro;
 import Stanze.bar.Azione;
 import Stanze.bar.entyties.Barista;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class FaiRissa extends Azione {
     private Map<Integer, Azione> azioni = new HashMap<>();
@@ -19,9 +19,10 @@ public class FaiRissa extends Azione {
     @Override
     public void run() {
         Scontro scontro = new Scontro();
-        scontro.scontro(new Barista());
+        List<Entity> enemies = new ArrayList<>(Arrays.asList(new Barista()));
+        scontro.scontro(enemies);
         GamePanel.giocatore.mostraStatistiche();
-        if(scontro.scontro(new Barista())){
+        if(scontro.scontro(enemies)){
             new RubaDallaCassa("ruba dalla cassa", "bla bla").run();
         }
 

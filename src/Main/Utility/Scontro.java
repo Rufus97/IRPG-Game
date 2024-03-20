@@ -15,27 +15,37 @@ import java.util.*;
 public class Scontro {
     RandomDice rng = new RandomDice();
 
-    public boolean scontro(Entity ent2) {
+    public boolean scontro(List<Entity> ent2) {
         Map<Integer, Moves> ent1Moves = GamePanel.giocatore.getMoves();
-        List<Entity> enemies = new ArrayList<>(Arrays.asList(ent2));
+        List<Entity> enemies = ent2;
+
         int playerArmor = CharEquip.getPlayerEquipment().getAllArmor();
         boolean isPlayerEscaped = false;
+        boolean enemiesAreAlive = true;
+        if (enemies.isEmpty()) {
+            enemiesAreAlive = false;
+        }
 
-        while (GamePanel.giocatore.getHp() > 0 && ent2.getHp() > 0 && !isPlayerEscaped) {
+        while (GamePanel.giocatore.getHp() > 0 && enemiesAreAlive  && !isPlayerEscaped) {
 
             showALlPlayMoves(ent1Moves);
             Moves chosedMove = ent1Moves.get(In.inputInt());
+            System.out.println("chose target: ");
+            System.out.println(enemies);
+            Entity chosedTarget = ent2.get(In.inputInt()-1);
             if (chosedMove instanceof Escape) {
                 isPlayerEscaped = ((Escape) chosedMove).escapeEff();
             } else if (chosedMove.getDmg() <= 0) {
                 chosedMove.moveEff();
             } else {
                 System.out.println("you hit for: " + chosedMove.getDmg());
-                ent2.entIsDmg(chosedMove.getDmg());
+                chosedTarget.entIsDmg(chosedMove.getDmg());
             }
 
             //scelta mossa avversario
-            enemiesTurn(enemies, playerArmor);
+            List<Entity> newEnemiesContains = enemiesTurn(enemies, playerArmor);
+
+            enemies = newEnemiesContains;
         }
         ;
 
@@ -60,7 +70,7 @@ public class Scontro {
                 System.out.println(k + ": " + v.getName()));
     }
 
-    public void enemiesTurn(List<Entity> enemies, int playerArmor) {
+    public List<Entity> enemiesTurn(List<Entity> enemies, int playerArmor) {
         List<Entity> updatedEnemies = enemies;
         int cycles = updatedEnemies.size();
 
@@ -80,6 +90,7 @@ public class Scontro {
                 }
             }
         }
+        return updatedEnemies;
     }
 }
 

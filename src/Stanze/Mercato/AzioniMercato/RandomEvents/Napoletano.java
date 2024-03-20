@@ -1,9 +1,14 @@
 package Stanze.Mercato.AzioniMercato.RandomEvents;
 
 import Main.GamePanel;
+import Main.Utility.Entity;
 import Stanze.Mercato.AzioniMercato.RandomDice;
 import Main.Utility.Scontro;
 import Stanze.Mercato.MercatoInputs;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Napoletano {
 
@@ -25,7 +30,8 @@ public class Napoletano {
             choice = userInput.getInt();
             if (choice == 1){
                 Scontro fight = new Scontro();
-                if (fight.scontro(determinaNapoletano())){
+                ArrayList<Entity> enemies = new ArrayList<>(Arrays.asList(determinaNapoletano()));
+                if (fight.scontro(enemies)){
                     GamePanel.giocatore.setSoldi(10.0);
                     System.out.println("hai ripreso i tuoi 10 euri !!!" + GamePanel.giocatore.getSoldi());
                 };

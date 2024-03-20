@@ -2,6 +2,7 @@ package Stanze.bar.azioni;
 
 import Input.Casuale;
 import Main.GamePanel;
+import Main.Utility.Entity;
 import Main.Utility.Scontro;
 import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Stanze.bar.Azione;
@@ -9,8 +10,7 @@ import Stanze.bar.entyties.Barista;
 import Stanze.bar.oggetti.Bottiglia;
 import Stanze.bar.oggetti.BottigliaRotta;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class BeviUnaBirra extends Azione {
 
@@ -44,9 +44,9 @@ public class BeviUnaBirra extends Azione {
     public void rissaConArma(){
 
         Scontro scontro = new Scontro();
-
+        List<Entity> enemies = new ArrayList<>(Arrays.asList(new Barista()));
         GamePanel.giocatore.mostraStatistiche();
-        if(scontro.scontro(new Barista())){
+        if(scontro.scontro(enemies)){
             new RubaDallaCassa("ruba dalla cassa", "bla bla").run();
         }
 
