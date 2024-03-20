@@ -34,10 +34,6 @@ public enum NapoliEnum implements Entity{
         return this.napoleanHp;
     }
 
-    @Override
-    public int getDmg() {
-        return 0;
-    }
 
     @Override
     public void entIsDmg(int dmg) {

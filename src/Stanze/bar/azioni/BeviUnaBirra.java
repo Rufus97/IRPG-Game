@@ -49,7 +49,7 @@ public class BeviUnaBirra extends Azione {
         Scontro scontro = new Scontro();
 
         GamePanel.giocatore.mostraStatistiche();
-        if(scontro.scontro(GamePanel.giocatore, new Barista())){
+        if(scontro.scontro(new Barista())){
             new RubaDallaCassa("ruba dalla cassa", "bla bla").run();
         }
 

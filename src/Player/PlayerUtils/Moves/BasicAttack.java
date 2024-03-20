@@ -1,9 +1,7 @@
 package Player.PlayerUtils.Moves;
 
-import Main.GamePanel;
 import Main.Utility.Moves;
 import Player.CharacterEquipment.EquipSlot;
-import Player.CharacterEquipment.InventoryNew.EquippableItems;
 
 public class BasicAttack implements Moves {
 
@@ -30,6 +28,7 @@ public class BasicAttack implements Moves {
 
     @Override
     public void moveEff() {
+
 
     }
 

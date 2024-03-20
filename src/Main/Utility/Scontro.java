@@ -10,26 +10,23 @@ import Player.PlayerUtils.Moves.Escape;
 import Stanze.Mercato.AzioniMercato.RandomDice;
 import Stanze.Ospedale;
 
-import java.util.Map;
+import java.util.*;
 
 public class Scontro {
 RandomDice rng = new RandomDice();
 
-    public boolean scontro(Entity ent1, Entity ent2){
-      Map<Integer, Moves> ent1Moves = ent1.getMoves();
-      Map<Integer, Moves> ent2Moves = ent2.getMoves();
+    public boolean scontro(Entity ent2){
+      Map<Integer, Moves> ent1Moves = GamePanel.giocatore.getMoves();
+      List<Entity> enemies = new ArrayList<>(Arrays.asList(ent2));
       int playerArmor = CharEquip.getPlayerEquipment().getAllArmor();
-
       boolean isPlayerEscaped = false;
 
       while (GamePanel.giocatore.getHp() > 0 && ent2.getHp() > 0 && !isPlayerEscaped ){
 
-      System.out.println("player turn, player hp: " + ent1.getHp());
-      ent1Moves.forEach((k,v) ->
-              System.out.println(k + ": " + v.getName()));
+      showALlPlayMoves(ent1Moves);
       Moves chosedMove = ent1Moves.get(In.inputInt());
           if (chosedMove instanceof Escape){
-             isPlayerEscaped = ((Escape) chosedMove).escapeEff();
+              isPlayerEscaped = ((Escape) chosedMove).escapeEff();
           }
           else if (chosedMove.getDmg() <= 0){
               chosedMove.moveEff();
@@ -37,25 +34,15 @@ RandomDice rng = new RandomDice();
               System.out.println("you hit for: " + chosedMove.getDmg());
               ent2.entIsDmg(chosedMove.getDmg());
           }
-      //scelta mossa
-      int rng = Casuale.numeroCasualeTra(1, ent2Moves.size());
-      Moves computerChoice = ent2Moves.get(rng);
 
-      System.out.println(ent2 + " strikes with: " + computerChoice.getName() + "!!!"
-      + "\n it deals: " + computerChoice.getDmg() + " dmg \n player armor: " + playerArmor );
-      //calcolo danno
-
-      if ( computerChoice.getDmg() - playerArmor > 0){
-        GamePanel.giocatore.entIsDmg(computerChoice.getDmg() - playerArmor);
-          System.out.println(" player hp: " + GamePanel.giocatore.getHp());
-      }
-
+      //scelta mossa avversario
+          enemiesTurn(enemies, playerArmor);
       };
 
       //RESULTS
 
 
-        if (GamePanel.giocatore.getHp() > 0){
+        if (GamePanel.giocatore.getHp() > 0 && !isPlayerEscaped){
             return true;
         } else if (isPlayerEscaped){
             System.out.println("sei riuscito a fuggire");
@@ -66,7 +53,30 @@ RandomDice rng = new RandomDice();
         bimbo.runStanza();
         return false;
     }
-}
+
+    public void showALlPlayMoves(Map<Integer, Moves> ent1Moves){
+        System.out.println("player turn, player hp: " + GamePanel.giocatore.getHp());
+        ent1Moves.forEach((k,v) ->
+                System.out.println(k + ": " + v.getName()));
+    }
+    public void enemiesTurn(List<Entity> enemies, int playerArmor){
+        List<Entity> updatedEnemies = enemies;
+        for (Entity enemy : updatedEnemies){
+            int rng = Casuale.numeroCasualeTra(1, enemy.getMoves().size());
+            Moves computerChoice = enemy.getMoves().get(rng);
+            if (computerChoice.getDmg() > 0){
+                System.out.println(enemy + " strikes with: " + computerChoice.getName() + "!!!"
+                        + "\n it deals: " + computerChoice.getDmg() + " player armor: " + playerArmor);
+                if ( computerChoice.getDmg() - playerArmor > 0){
+                    GamePanel.giocatore.entIsDmg(computerChoice.getDmg() - playerArmor);
+                    System.out.println(" player hp: " + GamePanel.giocatore.getHp());
+                }
+            }
+
+            }
+        }
+    }
+
 
 
 

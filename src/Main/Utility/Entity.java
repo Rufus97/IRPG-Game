@@ -7,7 +7,7 @@ public interface Entity {
 
     public int getHp();
 
-    public int getDmg();
+
 
     public void entIsDmg(int dmg);
 

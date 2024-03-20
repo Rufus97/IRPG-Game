@@ -1,6 +1,5 @@
 package Stanze.bar.mossa;
 
-import Input.In;
 import Main.Utility.Moves;
 
 public class AttaccoBase implements Moves {

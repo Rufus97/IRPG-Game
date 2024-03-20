@@ -3,6 +3,9 @@ package Player;
 import Main.GamePanel;
 import Main.Utility.Entity;
 import Main.Utility.Moves;
+import Player.CharacterEquipment.CharEquip;
+import Player.CharacterEquipment.EquipSlot;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Player.PlayerUtils.Moves.BasicAttack;
 import Player.PlayerUtils.Moves.Escape;
 import Player.PlayerUtils.Moves.UseItem;
@@ -20,6 +23,7 @@ public class Personaggio implements Entity{
 	private String sesso;
 	private int HP = 100;
 
+	private int armor = 0;
 	private int dmg = 5;
 	private double soldi = 100;
 	private double karma = 0;
@@ -47,6 +51,13 @@ public class Personaggio implements Entity{
 	
 	public String getNome() {
 		return nome;
+	}
+
+	public int getArmor() {
+		return armor;
+	}
+	public void setArmor(){
+		this.armor = CharEquip.getPlayerEquipment().getAllArmor();
 	}
 
 	public String getSesso() {
@@ -165,7 +176,7 @@ public class Personaggio implements Entity{
 		return this.HP;
 	}
 
-	@Override
+
 	public int getDmg() {
 		return this.dmg;
 	}

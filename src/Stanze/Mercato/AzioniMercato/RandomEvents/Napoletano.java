@@ -25,7 +25,7 @@ public class Napoletano {
             choice = userInput.getInt();
             if (choice == 1){
                 Scontro fight = new Scontro();
-                if (fight.scontro(GamePanel.giocatore, determinaNapoletano())){
+                if (fight.scontro(determinaNapoletano())){
                     GamePanel.giocatore.setSoldi(10.0);
                     System.out.println("hai ripreso i tuoi 10 euri !!!" + GamePanel.giocatore.getSoldi());
                 };
