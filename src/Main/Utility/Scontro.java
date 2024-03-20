@@ -23,22 +23,23 @@ public class  Scontro {
         boolean isPlayerEscaped = false;
         boolean enemiesAreAlive = true;
 
-        if (enemies.isEmpty()) {
-            enemiesAreAlive = false;
-        }
 
         while (GamePanel.giocatore.getHp() > 0 && enemiesAreAlive  && !isPlayerEscaped) {
 
             showALlPlayMoves(ent1Moves);
+
             Moves chosedMove = ent1Moves.get(In.inputInt());
             System.out.println("chose target: ");
             showAllEnemies(enemies);
-            Entity chosedTarget = ent2.get(In.inputInt()-1);
+            Entity chosedTarget = null;
+
             if (chosedMove instanceof Escape) {
                 isPlayerEscaped = ((Escape) chosedMove).escapeEff();
             } else if (chosedMove.getDmg() <= 0) {
                 chosedMove.moveEff();
             } else {
+
+                chosedTarget = ent2.get(In.inputForListi(enemies) - 1);
                 System.out.println("you hit for: " + chosedMove.getDmg());
                 chosedTarget.entIsDmg(chosedMove.getDmg());
             }
@@ -53,6 +54,9 @@ public class  Scontro {
             }
             if(temp != null){
                 enemies.remove(temp);
+                if (enemies.isEmpty()) {
+                    enemiesAreAlive = false;
+                }
             }
             enemies = enemiesTurn(enemies, playerArmor);
         };
@@ -72,7 +76,7 @@ public class  Scontro {
 
 
     public void showAllEnemies(List<Entity> enemies){
-        final int[] counter = {0};
+        final int[] counter = {1};
         enemies.forEach((v) -> {
             System.out.println(counter[0] + ". " + v);
             counter[0]++;
