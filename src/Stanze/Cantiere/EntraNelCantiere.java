@@ -2,7 +2,9 @@ package Stanze.Cantiere;
 
 import Input.In;
 import Main.GamePanel;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Player.Oggetto;
+import Stanze.Cantiere.Materials.Rame;
 
 public class EntraNelCantiere {
     
@@ -29,8 +31,8 @@ public class EntraNelCantiere {
 
                         case 2:
                         GamePanel.clearScreen();
-                        Oggetto rame = new Oggetto("Rame", 1);
-                        GamePanel.inventario.aggiungiItem(rame);
+
+                        NewInventory.getInventory().addToBackpack(new Rame());
                         GamePanel.giocatore.setKarma(-0.05);
                         GamePanel.giocatore.mostraStatistiche();
                         break;

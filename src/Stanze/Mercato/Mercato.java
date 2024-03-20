@@ -97,14 +97,15 @@ public class Mercato implements Stanza {
              int grammi = input.getInt();
              quantity += grammi;
              price = item.getPrezzoAlKg() * grammi / 1000;
+             quantity /= 100;
             System.out.println("hai comprato " + grammi + " di " + item.getItemName() + " per " + price);
         }
-
-        if (GamePanel.giocatore.controllaSoldi(-price)){
-            NewInventory inventory = NewInventory.getInventory();
-            inventory.addToBackpack(chosedItem);
-            System.out.println(inventory.getBackpack());
-
+        for (int i = 1; i <= quantity; i++){
+            if (GamePanel.giocatore.controllaSoldi(-price)){
+                NewInventory inventory = NewInventory.getInventory();
+                inventory.addToBackpack(chosedItem);
+                System.out.println(inventory.getBackpack());
+            }
         }
     }
 

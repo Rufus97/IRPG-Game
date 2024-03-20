@@ -52,6 +52,11 @@ public class Vestiti extends BancItem implements EquippableItems {
     }
 
     @Override
+    public void setArmor(int upgrade) {
+        this.armorValue += upgrade;
+    }
+
+    @Override
     public String getItemName() {
         return super.getItemName();
     }

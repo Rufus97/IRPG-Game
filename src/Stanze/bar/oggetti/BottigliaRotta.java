@@ -30,6 +30,11 @@ public class BottigliaRotta implements EquippableItems {
     }
 
     @Override
+    public void setArmor(int upgrade) {
+
+    }
+
+    @Override
     public int getQuantity() {
         return 0;
     }
