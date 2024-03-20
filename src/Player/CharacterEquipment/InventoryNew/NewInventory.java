@@ -1,5 +1,6 @@
 package Player.CharacterEquipment.InventoryNew;
 
+import Input.In;
 import Stanze.Mercato.MercatoInputs;
 
 import java.util.*;
@@ -80,6 +81,13 @@ public class NewInventory {
         if (item.getQuantity() > 0){
             item.consumeItem();
         } else { System.out.println("not enough " + item);}
+        cleanBackPack();
+    }
+    public void consumeAMaterial(MaterialItems item){
+        if (item.getQuantity() > 0){
+            item.consumeItem();
+        } else { System.out.println("not enough " + item);}
+        cleanBackPack();
     }
 
     public Map<Integer, EquippableItems> getAllEquipment(){
@@ -90,6 +98,43 @@ public class NewInventory {
             }
         }
         return equip;
+    }
+
+    public void cleanBackPack(){
+        List<Inventory> goodValues = new ArrayList<>();
+        for (Map.Entry<Integer, Inventory> entry : this.getBackpack().entrySet()){
+            if (entry.getValue().getQuantity() > 0){
+                goodValues.add(entry.getValue());
+            }
+        }
+        Map<Integer, Inventory> cleanBackPack = new HashMap<>();
+        for (Inventory value : goodValues){
+            cleanBackPack.put(getNewKey(cleanBackPack), value);
+        }
+        setBackpack(cleanBackPack);
+    }
+    public Map<Integer, MaterialItems> getAllMaterials(){
+    Map<Integer, MaterialItems> materials = new HashMap<>();
+        for (Map.Entry<Integer, Inventory> entry : this.getBackpack().entrySet()){
+            if (entry.getValue() instanceof MaterialItems){
+                materials.put(getNewKey(materials), (MaterialItems) entry.getValue());
+            }
+        }
+    return materials;
+    }
+    public void upgradeAnItem(){
+      System.out.println("chose a material");
+      System.out.println(getAllMaterials());
+      MaterialItems chosedMat = getAllMaterials().get(In.inputInt());
+      System.out.println("chose an equip");
+      System.out.println(getAllEquipment());
+      getAllEquipment().get(In.inputInt()).setArmor(chosedMat.upgradeWep());
+      chosedMat.consumeItem();
+
+    }
+
+    public void setBackpack(Map<Integer, Inventory> backpack) {
+        this.backpack = backpack;
     }
 }
 

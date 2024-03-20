@@ -1,7 +1,6 @@
 package Player.PlayerUtils.Moves;
 
 import Input.In;
-import Main.MyException;
 import Main.Utility.Moves;
 import Player.CharacterEquipment.InventoryNew.ConsumableItems;
 import Player.CharacterEquipment.InventoryNew.NewInventory;

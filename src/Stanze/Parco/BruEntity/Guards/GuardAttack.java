@@ -1,18 +1,16 @@
-package Stanze.bar.mossa;
+package Stanze.Parco.BruEntity.Guards;
 
 import Main.Utility.Moves;
 
-public class DropKick implements Moves {
-    private String name = "doppio calcio";
-    private int dmg = 10;
+public class GuardAttack implements Moves {
     @Override
     public String getName() {
-        return name;
+        return "manganellos on denti";
     }
 
     @Override
     public int getDmg() {
-        return dmg;
+        return 5;
     }
 
     @Override

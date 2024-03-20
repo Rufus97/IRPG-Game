@@ -18,8 +18,8 @@ public class Pesce extends BancItem implements ConsumableItems {
         return
                 "Item name: " + super.getItemName() + '\'' +
                 " prezzo al Kg: " + super.getPrezzoAlKg() +
-                        " quantita: " + super.getQuantity() +
-                        '}';
+                " quantita: " + super.getQuantity() +
+                '}';
     }
 
     public int getRestoreValue() {

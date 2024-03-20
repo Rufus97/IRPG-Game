@@ -62,7 +62,7 @@ public class Brumotti {
 
         System.out.println("Inizi uno scontro con Brumotti!");
 
-        if (fight.scontro(GamePanel.giocatore, new BruEnt())) {
+        if (fight.scontro(new BruEnt())) {
             rubaBiciclettaBrumotti();
             System.out.println("Hai sconfitto Brumotti! Il tuo karma diminuisce ma te la sei scampata.");
         } else {

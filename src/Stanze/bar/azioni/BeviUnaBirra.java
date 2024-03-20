@@ -47,9 +47,9 @@ public class BeviUnaBirra extends Azione {
     public void rissaConArma(){
 
         Scontro scontro = new Scontro();
-        scontro.scontro(GamePanel.giocatore, new Barista());
+
         GamePanel.giocatore.mostraStatistiche();
-        if(scontro.scontro(GamePanel.giocatore, new Barista())){
+        if(scontro.scontro(new Barista())){
             new RubaDallaCassa("ruba dalla cassa", "bla bla").run();
         }
 

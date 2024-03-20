@@ -2,12 +2,12 @@ package Stanze.Parco.BruEntity;
 
 import Player.CharacterEquipment.EquipSlot;
 import Player.CharacterEquipment.InventoryNew.EquippableItems;
-import Stanze.Mercato.Bancarella.BancItem;
 
 public class Bycycle implements EquippableItems {
     private String name = "bicicletta";
     private int dmg = 15;
     private EquipSlot slot = EquipSlot.WEAPON;
+
 
     public Bycycle() {
     }
@@ -31,6 +31,11 @@ public class Bycycle implements EquippableItems {
     @Override
     public int getDanni() {
         return this.dmg;
+    }
+
+    @Override
+    public void setArmor(int upgrade) {
+
     }
 
     @Override
