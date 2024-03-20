@@ -28,4 +28,10 @@ public class InfamousGuards implements Entity {
     public Map<Integer, Moves> getMoves() {
         return this.gMoves;
     }
+
+    @Override
+    public String toString() {
+        return "InfamousGuards: " +
+                "hp=" + hp;
+    }
 }
