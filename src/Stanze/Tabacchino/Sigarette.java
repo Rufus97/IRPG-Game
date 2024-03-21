@@ -2,7 +2,12 @@ package Stanze.Tabacchino;
 
 import Input.In;
 import Main.GamePanel;
-import Player.Oggetto;
+import Player.CharacterEquipment.InventoryNew.Inventory;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
+import Stanze.Tabacchino.itemsTabacchino.items.Cartine;
+import Stanze.Tabacchino.itemsTabacchino.items.FiltriRizla;
+import Stanze.Tabacchino.itemsTabacchino.items.Marlboro;
+import Stanze.Tabacchino.itemsTabacchino.items.TabaccoLS;
 
 public class Sigarette implements Itabacchino{
 
@@ -23,55 +28,41 @@ public class Sigarette implements Itabacchino{
         switch (scelta) {
             case 1:
 
-                if (GamePanel.giocatore.controllaSoldi(-6d) == true){
+                if (GamePanel.giocatore.controllaSoldi(-6d)){
                 
-                System.out.println( GamePanel.giocatore.getSoldi());
-                System.out.println( "Hai comprato un pacco di sigarette");
-                Oggetto malboro = new Oggetto("marlboro", 20);
-                GamePanel.inventario.aggiungiItem(malboro); 
-                }else{
-                    System.out.println("Problemi di soldi?");
-                    System.out.println("NON HAI COMPRATO NIENTE");
+                System.out.println(GamePanel.giocatore.getSoldi());
+                System.out.println("Hai comprato un pacco di Marlboro");
+                NewInventory.getInventory().addToBackpack(Marlboro.marlboro);
+
                 }
             break;
 
             case 2:
-                if (GamePanel.giocatore.controllaSoldi( -6.8) == true){
-                    
-                    System.out.println( GamePanel.giocatore.getSoldi());
-                    System.out.println( "Hai comprato un pacco di tabacco");
-                    Oggetto tabacco = new Oggetto("tabacco", 30);
-                    GamePanel.inventario.aggiungiItem(tabacco);
-                    }else{
-                        System.out.println("Problemi di soldi?");
-                        System.out.println("NON HAI COMPRATO NIENTE");
-                    }
+                if (GamePanel.giocatore.controllaSoldi( -6.8)) {
+
+                    System.out.println(GamePanel.giocatore.getSoldi());
+                    System.out.println("Hai comprato un pacco di tabacco");
+                    NewInventory.getInventory().addToBackpack(TabaccoLS.tabaccoLS);
+                }
+
             break;
             
             case 3:
-                if (GamePanel.giocatore.controllaSoldi( -0.8) == true){
+                if (GamePanel.giocatore.controllaSoldi( -0.8)){
                    
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di filtri");
-                    Oggetto filtri = new Oggetto("filtri", 150);
-                    GamePanel.inventario.aggiungiItem(filtri);
+                    NewInventory.getInventory().addToBackpack(FiltriRizla.filtriRizla);
                     
-                }else{
-                    System.out.println("Problemi di soldi?");
-                    System.out.println("NON HAI COMPRATO NIENTE");
                 }
             break;
             
             case 4:
-                if (GamePanel.giocatore.controllaSoldi( -0.4) == true){
+                if (GamePanel.giocatore.controllaSoldi( -0.4)){
                     
                     System.out.println( GamePanel.giocatore.getSoldi());
                     System.out.println( "Hai comprato un pacco di cartine");
-                    Oggetto cartine = new Oggetto("cartine", 60);
-                    GamePanel.inventario.aggiungiItem(cartine);
-                }else{
-                    System.out.println("Problemi di soldi?");
-                    System.err.println("NON HAI COMPRATO NIENTE");
+                    NewInventory.getInventory().addToBackpack(Cartine.cartine);
                 }
             break;
 

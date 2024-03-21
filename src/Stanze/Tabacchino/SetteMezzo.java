@@ -100,7 +100,7 @@ public class SetteMezzo implements Itabacchino{
 
              GamePanel.giocatore.setSoldi((double)premio);
 
-            System.out.println("hai vinto: " + premio + " E");
+            System.out.println("hai vinto: " + premio + "€");
             return true;
             
 

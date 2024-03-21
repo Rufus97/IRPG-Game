@@ -2,7 +2,9 @@ package Stanze.Cantiere;
 
 import Input.In;
 import Main.GamePanel;
-import Player.Oggetto;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
+import Stanze.Cantiere.Materials.Rame;
+import Stanze.Cantiere.Materials.Trapano;
 
 public class EntraNelCantiere {
     
@@ -12,8 +14,7 @@ public class EntraNelCantiere {
         do{
             
             System.out.println("1. Ruba il trapano");         
-            System.out.println("2. Ruba del rame");  
-
+            System.out.println("2. Ruba del rame");
             System.out.println("0. Torna indietro");
 
             scelta = In.inputInt();
@@ -21,16 +22,16 @@ public class EntraNelCantiere {
                 switch (scelta) {
                     case 1:
                         GamePanel.clearScreen();
-                        Oggetto trapano = new Oggetto("Trapano", 1);
-                        GamePanel.inventario.aggiungiItem(trapano);
+
+                        NewInventory.getInventory().addToBackpack(Trapano.trapano);
                         GamePanel.giocatore.setKarma(-0.05);
                         GamePanel.giocatore.mostraStatistiche();
                         break;
 
                         case 2:
                         GamePanel.clearScreen();
-                        Oggetto rame = new Oggetto("Rame", 1);
-                        GamePanel.inventario.aggiungiItem(rame);
+
+                        NewInventory.getInventory().addToBackpack(Rame.rame);
                         GamePanel.giocatore.setKarma(-0.05);
                         GamePanel.giocatore.mostraStatistiche();
                         break;

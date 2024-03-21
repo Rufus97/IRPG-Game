@@ -1,16 +1,23 @@
 package Stanze.Mercato.Bancarella;
 
-public abstract class BancItem {
+import Player.CharacterEquipment.InventoryNew.Inventory;
+
+import java.util.Objects;
+
+public abstract class BancItem implements Inventory{
     private double prezzoAlKg;
     private String itemName;
     private double price;
     private String typeOfBanc;
+
+    private int quantita =1;
     public BancItem(){
     }
 
-
-    // getter and setters
-
+    @Override
+    public int getQuantity() {
+        return this.quantita;
+    }
     public String getTypeOfBanc() {return typeOfBanc;}
     public double getPrice() {return price;}
     public double getPrezzoAlKg() {
@@ -33,6 +40,25 @@ public abstract class BancItem {
     }
 
 
+    @Override
+    public void increaseQuantity() {
+        this.quantita ++;
+    }
+
+    public void consumeQuantity(){this.quantita--;}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BancItem bancItem = (BancItem) o;
+        return Objects.equals(itemName, bancItem.itemName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(itemName);
+    }
 
     @Override
     public String toString() {

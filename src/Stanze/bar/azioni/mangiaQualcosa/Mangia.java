@@ -17,28 +17,22 @@ public class Mangia extends Azione {
         creaCibi();
     }
 
-
-
     @Override
     public void run() {
 
-        cibi.forEach((k,v) -> System.out.println(k + ". " + v));
-        int scelta;
+    cibi.forEach((k,v) -> System.out.println(k + ". " + v));
+    int scelta;
 
+        System.out.println("0. Esci");
+        try{
+            scelta = In.inputForMaps(cibi);
 
-            System.out.println("0. Esci");
-            try{
-                scelta = In.inputForMaps(cibi);
-
-                double prezzo = this.cibi.get(scelta).getPrezzo();
-                if(GamePanel.giocatore.controllaSoldi(-prezzo)){
-
-                }
-            }catch (NullPointerException e){
+            double prezzo = this.cibi.get(scelta).getPrezzo();
+            if(GamePanel.giocatore.controllaSoldi(-prezzo)){
 
             }
-
-
+        }catch (NullPointerException e){
+        }
     }
 
     public void creaCibi(){
@@ -53,12 +47,5 @@ public class Mangia extends Azione {
         }
 
     }
-
-    /*int index= 1;
-
-        for(Cibo element : Cibo.values()){
-            this.cibi.put(index, element);
-            index++;
-        }*/
 
 }

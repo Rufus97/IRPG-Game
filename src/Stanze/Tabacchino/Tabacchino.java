@@ -18,25 +18,29 @@ public class Tabacchino implements Stanza {
     public void runStanza(){
 
         int scelta;
-        methodMap.put(1, new DiecieLotto());
-        methodMap.put(2, new SetteMezzo());
-        methodMap.put(3, new Sigarette());
+
+        do {
+
+            methodMap.put(1, new DiecieLotto());
+            methodMap.put(2, new SetteMezzo());
+            methodMap.put(3, new Sigarette());
 
 
-        System.out.println("I tuoi Soldi " + GamePanel.giocatore.getSoldi());
-        System.out.println("Sei nel Tabacchino, Cosa vuoi fare?");
-        System.out.println("1. Gioca a 10eLotto");
-        System.out.println("2. Gioca al 7 e Mezzo 1E");
-        System.out.println("3. Compra Sigarette");
-        System.out.println("0. Esci");
+            System.out.println("I tuoi Soldi " + GamePanel.giocatore.getSoldi());
+            System.out.println("Sei nel Tabacchino, Cosa vuoi fare?");
+            System.out.println("1. Gioca a 10eLotto");
+            System.out.println("2. Gioca al 7 e Mezzo 1E");
+            System.out.println("3. Compra Sigarette");
+            System.out.println("0. Esci");
 
-        scelta = In.scanner.nextInt();
-        GamePanel.clearScreen();
+            scelta = In.inputForMaps(methodMap);
+            GamePanel.clearScreen();
 
-        if(scelta != 0){
-            
-            methodMap.get(scelta).run();
-        }
+            if (scelta != 0) {
+                methodMap.get(scelta).run();
+            }
+
+        }while (scelta != 0);
        
     }
 

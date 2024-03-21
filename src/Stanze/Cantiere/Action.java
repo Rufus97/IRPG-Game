@@ -50,7 +50,7 @@ public class Action {
                 System.out.println( integer + " "+ commentiMap.get(integer).frase);
             }
         }
-        System.out.println( "0 non dar fastidio e vattene");
+        System.out.println( "O non dar fastidio e vattene");
     }
 
     public void stampaRisposte(int scelta){
@@ -62,11 +62,11 @@ public class Action {
     public int operaioRage(int scelta){
 
         operaio ++;
-        if(operaio >= 3 || (operaio >= 3 && scelta ==3)){
+        if(operaio >= 3 || (operaio >= 3 && scelta == 3)){
             
             GamePanel.clearScreen();
             danno = Input.Casuale.numeroCasualeTra(10, 25);
-            System.out.println("Gli oerai non ti sopportano piu; Uno di loro ti ricorda che quella pala la sa usare bene ");
+            System.out.println("Gli oerai non ti sopportano piu; Uno di loro ti ricorda che quella pala la sa usare bene");
             System.out.println("Ti prendi una palata in mezzo ai denti, subisci " + danno + " danni");
 
             GamePanel.giocatore.setHP( danno *-1);
@@ -75,6 +75,5 @@ public class Action {
         }
         
         return scelta;
-
     }
 }

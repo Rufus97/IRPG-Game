@@ -26,9 +26,9 @@ public class Menu {
 		stanze.put(3,new Cantiere());
 		stanze.put(4,new PuntoSNAI());
 		stanze.put(5,new Parchetto());
-		stanze.put(6,new Ospedale());
-		stanze.put(7,new Mercato());
-		stanze.put(8,new Questura());
+		stanze.put(6,new Mercato());
+		//stanze.put(7,new Ospedale());
+		//stanze.put(8,new Questura());
 	}
 
 	public void VaiA() {

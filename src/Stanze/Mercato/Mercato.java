@@ -1,10 +1,10 @@
 package Stanze.Mercato;
 
-import Input.In;
 import Main.GamePanel;
-import Player.Oggetto;
+import Player.CharacterEquipment.InventoryNew.NewInventory;
 import Stanze.Mercato.AzioniMercato.RandomDice;
-import Stanze.Mercato.AzioniMercato.SubAzioni.TreCarte;
+import Stanze.Mercato.AzioniMercato.RandomEvents.Napoletano;
+import Stanze.Mercato.AzioniMercato.RandomEvents.TreCarte;
 import Stanze.Mercato.Bancarella.BancItem;
 import Stanze.Mercato.Bancarella.BancType;
 import Stanze.Mercato.Logic.Market;
@@ -24,12 +24,12 @@ public class Mercato implements Stanza {
         do {
         System.out.println("dove vai?");
         for (Map.Entry<Integer, List<BancItem>> banc : runningMarket.getMapOfBancs().entrySet()){
-            System.out.println(":" + (banc.getKey()+1) + " per  " + banc.getValue().getFirst().getTypeOfBanc());
+            System.out.println( (banc.getKey()+1) + ". " + banc.getValue().getFirst().getTypeOfBanc());
         }
-        System.out.println(":" + 0 + " per uscire");
+        System.out.println( 0 + ". " + "Esci");
         choice = input.getInt();
         if (choice > 0 && choice < BancType.values().length+1){
-        BancItem shoppedItem = shopping(runningMarket, choice-1, this.input);
+        BancItem shoppedItem = shopping(runningMarket, choice-1, input);
             if (shoppedItem != null){
             calculatePrice(shoppedItem, input);
             }
@@ -49,28 +49,32 @@ public class Mercato implements Stanza {
         RandomDice rng = new RandomDice();
         int index = 1;
         Integer rngResult = rng.getDado(1,10);
-        if (rngResult <= 2){
+        if (rngResult == 2){
             TreCarte treCarte = new TreCarte();
             System.out.println("come il canto di una sirena, le urla di un tizio poco affidabile" +
                     " ti incantano sino a raggiungere il tavolo, l'incantatore prestigia con 3 carte " +
                     " e ti invita a sceglierne 1");
             treCarte.runAction(newInput);
         }
+        if (rngResult == 1){
+            Napoletano ciro = new Napoletano();
+            ciro.furto(newInput);
+        }
 
         BancItem chosedItem;
         System.out.println("cosa desidera? ");
         for (BancItem item : shopInventory){
-            System.out.println(index+ ": " + item);
+            System.out.println(index+ ". " + item);
             index ++;
         }
-        System.out.println(0 + ": per uscire");
+        System.out.println(0 + ". per uscire");
 
         userChoice = newInput.getInt();
 
 
         if (userChoice == 0){
            return null;
-        } else if (userChoice > 1 && userChoice < shopInventory.size()){
+        } else if (userChoice > 0 && userChoice <= shopInventory.size()){
         chosedItem = shopInventory.get(userChoice-1);
         return chosedItem;
         } else {
@@ -93,25 +97,19 @@ public class Mercato implements Stanza {
              int grammi = input.getInt();
              quantity += grammi;
              price = item.getPrezzoAlKg() * grammi / 1000;
+             quantity /= 100;
             System.out.println("hai comprato " + grammi + " di " + item.getItemName() + " per " + price);
         }
-        Oggetto shoppedItem = new Oggetto(chosedItem.getItemName(),quantity);
-
-
-        if (GamePanel.giocatore.controllaSoldi(-price)){
-            playerGetItem(shoppedItem);
+        for (int i = 1; i <= quantity; i++){
+            if (GamePanel.giocatore.controllaSoldi(-price)){
+                NewInventory inventory = NewInventory.getInventory();
+                inventory.addToBackpack(chosedItem);
+            }
         }
+        System.out.println(NewInventory.getInventory().getBackpack());
     }
 
-    public void playerGetItem(Oggetto chosedItem){
 
-
-        GamePanel.inventario.aggiungiItem(chosedItem);
-        GamePanel.inventario.quantitaItem(chosedItem);
-
-        System.out.println(GamePanel.inventario);
-        System.out.println("Soldi attuali: " + GamePanel.giocatore.getSoldi());
-    }
 
 
 

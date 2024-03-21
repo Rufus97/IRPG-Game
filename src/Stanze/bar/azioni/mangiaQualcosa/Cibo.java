@@ -30,6 +30,6 @@ public enum Cibo {
     public String toString() {
         return
                 nome +
-                ", " + prezzo + "€";
+                ", " + prezzo + "€ ";
     }
 }

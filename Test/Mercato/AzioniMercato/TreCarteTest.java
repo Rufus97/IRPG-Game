@@ -1,15 +1,11 @@
 package Mercato.AzioniMercato;
 
-import Input.In;
 import Main.GamePanel;
-import Stanze.Mercato.AzioniMercato.SubAzioni.TreCarte;
-import Stanze.Mercato.Mercato;
+import Stanze.Mercato.AzioniMercato.RandomEvents.TreCarte;
 import Stanze.Mercato.MercatoInputs;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
